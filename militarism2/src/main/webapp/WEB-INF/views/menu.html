@@ -13,7 +13,7 @@
     <li th:if="${currentUser == null}" class="nav-item active"><a class="nav-link" href="/login">Log in</a></li>
     <li th:if="${currentUser == null}" class="nav-item active"><a class="nav-link" href="/register">Register</a></li>
 
-     <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a>
+    <li> <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a></li>
     </ul>
 </nav>
 </body>
