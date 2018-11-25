@@ -1,20 +1,16 @@
 package com.militarism2.militarism2.dto;
 
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.NotEmpty;
-
 public class UserCreateForm {
-    @NotEmpty
+
     private String email = "";
 
-    @NotEmpty
+
     private String password = "";
 
-    @NotEmpty
+
     private String passwordRepeated = "";
     
-    @NotEmpty
+ 
     private String name = "";
 
 	public String getName() {

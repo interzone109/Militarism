@@ -3,7 +3,6 @@ package com.militarism2.militarism2.validators;
 import org.apache.commons.validator.routines.EmailValidator;
 import com.militarism2.militarism2.services.userservice.UserServiceImpl;
 import com.militarism2.militarism2.dto.UserCreateForm;
-import com.militarism2.militarism2.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
