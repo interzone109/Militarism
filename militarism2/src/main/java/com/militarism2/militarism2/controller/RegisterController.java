@@ -17,6 +17,7 @@ import com.militarism2.militarism2.model.User;
 import com.militarism2.militarism2.services.userservice.UserServiceImpl;
 import com.militarism2.militarism2.validators.AppUserValidator;
 
+/*Контроллер для регистрации*/
 @Controller
 public class RegisterController {
 
