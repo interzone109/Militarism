@@ -11,6 +11,7 @@ import com.militarism2.militarism2.dto.UserCreateForm;
 import com.militarism2.militarism2.model.User;
 import com.militarism2.militarism2.repozitory.UserRepository;
 
+/*Сервис для управления репозиторием который представляет пользователя в бд*/
 @Service
 public class UserServiceImpl implements UserService {
 
