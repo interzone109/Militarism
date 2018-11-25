@@ -1,5 +1,6 @@
 package com.militarism2.militarism2.game.util;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -24,5 +25,13 @@ public class CitizenUtil {
 			}
 		}
 		return personal.size();
+	}
+	
+	public static List<Citizen> createCitizen(int count) {
+		List<Citizen> list = new ArrayList<>();
+		for (int i = 0; i < count; i++) {
+			list.add(new Citizen("Germany"));
+		}
+		return list;
 	}
 }

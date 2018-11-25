@@ -1,8 +1,7 @@
-package com.militarism2.militarism2.game.emploee;
+package com.militarism2.militarism2.game.models;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
@@ -17,7 +16,7 @@ import com.militarism2.militarism2.game.util.CitizenUtil;
 public class FactoryTest {
 	@Test//проверка производительности
 	public void get_factory_test() {
-		List<Citizen> list = getCitizen(30);
+		List<Citizen> list = CitizenUtil.createCitizen(30);
 		ResourceFactory farm = new ResourceFactory(new Point(1, 1), list, Production.FARM);
 
 		Product product = farm.getWork();
@@ -31,11 +30,5 @@ public class FactoryTest {
 		
 	}
 
-	public List<Citizen> getCitizen(int count) {
-		List<Citizen> list = new ArrayList<>();
-		for (int i = 0; i < count; i++) {
-			list.add(new Citizen("Germany"));
-		}
-		return list;
-	}
+	
 }
