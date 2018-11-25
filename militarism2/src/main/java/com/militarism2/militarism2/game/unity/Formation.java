@@ -31,4 +31,5 @@ public abstract class Formation {
 	private String country;
 	private int expirience = 0;
 
+	public abstract boolean isAlive();
 }

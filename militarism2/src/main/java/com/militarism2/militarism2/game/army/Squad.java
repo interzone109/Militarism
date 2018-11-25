@@ -46,4 +46,9 @@ public class Squad extends Formation implements Warable {
 		return atack;
 	}
 
+	@Override
+	public boolean isAlive() {
+		return CitizenUtil.recount(getCommand()) > 0;
+	}
+
 }
