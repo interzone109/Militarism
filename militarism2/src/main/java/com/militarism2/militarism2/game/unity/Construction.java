@@ -4,25 +4,23 @@ import java.util.List;
 
 import com.militarism2.militarism2.game.map.Point;
 
-/*
- * Parent class of all buildings (farm, factory, mine...)
+/**
+ * Родительский абстрактный клас для построек (farm, factory, mine...)
+ * Содержит в себе два поля 
+ * Point location- точка расположения на карте
+ * List<Citizen> personal - лист работников
 */
 public abstract class Construction {
 	private Point location;
 	private List<Citizen> personal;
 	
 	public Construction(Point location, List<Citizen> personal) {
-		super();
 		this.location = location;
 		this.personal = personal;
 	}
 
 	public Point getLocation() {
 		return location;
-	}
-
-	public void setLocation(Point location) {
-		this.location = location;
 	}
 
 	public List<Citizen> getPersonal() {
@@ -35,4 +33,5 @@ public abstract class Construction {
 	public void addPersonal(Citizen personal) {
 		this.personal.add(personal);
 	}
+	
 }
