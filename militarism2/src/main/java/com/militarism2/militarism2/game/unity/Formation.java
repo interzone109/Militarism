@@ -3,21 +3,15 @@ package com.militarism2.militarism2.game.unity;
 import java.util.List;
 
 import com.militarism2.militarism2.game.map.Point;
+import com.militarism2.militarism2.game.unity.types.Subdivision;
 
 import lombok.Data;
 
 /**
  * 
  * @author interzone; 
- * Содержит основные параметры подразделений; Point
- * curentLocation -текущая локация ; 
- * List<Citizen> command - состав; 
- * int speed - скорость передвижения; 
- * int visibility - видимость отряда; 
- * int firingRange - дальность стрельбы; 
- * int expirience- опыт; 
- * String country; 
- * и get, set методы ;
+ * Содержит основные параметры подразделений; 
+ * 
  *
  */
 @Data
@@ -28,8 +22,10 @@ public abstract class Formation {
 	private int speed;
 	private int visibility;
 	private int firingRange;
-	private String country;
-	private int expirience = 0;
+	private int expirience ;
+	private int damage = 15;
+	private int damageRange = 35;
+	private Subdivision subdivision;
 
 	public abstract boolean isAlive();
 }

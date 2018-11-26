@@ -33,5 +33,10 @@ public abstract class Construction {
 	public void addPersonal(Citizen personal) {
 		this.personal.add(personal);
 	}
-	
+	public List<Citizen> getPersonal(int quantity) {
+		if(quantity>= personal.size()) {
+		return personal.subList(0, quantity);
+		}
+		return personal.subList(0, 0);
+	}
 }

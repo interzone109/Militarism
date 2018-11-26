@@ -21,6 +21,7 @@ import com.militarism2.militarism2.game.util.CitizenUtil;
 public class ResourceFactory extends Construction implements Workable {
 	private final int NORM = 5;
 	private Production production;
+	private int overTimeWorkDamage = 2;
 
 	public ResourceFactory(Point location, List<Citizen> personal, Production production) {
 		super(location, personal);
@@ -34,11 +35,10 @@ public class ResourceFactory extends Construction implements Workable {
 
 	@Override
 	public Product getWorkOverTime() {
-		int damage = 2;
 		for (Citizen citizen : getPersonal()) {
-			citizen.takeDamage(damage);
+			citizen.suffer(overTimeWorkDamage);
 		}
-		return new Product(production, CitizenUtil.recount(getPersonal()) * NORM * damage);
+		return new Product(production, CitizenUtil.recount(getPersonal()) * NORM * overTimeWorkDamage);
 	}
 
 	

@@ -3,7 +3,7 @@ package com.militarism2.militarism2.game.unity;
 /*
  * Реализация основной игровой единицы в виде граажданина страны
 */
-public class Citizen {
+public  class Citizen {
 	private final int MAXHEALTH = 50;
 	private int health;
 	private String country;
@@ -13,7 +13,7 @@ public class Citizen {
 		health = MAXHEALTH;
 	}
 
-	public void takeDamage(int health) {
+	public void suffer(int health) {
 		this.health -= health;
 	}
 
