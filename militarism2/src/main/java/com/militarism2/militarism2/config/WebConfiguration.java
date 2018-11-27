@@ -7,12 +7,14 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-/* Класс для задания настроек конигурации проекта*/
+/**
+ *  Класс для задания настроек конигурации проекта*/
 @Configuration
 @EnableWebMvc
 public class WebConfiguration implements WebMvcConfigurer {
  
-	/*Бин подгрузки файла validation.properties*/
+	/**
+	 * Бин подгрузки файла validation.properties*/
     @Bean
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
@@ -22,7 +24,8 @@ public class WebConfiguration implements WebMvcConfigurer {
         return messageSource;
     }
     
-	/*Бин для подгрузки файлов из папки вебджар(Бутстрап джиквери)*/
+    /**
+     * Бин для подгрузки файлов из папки вебджар(Бутстрап джиквери)*/
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry

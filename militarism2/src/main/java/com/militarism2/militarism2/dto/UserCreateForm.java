@@ -1,6 +1,7 @@
 package com.militarism2.militarism2.dto;
 
-/*Моделька для регистрации для передачи во вью*/
+/**
+ * Моделька для регистрации для передачи во вью*/
 public class UserCreateForm {
 
     private String email = "";

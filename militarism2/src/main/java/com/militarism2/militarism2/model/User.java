@@ -7,7 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/*Таблица пользователей*/
+/**
+ * Таблица пользователей*/
 @Entity
 @Table(name = "users")
 public class User {
@@ -25,6 +26,26 @@ public class User {
     
     @Column(name = "name", nullable = false)
     private String name;
+    
+    private boolean active;
+    
+    private String activationCode;
+    
+    public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+	public String getActivationCode() {
+		return activationCode;
+	}
+
+	public void setActivationCode(String activationCode) {
+		this.activationCode = activationCode;
+	}	
 
 	public String getName() {
 		return name;
