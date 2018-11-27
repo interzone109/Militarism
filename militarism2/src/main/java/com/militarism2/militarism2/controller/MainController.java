@@ -5,7 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/*Контроллер для главной страници*/
+/**
+ * Контроллер для главной страници*/
 @Controller
 public class MainController {
 

@@ -9,7 +9,8 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
  
-/*Валидация данных при регистрации пользователей*/
+/**
+ * Валидация данных при регистрации пользователей*/
 @Component
 public class AppUserValidator implements Validator {
  
