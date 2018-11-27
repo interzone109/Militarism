@@ -1,12 +1,44 @@
 package com.militarism2.militarism2.game.army;
 
-import com.militarism2.militarism2.game.unity.Unit;
+import com.militarism2.militarism2.game.army.template.InfantryTemplateSquad;
+import com.militarism2.militarism2.game.army.template.Template;
+import com.militarism2.militarism2.game.feature.Damage;
+import com.militarism2.militarism2.game.feature.Position;
+import com.militarism2.militarism2.game.feature.Stock;
+import com.militarism2.militarism2.game.map.Point;
+import com.militarism2.militarism2.game.unity.able.Warable;
 
 /**
  * 
  * @author interzone реализацая боевого отряда
  */
-public class Infantry extends Unit {
+public class Infantry implements Warable {
+	private String country;
+	private int quantityUnits;
+	private int defense;
+	private Damage damage;
+	private Position position;
+	private Stock stock;
+
+	public Infantry(Template infantryTemplateSquad) {
+		this.defense = infantryTemplateSquad.getDefense();
+		this.country = infantryTemplateSquad.getCountry();
+		this.quantityUnits = infantryTemplateSquad.getQuantityUnits();
+		this.damage = infantryTemplateSquad.getDamage();
+		this.position = infantryTemplateSquad.getPosition();
+		this.stock = infantryTemplateSquad.getStock();
+	}
+	
+	/**
+	 * @param Stock .
+	 * 
+	 * Метод принимает обьект класса Stock и 
+	 * прибавляет его значение к текущему 
+	 * тем самым пополняя запалы отряда
+	 * */
+	public void supply(Stock stock) {
+		this.stock.union(stock);
+	}
 
 	@Override
 	public void takeDamage(int loss) {
@@ -19,8 +51,13 @@ public class Infantry extends Unit {
 	}
 
 	@Override
+	public void move(Point nextPoint) {
+
+	}
+
+	@Override
 	public boolean isAlive() {
-		return false ;
+		return quantityUnits < 0;
 	}
 
 }
