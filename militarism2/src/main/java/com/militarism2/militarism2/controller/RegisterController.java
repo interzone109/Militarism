@@ -81,6 +81,7 @@ public class RegisterController {
 	         return "register";	           
 	      }
 	      model.addAttribute("flashUser", newUser);
+	      model.addAttribute("serverName", request.getServerName()+":"+request.getServerPort());
 	    //redirectAttributes.addFlashAttribute("flashUser", newUser);
 	      userServiceImpl.sendEmailConfirm(request.getServerName()+":"+request.getServerPort(), newUser);
 	        
