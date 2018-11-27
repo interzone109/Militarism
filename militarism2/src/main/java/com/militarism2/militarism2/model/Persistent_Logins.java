@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Таблица для хранения Запомнить меня*/
 @Entity
 @Table
 public class Persistent_Logins {
