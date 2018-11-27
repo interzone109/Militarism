@@ -1,15 +1,13 @@
-package com.militarism2.militarism2.game.army.tools;
+package com.militarism2.militarism2.game.army;
 
-import com.militarism2.militarism2.game.unity.Machine;
-import com.militarism2.militarism2.game.unity.Product;
-import com.militarism2.militarism2.game.unity.able.Suportable;
+import com.militarism2.militarism2.game.unity.Unit;
 
-public class Support extends Machine implements Suportable {
+public class Support extends Unit  {
 
 	@Override
 	public void takeDamage(int loss) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -19,27 +17,10 @@ public class Support extends Machine implements Suportable {
 	}
 
 	@Override
-	public Product supportAmmunition() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Product supportFood() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int supportFix() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public boolean isAlive() {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
 
 }

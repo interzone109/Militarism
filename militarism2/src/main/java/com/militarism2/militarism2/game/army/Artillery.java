@@ -1,8 +1,8 @@
 package com.militarism2.militarism2.game.army;
 
-import com.militarism2.militarism2.game.unity.Machine;
+import com.militarism2.militarism2.game.unity.Unit;
 
-public class Artillery extends Machine {
+public class Artillery extends Unit {
 
 	@Override
 	public void takeDamage(int loss) {
