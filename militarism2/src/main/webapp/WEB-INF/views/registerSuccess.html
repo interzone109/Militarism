@@ -18,9 +18,18 @@
          <ul>
             <li>User Name: <span th:utext="${flashUser.name}">..</span></li>
             <li>Email: <span th:utext="${flashUser.email}">..</span></li>
-         </ul>
+         </ul> 
       </div>
       
+       <p>A confirmation letter sent to your email!</p>
+       <p>You will be redirected to the login page after 5 seconds</p>
+       
+       <script th:inline="javascript">
+       window.onload = function() {
+    	   setTimeout( 'location="http://"+[[${serverName}]]+"/login";', 5000 );
+    	  };  		
+
+		</script>
        
    </body>
 </html>

@@ -13,6 +13,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
  
+/**
+ * Сервис для поиска пользователя в бд для авторизации*/
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
  

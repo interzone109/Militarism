@@ -6,9 +6,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.militarism2.militarism2.model.User;
 
+/**
+ * Репозиторий для взаимодействием с таблицей пользователей
+ * 
+ */
 public interface UserRepository extends JpaRepository<User, Long> {
 	Optional<User> findOneByEmail(String email);
 	Optional<User> findOneByName(String name);
-	//руслан
-	//пр
+
+	Optional<User> findByActivationCode(String code);
+	//con
+
 }

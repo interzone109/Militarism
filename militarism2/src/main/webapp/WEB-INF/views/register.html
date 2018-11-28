@@ -22,6 +22,7 @@
       <th:block th:include="/menu"></th:block>
        
       <h2>Register</h2>
+      <h2>Parol 197346RKavbyz+</h2>
        
       <div th:if="${errorMessage != null}"
            th:utext="${errorMessage}" class="error">...</div>
@@ -37,14 +38,14 @@
             </tr>
             <tr>
                <td>Password</td>
-               <td><input type="password" th:field="*{password}" /> </td>
+               <td><input type="password" th:field="*{password}" value="197346RKavbyz+"/> </td>
                <td>
                   <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">..</span>
                </td>
             </tr>
             <tr>
                <td>Confirm</td>
-               <td><input type="password" th:field="*{passwordRepeated}" /> </td>
+               <td><input type="password" th:field="*{passwordRepeated}" value="197346RKavbyz+"/> </td>
                <td>
                   <span th:if="${#fields.hasErrors('passwordRepeated')}" th:errors="*{passwordRepeated}">..</span>
                </td>
