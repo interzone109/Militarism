@@ -11,8 +11,8 @@ import javax.validation.constraints.NotNull;
 /**
  * Таблица для хранения Запомнить меня*/
 @Entity
-@Table
-public class Persistent_Logins {
+@Table(name = "persistent_logins")
+public class PersistentLogins {
 
 	@Id
 	@NotNull
