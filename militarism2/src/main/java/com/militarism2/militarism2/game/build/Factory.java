@@ -24,6 +24,12 @@ public class Factory {
 	}
 
 	public Warable creat(String name) {
-		return new Infantry(productLine.get(name));
+		switch(name) {
+		case"Squad":
+			return new Infantry(productLine.get(name));
+			
+		
+		}
+		return null ;
 	}
 }

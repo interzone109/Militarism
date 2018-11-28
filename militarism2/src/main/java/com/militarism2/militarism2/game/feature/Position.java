@@ -19,4 +19,11 @@ public class Position {
 	public Position clone() {
 		return new Position(curentLocation.clone(), speed, visibility, shotRange);
 	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "speed:"+speed
+			   +" visibility:"+visibility
+			   +" shotRange:"+ shotRange+"\n";
+	}
 }

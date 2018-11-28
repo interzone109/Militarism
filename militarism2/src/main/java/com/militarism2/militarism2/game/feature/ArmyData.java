@@ -16,10 +16,10 @@ public class ArmyData {
 		this.country = country;
 		this.quantityUnits = quantityUnits;
 	}
-	
+
 	/**
-	 * @param losses количество погибших
-	 * Метод уменьшает состав на количество погибших юнитов
+	 * @param losses количество погибших Метод уменьшает состав на количество
+	 *               погибших юнитов
 	 * 
 	 */
 	public void lossesUnits(int losses) {
@@ -27,31 +27,31 @@ public class ArmyData {
 			quantityUnits -= losses;
 		}
 	}
+
 	/**
-	 * @param units количество присоединеных юнитов. 
-	 * Метод добавляет к текущему количеству юнитов.
+	 * @param units количество присоединеных юнитов. Метод добавляет к текущему
+	 *              количеству юнитов.
 	 * 
 	 */
 	public void join(int units) {
-		if (units < 0 ) {
+		if (units < 0) {
 			quantityUnits += units;
 		}
 	}
-	
+
 	/**
-	 * @param units количество оттозванных юнитов. 
-	 * @param возращает количество отозваных юнитов ,
-	 * если запрос больше чем юнитов в составе то возращает 0
+	 * @param units     количество оттозванных юнитов.
+	 * @param возращает количество отозваных юнитов , если запрос больше чем юнитов
+	 *                  в составе то возращает 0
 	 * 
 	 */
 	public int separate(int units) {
-		if (units > quantityUnits ) {
+		if (units > quantityUnits) {
 			quantityUnits -= units;
-			return units; 
+			return units;
 		}
 		return 0;
 	}
-	
 
 	public String getName() {
 		return name;
@@ -73,9 +73,15 @@ public class ArmyData {
 		return quantityUnits;
 	}
 
-	
 	public ArmyData clone() {
 		return new ArmyData(name, country, quantityUnits);
 	}
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "name:" + name 
+				+ " country:"+ country 
+                + " units quantity:" + quantityUnits + "\n";
+	}
 }

@@ -11,4 +11,5 @@ public interface Warable {
 	void move(Point nextPoint);
 	
 	boolean isAlive();
+	
 }

@@ -32,8 +32,8 @@ public class Infantry implements Warable {
 	/**
 	 * @param Stock .
 	 * 
-	 *Метод принимает обьект класса Stock и прибавляет его значение к
-	 *текущему тем самым пополняя запалы отряда
+	 *              Метод принимает обьект класса Stock и прибавляет его значение к
+	 *              текущему тем самым пополняя запалы отряда
 	 */
 	public void supply(Stock stock) {
 		this.stock.union(stock);
@@ -59,4 +59,14 @@ public class Infantry implements Warable {
 		return quantityUnits < 0;
 	}
 
+	public void join(Infantry join) {
+		this.quantityUnits += join.quantityUnits;
+		join.quantityUnits = 0;
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return info.toString() + damage.toString() + position.toString() + stock.toString();
+	}
 }

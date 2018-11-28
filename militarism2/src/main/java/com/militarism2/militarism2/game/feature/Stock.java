@@ -96,4 +96,10 @@ public class Stock {
 	public Stock clone() {
 		return new Stock();
 	}
+	@Override
+		public String toString() {
+			return "food:"+food
+					   +" ammunition:"+ammunition
+					   +" oil:"+ oil+"\n";
+		}
 }

@@ -32,7 +32,7 @@ public class Damage {
 
 	@Override
 	public String toString() {
-		return damage+"+"+damageRange;
+		return "damage:"+damage+"+"+damageRange+"\n";
 	}
 	
 	public Damage clone()  {
