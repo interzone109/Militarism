@@ -40,16 +40,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 
     }
-//вввввввввв
+
     /* Метод конфигурации авторизации*/
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
         http.csrf().disable();
-
-        http.authorizeRequests().anyRequest().permitAll();
+        
+        //http.authorizeRequests().anyRequest().authenticated();
+        //http.authorizeRequests().antMatchers("/logout","/login","/register").permitAll();
         // The pages does not require login
-        //http.authorizeRequests().antMatchers("/", "/login", "/logout").permitAll();
+        http.authorizeRequests().antMatchers("/", "/login", "/logout","/register").permitAll();
 
         // /userInfo page requires login as ROLE_USER or ROLE_ADMIN.
         // If no login, it will redirect to /login page.
