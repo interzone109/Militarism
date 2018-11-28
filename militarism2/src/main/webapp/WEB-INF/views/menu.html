@@ -10,11 +10,10 @@
 <nav role="navigation" class="navbar navbar-expand-sm bg-light navbar-light">
     <ul class="navbar-nav">
     <li><a class="nav-link" href="/">Main</a></li>
-=======
     <li th:if="${#request.userPrincipal == null}" class="nav-item active"><a class="nav-link" href="/login">Log in</a></li>
     <li th:if="${#request.userPrincipal == null}" class="nav-item active"><a class="nav-link" href="/register">Registration</a></li>
 	<li th:if="${#request.userPrincipal != null}" class="nav-item active"><a class="nav-link" th:href="@{/logout}">Logout</a></li>
->>>>>>> branch 'User_registration' of https://github.com/interzone109/Militarism.git
+
     </ul>
 </nav>
 </body>
