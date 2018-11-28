@@ -40,7 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 
     }
-
+//вввввввввв
     /* Метод конфигурации авторизации*/
     @Override
     protected void configure(HttpSecurity http) throws Exception {
