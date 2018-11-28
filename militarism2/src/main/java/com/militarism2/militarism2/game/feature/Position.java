@@ -16,4 +16,7 @@ public class Position {
 		this.shotRange = shotRange;
 	}
 
+	public Position clone() {
+		return new Position(curentLocation.clone(), speed, visibility, shotRange);
+	}
 }

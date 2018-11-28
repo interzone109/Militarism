@@ -2,7 +2,8 @@ package com.militarism2.militarism2.game.feature;
 
 /**
  * 
- * Stock - класс описывающий хранилище раходных материалов для армии. -Топливо,
+ * Stock - класс описывающий хранилище раходных материалов для армии: 
+ * топливо,
  * патроны, еда.
  * 
  * 
@@ -92,5 +93,7 @@ public class Stock {
 			this.food += food;
 		}
 	}
-
+	public Stock clone() {
+		return new Stock();
+	}
 }

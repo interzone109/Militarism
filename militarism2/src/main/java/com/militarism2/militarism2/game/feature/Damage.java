@@ -34,4 +34,10 @@ public class Damage {
 	public String toString() {
 		return damage+"+"+damageRange;
 	}
+	
+	public Damage clone()  {
+		// TODO Auto-generated method stub
+		return new Damage(damage, damageRange);
+	}
 }
+
