@@ -1,8 +1,11 @@
 package com.militarism2.militarism2.game.army;
 
+import java.util.Random;
+
 import com.militarism2.militarism2.game.army.template.Template;
 import com.militarism2.militarism2.game.feature.ArmyData;
 import com.militarism2.militarism2.game.feature.Damage;
+import com.militarism2.militarism2.game.feature.Formation;
 import com.militarism2.militarism2.game.feature.Position;
 import com.militarism2.militarism2.game.feature.Stock;
 import com.militarism2.militarism2.game.map.Point;
@@ -13,60 +16,78 @@ import com.militarism2.militarism2.game.unity.able.Warable;
  * @author interzone реализацая боевого отряда
  */
 public class Infantry implements Warable {
-
-	private int quantityUnits;
-	private int defense;
-	private ArmyData info;
-	private Damage damage;
+	private Formation formation;
+	private ArmyData armyData;
+	private Damage atack;
 	private Position position;
 	private Stock stock;
+	private Random rand;
 
 	public Infantry(Template infantryTemplateSquad) {
-		this.defense = infantryTemplateSquad.getDefense();
-		this.info = infantryTemplateSquad.getInfo();
-		this.damage = infantryTemplateSquad.getDamage();
+		this.formation = infantryTemplateSquad.getFormation();
+		this.armyData = infantryTemplateSquad.getArmyData();
+		this.atack = infantryTemplateSquad.getDamage();
 		this.position = infantryTemplateSquad.getPosition();
 		this.stock = infantryTemplateSquad.getStock();
-	}
-
-	/**
-	 * @param Stock .
-	 * 
-	 *              Метод принимает обьект класса Stock и прибавляет его значение к
-	 *              текущему тем самым пополняя запалы отряда
-	 */
-	public void supply(Stock stock) {
-		this.stock.union(stock);
+		rand = new Random();
 	}
 
 	@Override
 	public void takeDamage(int loss) {
-
+		int units = formation.getQuantityUnits();
+		int deads = loss / formation.getDefense();
+		formation.setQuantityUnits(deads > units ? 0 : units - deads);
 	}
 
+	/**
+	 * 
+	 * */
 	@Override
 	public int atack() {
-		return 0;
+		int damage = atack.getDamage();
+		int damageRange = atack.getDamageRange();
+		int quantityUnits = formation.getQuantityUnits();
+		return (rand.nextInt(((damage + damageRange) - damage) + 1) + damage) * quantityUnits;
+
 	}
 
 	@Override
 	public void move(Point nextPoint) {
-
+		position.setNextLocation(nextPoint);
+		// move logic
+		position.setCurentLocation(nextPoint);
 	}
 
 	@Override
 	public boolean isAlive() {
-		return quantityUnits < 0;
+		return formation.getQuantityUnits() < 0;
 	}
 
-	public void join(Infantry join) {
-		this.quantityUnits += join.quantityUnits;
-		join.quantityUnits = 0;
+	/**
+	 * @param Stock . Метод принимает обьект класса Stock и прибавляет его значение
+	 *              к текущему тем самым пополняя запалы отряда
+	 */
+	@Override
+	public void union(Stock unionStock) {
+		stock.setAmmunition(stock.getAmmunition()+ unionStock.getAmmunition());
+		stock.setFood(stock.getFood()+ unionStock.getFood());
+		stock.setOil(stock.getOil()+ unionStock.getOil());
 	}
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return info.toString() + damage.toString() + position.toString() + stock.toString();
+		return armyData.toString() + atack.toString() + position.toString() + formation.toString() + stock.toString();
 	}
+
+	@Override
+	public int getUnits() {
+		return formation.getQuantityUnits();
+	}
+
+	@Override
+	public int[] getProvision() {
+		int[] provision = { stock.getFood(), stock.getAmmunition(), stock.getOil() };
+		return provision;
+	}
+
 }

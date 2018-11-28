@@ -1,43 +1,31 @@
 package com.militarism2.militarism2.game.feature;
 
-import java.util.Random;
+import lombok.Data;
 
+/**
+ * Класс Damage содержить основные показатели огневой мощи: урон и максимальный
+ * диапазон урона
+ */
+@Data
 public class Damage {
 	private int damage;
 	private int damageRange;
-	private Random rand;
+	private int shotRange;
 
-	public Damage(int damage, int damageRange) {
+	public Damage(int damage, int damageRange, int shotRange) {
+		this.shotRange = shotRange;
 		this.damage = damage;
 		this.damageRange = damageRange;
 	}
 
-	/**
-	 * Метод возращает урон из расчета урон + диапазон поврежден. Урон -30 диапазон
-	 * -15 : минимальный урон 30 максимальный 45.
-	 * 
-	 * @param quantity - количетво единиц в отряде
-	 */
-	public int shot(int quantity) {
-		return (rand.nextInt(((damage + damageRange) - damage) + 1) + damage) * quantity;
-	}
-
-	public int getDamage() {
-		return damage;
-	}
-
-	public int getDamageRange() {
-		return damageRange;
+	public Damage clone() {
+		return new Damage(damage, damageRange,shotRange);
 	}
 
 	@Override
 	public String toString() {
-		return "damage:"+damage+"+"+damageRange+"\n";
+		return "damage:" + damage + "+" + damageRange 
+				+ " shot range:"+shotRange+"\n";
 	}
-	
-	public Damage clone()  {
-		// TODO Auto-generated method stub
-		return new Damage(damage, damageRange);
-	}
-}
 
+}
