@@ -47,11 +47,7 @@ public class User {
 	public void setActivationCode(String activationCode) {
 		this.activationCode = activationCode;
 	}
-    
-    
-    
-    
-    
+
 	public String getName() {
 		return name;
 	}
