@@ -51,7 +51,7 @@ public class UserPageController {
 
 	}
 
-	public class TempTables { // временный класс для демонстраци
+	public class TempTables { // временный класс для демонстрации
 		private int id;
 		private String name;
 		private int numPlayers;
