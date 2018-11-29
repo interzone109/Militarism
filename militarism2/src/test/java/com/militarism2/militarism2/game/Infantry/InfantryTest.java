@@ -25,8 +25,8 @@ public class InfantryTest {
 
 	@Test
 	public void infantryAtackTest() {
-		squad1 = factory.creat("Squad");
-		squad2 = factory.creat("Squad");
+		squad1 = factory.creatInfantry("Squad");
+		squad2 = factory.creatInfantry("Squad");
 
 		int currentQuantity = squad2.getUnits();
 
@@ -41,8 +41,8 @@ public class InfantryTest {
 
 	@Test
 	public void infantryTakeDamageTest() {
-		squad1 = factory.creat("Squad");
-		squad2 = factory.creat("Squad");
+		squad1 = factory.creatInfantry("Squad");
+		squad2 = factory.creatInfantry("Squad");
 
 		int atack1 = squad1.atack();
 
@@ -56,20 +56,20 @@ public class InfantryTest {
 
 	@Test
 	public void infantryUnionTest() {
-		squad1 = factory.creat("Squad");
+		squad1 = factory.creatInfantry("Squad");
 		Stock stock = new Stock();
 		stock.setAmmunition(500);
 		stock.setFood(300);
 		stock.setOil(0);
 
 		squad1.union(stock);
-		
+
 		int[] expected = { 300, 500, 0 };
 		int[] actual = squad1.getProvision();
 		assertEquals(Arrays.toString(expected), Arrays.toString(actual));
 
-		//System.out.println("create Infantry");
-		//System.out.println(squad1.toString());
+		// System.out.println("create Infantry");
+		// System.out.println(squad1.toString());
 	}
 
 }

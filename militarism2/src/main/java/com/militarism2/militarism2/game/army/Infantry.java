@@ -23,12 +23,12 @@ public class Infantry implements Warable {
 	private Stock stock;
 	private Random rand;
 
-	public Infantry(Template infantryTemplateSquad) {
-		this.formation = infantryTemplateSquad.getFormation();
-		this.armyData = infantryTemplateSquad.getArmyData();
-		this.atack = infantryTemplateSquad.getDamage();
-		this.position = infantryTemplateSquad.getPosition();
-		this.stock = infantryTemplateSquad.getStock();
+	public Infantry(Template infantryTemplate) {
+		this.formation = infantryTemplate.getFormation();
+		this.armyData = infantryTemplate.getArmyData();
+		this.atack = infantryTemplate.getDamage();
+		this.position = infantryTemplate.getPosition();
+		this.stock = infantryTemplate.getStock();
 		rand = new Random();
 	}
 

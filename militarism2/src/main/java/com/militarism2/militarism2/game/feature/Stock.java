@@ -3,14 +3,12 @@ package com.militarism2.militarism2.game.feature;
 import lombok.Data;
 
 /**
- * 
  * Stock - класс описывающий хранилище раходных материалов для армии: топливо,
  * патроны, еда.
- * 
- * 
  */
 @Data
 public class Stock {
+
 	private int oil;
 	private int ammunition;
 	private int food;
