@@ -12,7 +12,7 @@ import com.militarism2.militarism2.game.unit.feature.Stock;
 import com.militarism2.militarism2.game.unity.able.Supportable;
 import com.militarism2.militarism2.game.unity.able.Warable;
 
-public class Support  implements Warable , Supportable{
+public class Support  implements  Supportable{
 
 	private Formation formation;
 	private ArmyData armyData;

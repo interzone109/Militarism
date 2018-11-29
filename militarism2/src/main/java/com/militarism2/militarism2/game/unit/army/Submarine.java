@@ -12,7 +12,7 @@ import com.militarism2.militarism2.game.unit.feature.Stock;
 import com.militarism2.militarism2.game.unity.able.Dippingable;
 import com.militarism2.militarism2.game.unity.able.Warable;
 
-public class Submarine implements Warable, Dippingable {
+public class Submarine implements Dippingable {
 
 	private Formation formation;
 	private ArmyData armyData;
