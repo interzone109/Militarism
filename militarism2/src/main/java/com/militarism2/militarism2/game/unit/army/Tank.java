@@ -1,18 +1,17 @@
-package com.militarism2.militarism2.game.army;
+package com.militarism2.militarism2.game.unit.army;
 
 import java.util.Random;
 
-import com.militarism2.militarism2.game.army.template.Template;
-import com.militarism2.militarism2.game.feature.ArmyData;
-import com.militarism2.militarism2.game.feature.Damage;
-import com.militarism2.militarism2.game.feature.Formation;
-import com.militarism2.militarism2.game.feature.Position;
-import com.militarism2.militarism2.game.feature.Stock;
 import com.militarism2.militarism2.game.map.Point;
-import com.militarism2.militarism2.game.unity.able.Supportable;
+import com.militarism2.militarism2.game.unit.army.template.Template;
+import com.militarism2.militarism2.game.unit.feature.ArmyData;
+import com.militarism2.militarism2.game.unit.feature.Damage;
+import com.militarism2.militarism2.game.unit.feature.Formation;
+import com.militarism2.militarism2.game.unit.feature.Position;
+import com.militarism2.militarism2.game.unit.feature.Stock;
 import com.militarism2.militarism2.game.unity.able.Warable;
 
-public class Support  implements Warable , Supportable{
+public class Tank implements Warable {
 
 	private Formation formation;
 	private ArmyData armyData;
@@ -21,12 +20,12 @@ public class Support  implements Warable , Supportable{
 	private Stock stock;
 	private Random rand;
 
-	public Support(Template supportTemplate) {
-		this.formation = supportTemplate.getFormation();
-		this.armyData = supportTemplate.getArmyData();
-		this.atack = supportTemplate.getDamage();
-		this.position = supportTemplate.getPosition();
-		this.stock = supportTemplate.getStock();
+	public Tank(Template tankTemplate) {
+		this.formation = tankTemplate.getFormation();
+		this.armyData = tankTemplate.getArmyData();
+		this.atack = tankTemplate.getDamage();
+		this.position = tankTemplate.getPosition();
+		this.stock = tankTemplate.getStock();
 		rand = new Random();
 	}
 
@@ -71,12 +70,5 @@ public class Support  implements Warable , Supportable{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public Stock suppot() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 }

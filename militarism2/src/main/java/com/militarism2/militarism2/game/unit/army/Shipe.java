@@ -1,17 +1,18 @@
-package com.militarism2.militarism2.game.army;
+package com.militarism2.militarism2.game.unit.army;
 
 import java.util.Random;
 
-import com.militarism2.militarism2.game.army.template.Template;
-import com.militarism2.militarism2.game.feature.ArmyData;
-import com.militarism2.militarism2.game.feature.Damage;
-import com.militarism2.militarism2.game.feature.Formation;
-import com.militarism2.militarism2.game.feature.Position;
-import com.militarism2.militarism2.game.feature.Stock;
 import com.militarism2.militarism2.game.map.Point;
+import com.militarism2.militarism2.game.unit.army.template.Template;
+import com.militarism2.militarism2.game.unit.feature.ArmyData;
+import com.militarism2.militarism2.game.unit.feature.Damage;
+import com.militarism2.militarism2.game.unit.feature.Formation;
+import com.militarism2.militarism2.game.unit.feature.Position;
+import com.militarism2.militarism2.game.unit.feature.Stock;
+import com.militarism2.militarism2.game.unity.able.Swimable;
 import com.militarism2.militarism2.game.unity.able.Warable;
 
-public class Artillery implements Warable {
+public class Shipe  implements Warable, Swimable {
 
 	private Formation formation;
 	private ArmyData armyData;
@@ -20,12 +21,12 @@ public class Artillery implements Warable {
 	private Stock stock;
 	private Random rand;
 
-	public Artillery(Template artilleryTemplate) {
-		this.formation = artilleryTemplate.getFormation();
-		this.armyData = artilleryTemplate.getArmyData();
-		this.atack = artilleryTemplate.getDamage();
-		this.position = artilleryTemplate.getPosition();
-		this.stock = artilleryTemplate.getStock();
+	public Shipe(Template shipeTemplate) {
+		this.formation = shipeTemplate.getFormation();
+		this.armyData = shipeTemplate.getArmyData();
+		this.atack = shipeTemplate.getDamage();
+		this.position = shipeTemplate.getPosition();
+		this.stock = shipeTemplate.getStock();
 		rand = new Random();
 	}
 

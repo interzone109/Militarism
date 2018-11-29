@@ -1,11 +1,11 @@
-package com.militarism2.militarism2.game.army.template;
+package com.militarism2.militarism2.game.unit.army.template;
 
-import com.militarism2.militarism2.game.feature.ArmyData;
-import com.militarism2.militarism2.game.feature.Damage;
-import com.militarism2.militarism2.game.feature.Formation;
-import com.militarism2.militarism2.game.feature.Position;
-import com.militarism2.militarism2.game.feature.Stock;
 import com.militarism2.militarism2.game.map.Point;
+import com.militarism2.militarism2.game.unit.feature.ArmyData;
+import com.militarism2.militarism2.game.unit.feature.Damage;
+import com.militarism2.militarism2.game.unit.feature.Formation;
+import com.militarism2.militarism2.game.unit.feature.Position;
+import com.militarism2.militarism2.game.unit.feature.Stock;
 
 public class TankTemplateT34 extends Template {
 	private int price = 430;

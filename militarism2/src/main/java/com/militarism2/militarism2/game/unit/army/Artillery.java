@@ -1,18 +1,17 @@
-package com.militarism2.militarism2.game.army;
+package com.militarism2.militarism2.game.unit.army;
 
 import java.util.Random;
 
-import com.militarism2.militarism2.game.army.template.Template;
-import com.militarism2.militarism2.game.feature.ArmyData;
-import com.militarism2.militarism2.game.feature.Damage;
-import com.militarism2.militarism2.game.feature.Formation;
-import com.militarism2.militarism2.game.feature.Position;
-import com.militarism2.militarism2.game.feature.Stock;
 import com.militarism2.militarism2.game.map.Point;
-import com.militarism2.militarism2.game.unity.able.Dippingable;
+import com.militarism2.militarism2.game.unit.army.template.Template;
+import com.militarism2.militarism2.game.unit.feature.ArmyData;
+import com.militarism2.militarism2.game.unit.feature.Damage;
+import com.militarism2.militarism2.game.unit.feature.Formation;
+import com.militarism2.militarism2.game.unit.feature.Position;
+import com.militarism2.militarism2.game.unit.feature.Stock;
 import com.militarism2.militarism2.game.unity.able.Warable;
 
-public class Submarine implements Warable, Dippingable {
+public class Artillery implements Warable {
 
 	private Formation formation;
 	private ArmyData armyData;
@@ -21,12 +20,12 @@ public class Submarine implements Warable, Dippingable {
 	private Stock stock;
 	private Random rand;
 
-	public Submarine(Template submarineTemplate) {
-		this.formation = submarineTemplate.getFormation();
-		this.armyData = submarineTemplate.getArmyData();
-		this.atack = submarineTemplate.getDamage();
-		this.position = submarineTemplate.getPosition();
-		this.stock = submarineTemplate.getStock();
+	public Artillery(Template artilleryTemplate) {
+		this.formation = artilleryTemplate.getFormation();
+		this.armyData = artilleryTemplate.getArmyData();
+		this.atack = artilleryTemplate.getDamage();
+		this.position = artilleryTemplate.getPosition();
+		this.stock = artilleryTemplate.getStock();
 		rand = new Random();
 	}
 
@@ -71,4 +70,7 @@ public class Submarine implements Warable, Dippingable {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
+
 }

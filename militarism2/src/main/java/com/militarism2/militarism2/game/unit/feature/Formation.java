@@ -1,4 +1,4 @@
-package com.militarism2.militarism2.game.feature;
+package com.militarism2.militarism2.game.unit.feature;
 
 import lombok.Data;
 

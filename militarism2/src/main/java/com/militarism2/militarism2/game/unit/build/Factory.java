@@ -1,11 +1,11 @@
-package com.militarism2.militarism2.game.build;
+package com.militarism2.militarism2.game.unit.build;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.militarism2.militarism2.game.army.*;
-import com.militarism2.militarism2.game.army.template.*;
 import com.militarism2.militarism2.game.map.Point;
+import com.militarism2.militarism2.game.unit.army.*;
+import com.militarism2.militarism2.game.unit.army.template.*;
 import com.militarism2.militarism2.game.unity.able.Warable;
 
 public class Factory {

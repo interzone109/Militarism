@@ -1,18 +1,18 @@
-package com.militarism2.militarism2.game.army;
+package com.militarism2.militarism2.game.unit.army;
 
 import java.util.Random;
 
-import com.militarism2.militarism2.game.army.template.Template;
-import com.militarism2.militarism2.game.feature.ArmyData;
-import com.militarism2.militarism2.game.feature.Damage;
-import com.militarism2.militarism2.game.feature.Formation;
-import com.militarism2.militarism2.game.feature.Position;
-import com.militarism2.militarism2.game.feature.Stock;
 import com.militarism2.militarism2.game.map.Point;
-import com.militarism2.militarism2.game.unity.able.Flyable;
+import com.militarism2.militarism2.game.unit.army.template.Template;
+import com.militarism2.militarism2.game.unit.feature.ArmyData;
+import com.militarism2.militarism2.game.unit.feature.Damage;
+import com.militarism2.militarism2.game.unit.feature.Formation;
+import com.militarism2.militarism2.game.unit.feature.Position;
+import com.militarism2.militarism2.game.unit.feature.Stock;
+import com.militarism2.militarism2.game.unity.able.Supportable;
 import com.militarism2.militarism2.game.unity.able.Warable;
 
-public class Airplane implements Warable, Flyable {
+public class Support  implements Warable , Supportable{
 
 	private Formation formation;
 	private ArmyData armyData;
@@ -21,16 +21,15 @@ public class Airplane implements Warable, Flyable {
 	private Stock stock;
 	private Random rand;
 
-	public Airplane(Template airplaneTemplate) {
-		this.formation = airplaneTemplate.getFormation();
-		this.armyData = airplaneTemplate.getArmyData();
-		this.atack = airplaneTemplate.getDamage();
-		this.position = airplaneTemplate.getPosition();
-		this.stock = airplaneTemplate.getStock();
+	public Support(Template supportTemplate) {
+		this.formation = supportTemplate.getFormation();
+		this.armyData = supportTemplate.getArmyData();
+		this.atack = supportTemplate.getDamage();
+		this.position = supportTemplate.getPosition();
+		this.stock = supportTemplate.getStock();
 		rand = new Random();
 	}
-	
-	
+
 	@Override
 	public void takeDamage(int loss) {
 		// TODO Auto-generated method stub
@@ -73,25 +72,11 @@ public class Airplane implements Warable, Flyable {
 		return null;
 	}
 
-
 	@Override
-	public void takeoff() {
+	public Stock suppot() {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
-
-	@Override
-	public void landing() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public boolean isFly() {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 }

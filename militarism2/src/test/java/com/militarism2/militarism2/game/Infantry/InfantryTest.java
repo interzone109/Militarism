@@ -7,9 +7,9 @@ import java.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.militarism2.militarism2.game.build.Factory;
-import com.militarism2.militarism2.game.feature.Stock;
 import com.militarism2.militarism2.game.map.Point;
+import com.militarism2.militarism2.game.unit.build.Factory;
+import com.militarism2.militarism2.game.unit.feature.Stock;
 import com.militarism2.militarism2.game.unity.able.Warable;
 
 public class InfantryTest {
