@@ -13,18 +13,18 @@ public class Factory {
 	private Point location;
 	private Map<String, Template> productLine;
 
-	public Factory(String country, Point location) {
+	public Factory(String country, Point location, Map<String, Template> productLine) {
 		this.country = country;
 		this.location = location;
-		productLine = new HashMap<>();
-		productLine.put("Squad", new InfantryTemplateSquad(country, location));
+		this.productLine = productLine;
+/*		productLine.put("Squad", new InfantryTemplateSquad(country, location));
 		productLine.put("T34", new TankTemplateT34(country, location));
 		productLine.put("Panther", new TankTemplatePanther(country, location));
 		productLine.put("Convoy", new SupportTemplateConvoy(country, location));
 		productLine.put("Surcouf", new SubmarineTemplateSurcouf(country, location));
 		productLine.put("Rodney", new ShipeTemplateRodney(country, location));
 		productLine.put("Bofors", new ArtilleryTemplateBofors(country, location));
-		productLine.put("Avro Lancaster", new AirplaneTemplateAvroLancaster(country, location));
+		productLine.put("Avro Lancaster", new AirplaneTemplateAvroLancaster(country, location));*/
 	}
 
 	public Infantry creatInfantry(String name) {

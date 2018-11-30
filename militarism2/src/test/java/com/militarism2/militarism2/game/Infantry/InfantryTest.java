@@ -14,7 +14,7 @@ import com.militarism2.militarism2.game.unit.feature.Stock;
 import com.militarism2.militarism2.game.unity.able.Warable;
 
 public class InfantryTest {
-	private Factory factory;
+	/*private Factory factory;
 	private Infantry squad1;
 	private Infantry squad2;
 
@@ -71,6 +71,6 @@ public class InfantryTest {
 
 		// System.out.println("create Infantry");
 		// System.out.println(squad1.toString());
-	}
+	}*/
 
 }

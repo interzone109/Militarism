@@ -1,5 +1,14 @@
 package com.militarism2.militarism2.game.unit.feature;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 import com.militarism2.militarism2.game.map.Point;
 
 /**
@@ -15,10 +24,25 @@ import lombok.Data;
  * 
  * 
  * */
+@Entity
+@Table(name = "positions")
 @Data
 public class Position {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "position_Id", nullable = false, updatable = false, unique = true)
+	private Long id;
+	
+	@OneToOne
+    @JoinColumn(name="point_Id")
+	@Column(name = "curent_location")
 	private Point curentLocation;
+	
+	@OneToOne
+    @JoinColumn(name="point_Id")
+	@Column(name = "next_location")
 	private Point nextLocation;
+	
 	private int speed;
 	private int visibility;
 	
