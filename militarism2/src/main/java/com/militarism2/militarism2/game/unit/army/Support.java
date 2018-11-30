@@ -9,6 +9,7 @@ import com.militarism2.militarism2.game.unit.feature.Damage;
 import com.militarism2.militarism2.game.unit.feature.Formation;
 import com.militarism2.militarism2.game.unit.feature.Position;
 import com.militarism2.militarism2.game.unit.feature.Stock;
+import com.militarism2.militarism2.game.unity.able.Flyable;
 import com.militarism2.militarism2.game.unity.able.Supportable;
 import com.militarism2.militarism2.game.unity.able.Warable;
 
@@ -76,6 +77,12 @@ public class Support  implements  Supportable{
 	public Stock suppot() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public boolean runway(Flyable flyable) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 
