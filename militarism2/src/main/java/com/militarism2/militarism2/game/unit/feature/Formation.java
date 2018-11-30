@@ -31,7 +31,7 @@ public class Formation {
 	private int defense;
 	private int expirience;
 	
-	/***?
+	/**
 	 * 
 	 * @param quantityStuff -количество унитов на одну единицу техники
 	 * @param quantityUnits-количество техники 

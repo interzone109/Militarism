@@ -65,8 +65,7 @@ public class Infantry implements Warable {
 	}
 
 	/**
-	 * @param Stock . Метод принимает обьект класса Stock и прибавляет его значение
-	 *              к текущему тем самым пополняя запалы отряда
+	 * @param Stock - обьект класса Stock, сумируеться с текущим обьектом
 	 */
 	@Override
 	public void union(Stock unionStock) {

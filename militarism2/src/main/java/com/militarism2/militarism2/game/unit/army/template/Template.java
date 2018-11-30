@@ -10,13 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import com.militarism2.militarism2.game.unit.feature.ArmyData;
-import com.militarism2.militarism2.game.unit.feature.Damage;
-import com.militarism2.militarism2.game.unit.feature.Formation;
-import com.militarism2.militarism2.game.unit.feature.Position;
-import com.militarism2.militarism2.game.unit.feature.Stock;
+import com.militarism2.militarism2.game.unit.feature.*;
 
-import lombok.Data;
 
 /**
  * @class Template класс используеться класс Factory для заполнения полей
@@ -25,39 +20,44 @@ import lombok.Data;
  */
 @Entity
 @Table(name = "templates")
-@Data
 public class Template {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "template_Id", nullable = false, updatable = false, unique = true)
 	private Long id;
 
-	@OneToOne(fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "formation_Id")
 	private Formation formation;
 
-	@OneToOne(fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "army_data_Id")
 	private ArmyData armyData;
 
-	@OneToOne(fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "damage_Id")
 	private Damage damage;
 
-	@OneToOne(fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "position_Id")
 	private Position position;
 
-	@OneToOne(fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "stock_Id")
 	private Stock stock;
 
-	public Template(Formation formation, ArmyData armyData, Damage damage, Position position, Stock stock) {
+	private String country;
+
+	private int cost;
+
+	public Template(Formation formation, ArmyData armyData, Damage damage, Position position, Stock stock, int cost) {
 		this.formation = formation;
 		this.armyData = armyData;
 		this.damage = damage;
 		this.position = position;
 		this.stock = stock;
+		this.country = armyData.getCountry();
+		this.cost = cost;
 	}
 
 	public ArmyData getArmyData() {
@@ -81,10 +81,16 @@ public class Template {
 	}
 
 	public String toString() {
-		return formation.toString() +
-		armyData.toString() +
-		damage.toString() +
-		position.toString() +
-		stock.toString() ;
+		return formation.toString() + armyData.toString() + damage.toString() + position.toString() + stock.toString();
 	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public int getCost() {
+		return cost;
+	}
+	
+	
 }
