@@ -11,7 +11,11 @@ public class Damage {
 	private int damage;
 	private int damageRange;
 	private int shotRange;
-
+	/**
+	 * @param damage - урон
+	 * @param damageRange - диапазон урона
+	 * @param shotRange - дальность выстрела
+	 * */
 	public Damage(int damage, int damageRange, int shotRange) {
 		this.shotRange = shotRange;
 		this.damage = damage;

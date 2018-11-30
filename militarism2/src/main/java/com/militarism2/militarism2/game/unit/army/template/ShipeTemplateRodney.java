@@ -12,7 +12,7 @@ public class ShipeTemplateRodney extends Template {
 	private int needUnit = 60;
 
 	public ShipeTemplateRodney(String country, Point location) {
-		super(new Formation(60, 1100, 1), new ArmyData("Rodney", country), new Damage(800, 350, 12),
+		super(new Formation(60,1, 1100, 1), new ArmyData("Rodney", country), new Damage(800, 350, 12),
 				new Position(location, 60, 80), new Stock());
 	}
 

@@ -12,7 +12,7 @@ public class ArtilleryTemplateBofors extends Template {
 	private int needUnit = 6;
 
 	public ArtilleryTemplateBofors(String country, Point location) {
-		super(new Formation(6, 150, 1), new ArmyData("Bofors", country), new Damage(700, 550, 12),
+		super(new Formation(6,1, 150, 1), new ArmyData("Bofors", country), new Damage(700, 550, 12),
 				new Position(location, 40, 80), new Stock());
 	}
 

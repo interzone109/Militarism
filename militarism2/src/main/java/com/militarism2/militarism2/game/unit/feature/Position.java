@@ -8,6 +8,13 @@ import com.militarism2.militarism2.game.map.Point;
  * */
 
 import lombok.Data;
+
+/**
+ * Класс Position описывает текущее местоположение отряда,
+ * скорость, видимость, конечная точка
+ * 
+ * 
+ * */
 @Data
 public class Position {
 	private Point curentLocation;
@@ -15,7 +22,11 @@ public class Position {
 	private int speed;
 	private int visibility;
 	
-
+	/**
+	 * @param point -начальная точка
+	 * @param speed - скорость, условно в км за одни ход
+	 * @param visibility - видимость от 0 до 100 условно в процентах 
+	 * */
 	public Position(Point point, int speed, int visibility) {
 		this.curentLocation = point;
 		this.nextLocation = this.curentLocation ;

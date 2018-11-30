@@ -60,7 +60,7 @@ public class InfantryTest {
 		Stock stock = new Stock();
 		stock.setAmmunition(500);
 		stock.setFood(300);
-		stock.setOil(0);
+		stock.setGasoline(0);
 
 		squad1.union(stock);
 

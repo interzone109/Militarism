@@ -12,7 +12,7 @@ public class AirplaneTemplateAvroLancaster extends Template {
 	private int needUnit = 2;
 
 	public AirplaneTemplateAvroLancaster(String country, Point location) {
-		super(new Formation(2, 320, 1), new ArmyData("Avro Lancaster", country), new Damage(900, 550, 2),
+		super(new Formation(2,1, 320, 1), new ArmyData("Avro Lancaster", country), new Damage(900, 550, 2),
 				new Position(location, 40, 60), new Stock());
 	}
 

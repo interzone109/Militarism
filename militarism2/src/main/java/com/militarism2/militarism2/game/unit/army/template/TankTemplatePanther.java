@@ -12,7 +12,7 @@ public class TankTemplatePanther extends Template {
 	private int needUnit = 5;
 
 	public TankTemplatePanther(String country, Point location) {
-		super(new Formation(5, 1100, 1), new ArmyData("Panther", country), new Damage(400, 150, 10),
+		super(new Formation(5,1, 1100, 1), new ArmyData("Panther", country), new Damage(400, 150, 10),
 				new Position(location, 60, 100), new Stock());
 	}
 

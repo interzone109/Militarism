@@ -21,6 +21,7 @@ public class Infantry implements Warable {
 	private Damage atack;
 	private Position position;
 	private Stock stock;
+	
 	private Random rand;
 
 	public Infantry(Template infantryTemplate) {
@@ -69,9 +70,9 @@ public class Infantry implements Warable {
 	 */
 	@Override
 	public void union(Stock unionStock) {
-		stock.setAmmunition(stock.getAmmunition()+ unionStock.getAmmunition());
-		stock.setFood(stock.getFood()+ unionStock.getFood());
-		stock.setOil(stock.getOil()+ unionStock.getOil());
+		stock.setAmmunition(stock.getAmmunition() + unionStock.getAmmunition());
+		stock.setFood(stock.getFood() + unionStock.getFood());
+		stock.setGasoline(stock.getGasoline() + unionStock.getGasoline());
 	}
 
 	@Override
@@ -86,7 +87,7 @@ public class Infantry implements Warable {
 
 	@Override
 	public int[] getProvision() {
-		int[] provision = { stock.getFood(), stock.getAmmunition(), stock.getOil() };
+		int[] provision = { stock.getFood(), stock.getAmmunition(), stock.getGasoline() };
 		return provision;
 	}
 

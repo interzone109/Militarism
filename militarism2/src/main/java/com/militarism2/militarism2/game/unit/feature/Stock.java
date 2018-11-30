@@ -7,14 +7,14 @@ import lombok.Data;
  * патроны, еда.
  */
 @Data
-public class Stock {
+public class Stock  {
 
-	private int oil;
+	private int gasoline;
 	private int ammunition;
 	private int food;
 
 	public Stock() {
-		oil = 0;
+		gasoline = 0;
 		ammunition = 0;
 		food = 0;
 	}
@@ -23,8 +23,9 @@ public class Stock {
 		return new Stock();
 	}
 
+
 	@Override
 	public String toString() {
-		return "food:" + food + " ammunition:" + ammunition + " oil:" + oil + "\n";
+		return "food:" + food + " ammunition:" + ammunition + " gasoline:" + gasoline + "\n";
 	}
 }

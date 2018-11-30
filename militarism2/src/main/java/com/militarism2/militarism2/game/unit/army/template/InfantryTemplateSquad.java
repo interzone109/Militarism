@@ -15,7 +15,7 @@ public class InfantryTemplateSquad extends Template {
 	private int needUnit = 50;
 
 	public InfantryTemplateSquad(String country, Point location) {
-		super(new Formation(50, 30, 1), 
+		super(new Formation(50,1, 30, 1), 
 				new ArmyData("Squad", country),
 				new Damage(20, 15,5),
 				new Position(location, 30, 100),

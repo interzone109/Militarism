@@ -12,7 +12,7 @@ public class SubmarineTemplateSurcouf extends Template {
 	private int needUnit = 100;
 
 	public SubmarineTemplateSurcouf(String country, Point location) {
-		super(new Formation(100, 1500, 1), new ArmyData("Surcouf", country), new Damage(500, 500, 10),
+		super(new Formation(100,1, 1500, 1), new ArmyData("Surcouf", country), new Damage(500, 500, 10),
 				new Position(location, 50, 50), new Stock());
 	}
 

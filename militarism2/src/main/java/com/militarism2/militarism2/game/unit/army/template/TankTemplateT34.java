@@ -11,8 +11,8 @@ public class TankTemplateT34 extends Template {
 	private int price = 430;
 	private int needUnit = 4;
 
-	public TankTemplateT34(String country, Point location) {
-		super(new Formation(4, 800, 1), new ArmyData("T34", country), new Damage(200, 200, 8),
+	public TankTemplateT34(String country, Point location ) {
+		super(new Formation(4,1, 800, 1), new ArmyData("T34", country), new Damage(200, 200, 8),
 				new Position(location, 80, 100), new Stock());
 	}
 

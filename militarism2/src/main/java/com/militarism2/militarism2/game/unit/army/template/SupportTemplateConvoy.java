@@ -12,7 +12,7 @@ public class SupportTemplateConvoy extends Template {
 	private int needUnit = 10;
 
 	public SupportTemplateConvoy(String country, Point location) {
-		super(new Formation(10, 300, 1), new ArmyData("Convoy", country), new Damage(20, 15, 5),
+		super(new Formation(10,1, 300, 1), new ArmyData("Convoy", country), new Damage(20, 15, 5),
 				new Position(location, 120, 100), new Stock());
 	}
 
