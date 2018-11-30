@@ -1,5 +1,7 @@
 package com.militarism2.militarism2.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,5 +32,9 @@ public class MainController {
 		
 		
 		templateServiceImpl.save(template);
+		List<Template> list = templateServiceImpl.getAll();
+		for (Template template2 : list) {
+			System.out.println(template2.toString());
+		}
 	}
 }

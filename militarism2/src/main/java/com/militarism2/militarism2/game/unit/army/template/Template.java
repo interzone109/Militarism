@@ -17,8 +17,8 @@ import com.militarism2.militarism2.game.unit.feature.Stock;
 import lombok.Data;
 
 /**
- * @class Template  класс используеться класс Factory для заполнения
- *        полей игровых обьектов
+ * @class Template класс используеться класс Factory для заполнения полей
+ *        игровых обьектов
  * 
  */
 @Entity
@@ -83,4 +83,11 @@ public class Template {
 		return formation.clone();
 	}
 
+	public String toString() {
+		return formation.toString() +
+		armyData.toString() +
+		damage.toString() +
+		position.toString() +
+		stock.toString() ;
+	}
 }
