@@ -27,31 +27,31 @@ public class Factory {
 		productLine.put("Avro Lancaster", new AirplaneTemplateAvroLancaster(country, location));
 	}
 
-	public Warable creatInfantry(String name) {
+	public Infantry creatInfantry(String name) {
 		return new Infantry(productLine.get(name));
 	}
 
-	public Warable creatTank(String name) {
+	public Tank creatTank(String name) {
 		return new Tank(productLine.get(name));
 	}
 
-	public Warable creatArtillery(String name) {
+	public Artillery creatArtillery(String name) {
 		return new Artillery(productLine.get(name));
 	}
 
-	public Warable creatAirplane(String name) {
+	public Airplane creatAirplane(String name) {
 		return new Airplane(productLine.get(name));
 	}
 
-	public Warable creatShipe(String name) {
+	public Shipe creatShipe(String name) {
 		return new Shipe(productLine.get(name));
 	}
 
-	public Warable creatSubmarine(String name) {
+	public Submarine creatSubmarine(String name) {
 		return new Submarine(productLine.get(name));
 	}
 
-	public Warable creatSupport(String name) {
+	public Support creatSupport(String name) {
 		return new Support(productLine.get(name));
 	}
 

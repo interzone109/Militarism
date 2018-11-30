@@ -7,7 +7,7 @@ import com.militarism2.militarism2.game.unit.feature.Position;
 import com.militarism2.militarism2.game.unit.feature.Stock;
 
 /**
- * @class Template абстрактный класс используеться классоь Factory для
+ * @class Template абстрактный класс используеться класс Factory для
  *        заполнения полей игровых обьектов
  * 
  */
