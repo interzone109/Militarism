@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title>Successfully registered</title>
+      <style>
+        span {color: blue;}
+      </style>
+   </head>
+    
+   <body>
+    
+      <!-- Include _menu.html -->
+      <th:block th:include="/menu"></th:block>  
+       
+      <h2>You have successfully registered!</h2>
+       
+      <div th:if="${flashUser != null}">
+         <ul>
+            <li>User Name: <span th:utext="${flashUser.name}">..</span></li>
+            <li>Email: <span th:utext="${flashUser.email}">..</span></li>
+         </ul> 
+      </div>
+      
+       <p>A confirmation letter sent to your email!</p>
+       <p>You will be redirected to the login page after 5 seconds</p>
+       
+       <script th:inline="javascript">
+       window.onload = function() {
+    	   setTimeout( 'location="http://"+[[${serverName}]]+"/login";', 5000 );
+    	  };  		
+
+		</script>
+       
+   </body>
+</html>

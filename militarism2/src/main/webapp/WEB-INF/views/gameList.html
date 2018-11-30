@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<!-- Include _menu.html -->
+    <th:block th:include="/menu"></th:block>
+      
+	
+	
+	<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Game Name</th>
+      <th scope="col">Slots</th>
+      <th scope="col">Countries</th>
+      <th scope="col">Reg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td><span th:utext="${Name}"></span></td>
+      <td><span th:utext="${CountUsers}"></span>/<span th:utext="${MaximumUsersInGame}"></span></td>
+      <td><span th:utext="${Countries}"></span></td>
+      <td><button><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Зарегистрироваться в игру!</a></button></td>
+    </tr>
+  </tbody>
+</table>
+	
+</body>
+</html>
