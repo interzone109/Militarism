@@ -28,9 +28,7 @@ public class TemplateServiceImpl implements TemplateService{
 		return templateRepository.findAll();
 	}
 
-
-	@Override
-	public Optional<Template> getUserById(long id) {
-		return templateRepository.findById(id);
+	public List<Template> findAllByCountryOrderByIdAsc(String country){
+		return templateRepository.findAllByCountryOrderByIdAsc(country);
 	}
 }
