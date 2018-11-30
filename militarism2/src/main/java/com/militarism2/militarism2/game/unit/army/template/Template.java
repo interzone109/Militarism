@@ -1,7 +1,9 @@
 package com.militarism2.militarism2.game.unit.army.template;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,29 +32,24 @@ public class Template {
 	@Column(name = "template_Id", nullable = false, updatable = false, unique = true)
 	private Long id;
 
-	@OneToOne
+	@OneToOne(fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
 	@JoinColumn(name = "formation_Id")
-	@Column(name = "formation")
 	private Formation formation;
 
-	@OneToOne
+	@OneToOne(fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
 	@JoinColumn(name = "army_data_Id")
-	@Column(name = "army_data")
 	private ArmyData armyData;
 
-	@OneToOne
+	@OneToOne(fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
 	@JoinColumn(name = "damage_Id")
-	@Column(name = "damage")
 	private Damage damage;
 
-	@OneToOne
+	@OneToOne(fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
 	@JoinColumn(name = "position_Id")
-	@Column(name = "position")
 	private Position position;
 
-	@OneToOne
+	@OneToOne(fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
 	@JoinColumn(name = "stock_Id")
-	@Column(name = "stock")
 	private Stock stock;
 
 	public Template(Formation formation, ArmyData armyData, Damage damage, Position position, Stock stock) {

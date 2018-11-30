@@ -1,7 +1,9 @@
 package com.militarism2.militarism2.game.unit.feature;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,14 +35,12 @@ public class Position {
 	@Column(name = "position_Id", nullable = false, updatable = false, unique = true)
 	private Long id;
 	
-	@OneToOne
-    @JoinColumn(name="point_Id")
-	@Column(name = "curent_location")
+	@OneToOne(fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
+    @JoinColumn(name="curent_location_Id")
 	private Point curentLocation;
 	
-	@OneToOne
-    @JoinColumn(name="point_Id")
-	@Column(name = "next_location")
+	@OneToOne(fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
+    @JoinColumn(name="next_location_Id")
 	private Point nextLocation;
 	
 	private int speed;
