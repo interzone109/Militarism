@@ -31,4 +31,7 @@ public class TemplateServiceImpl implements TemplateService{
 	public List<Template> findAllByCountry(String country){
 		return templateRepository.findAllByCountry(country);
 	}
+	 public Optional<Template> findByName(String name){
+		 return templateRepository.findByName(name);
+	 }
 }

@@ -12,6 +12,8 @@ import com.militarism2.militarism2.game.unit.feature.Stock;
 import com.militarism2.militarism2.game.unity.able.Flyable;
 import com.militarism2.militarism2.game.unity.able.Warable;
 
+import lombok.Data;
+@Data
 public class Airplane implements  Flyable {
 
 	private Formation formation;

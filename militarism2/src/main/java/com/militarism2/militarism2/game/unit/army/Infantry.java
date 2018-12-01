@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.militarism2.militarism2.game.map.Point;
 import com.militarism2.militarism2.game.unit.army.template.Template;
+import com.militarism2.militarism2.game.unit.entity.ArmyEntity;
 import com.militarism2.militarism2.game.unit.feature.ArmyData;
 import com.militarism2.militarism2.game.unit.feature.Damage;
 import com.militarism2.militarism2.game.unit.feature.Formation;
@@ -11,10 +12,13 @@ import com.militarism2.militarism2.game.unit.feature.Position;
 import com.militarism2.militarism2.game.unit.feature.Stock;
 import com.militarism2.militarism2.game.unity.able.Warable;
 
+import lombok.Data;
+
 /**
  * 
  * @author interzone реализацая боевого отряда
  */
+@Data
 public class Infantry implements Warable {
 	private Formation formation;
 	private ArmyData armyData;
@@ -89,5 +93,7 @@ public class Infantry implements Warable {
 		int[] provision = { stock.getFood(), stock.getAmmunition(), stock.getGasoline() };
 		return provision;
 	}
+
+
 
 }

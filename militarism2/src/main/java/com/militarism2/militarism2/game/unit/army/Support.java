@@ -13,6 +13,8 @@ import com.militarism2.militarism2.game.unity.able.Flyable;
 import com.militarism2.militarism2.game.unity.able.Supportable;
 import com.militarism2.militarism2.game.unity.able.Warable;
 
+import lombok.Data;
+@Data
 public class Support  implements  Supportable{
 
 	private Formation formation;

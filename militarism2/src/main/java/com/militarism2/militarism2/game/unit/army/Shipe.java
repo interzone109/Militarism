@@ -12,6 +12,8 @@ import com.militarism2.militarism2.game.unit.feature.Stock;
 import com.militarism2.militarism2.game.unity.able.Swimable;
 import com.militarism2.militarism2.game.unity.able.Warable;
 
+import lombok.Data;
+@Data
 public class Shipe  implements Swimable {
 
 	private Formation formation;
