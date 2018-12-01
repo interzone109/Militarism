@@ -2,15 +2,22 @@ package com.militarism2.militarism2.scenario;
 
 import com.militarism2.militarism2.model.User;
 
+//Для работы с БД модель CountryModel
 public class Player {	
-	User user;
 	
-	public String countryName;
-	String colour;
-	
-	
-	//Для передачи инициатора действия на итерации
+	///////////БД////////////////
 	public int playerId;
+	public int countryId;
+	public boolean roundStatus;
+	public String countryStatus;
+	/////////////////////////////
+	 
+	public User user;	
+	public String countryName;
 	
-	//int money,ammo,food,people;
+	public String colour;	
+	
+	 
+	 	 
+	 //int money,ammo,food,people;
 }

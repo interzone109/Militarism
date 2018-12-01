@@ -8,24 +8,46 @@ import com.militarism2.militarism2.scenario.Player;
 enum Elements{Field,Dirt,Hill,Forest,Road,Sea,Hidden};
 
 public class Map {
-	public List<Element> elements;	
 	
-	//List<City> cities; // Не обязательно здесь
+	public List<Element> elements;
 	
 	public int sizeWidth = 25;
 	public int sizeHeight = 15;
-
+	
+//////////////////////////////////////////////////////
+////////////////////////////CTORs/////////////////////
+//////////////////////////////////////////////////////
 	
 	public Map() {
-		System.out.println("[Map.ctor]");
-		elements = new ArrayList<Element>();	
-		
-		Init();		
+		this(true);		
 	}
 	
+	//Заполнить тестовое поле
+	public Map(boolean initEmpty) {
+		Debug.ctor("Map");
+		elements = new ArrayList<Element>();	
+		
+		if(initEmpty)			
+			InitEmpty();		
+	}
+	
+	//Скопировать Map из существующего
+	public Map(Map map) {
+		Debug.ctor("Map");
+				
+		elements = new ArrayList<Element>(map.elements);	
+		
+		this.sizeHeight = map.sizeHeight;
+		this.sizeWidth = map.sizeWidth;		
+	}
+	
+//////////////////////////////////////////////////////
+	
+	
 	//Генерация карты
-	private void Init() {
-		System.out.println("[Map.Init()]:Generating empty field.]");
+	private void InitEmpty() {
+		Debug.method("Map", "Init()");
+		Debug.sub("Generating empty field.]");
 		Element cur;		
 		
 		//Пустое поле
@@ -38,21 +60,18 @@ public class Map {
 		}		
 		
 		
-		for(int i = 0; i< sizeWidth; i++)
-		elements.set(getIndex(i, 0), new Hill());
-		for(int i = 0; i< sizeWidth; i++)
-			elements.set(getIndex(i, sizeHeight-1), new Hill());
 		
 		
-		
-		
-		
+		_testHills();
 	}
 	
-	//Загрузка карты из сценария
-	public void Load(String script) {
-		
+	public void _testHills() {
+		for(int i = 0; i< sizeWidth; i++)
+			elements.set(getIndex(i, 0), new Hill());
+			for(int i = 0; i< sizeWidth; i++)
+				elements.set(getIndex(i, sizeHeight-1), new Hill());		
 	}
+	
 	
 	//Для дистанции
 	public Map getRelativeMap(Player player) {
@@ -85,6 +104,22 @@ public class Map {
 	}
 	public int getIndex(int x,int y) {		
 		return y*sizeWidth + x;		
+	}
+	
+	public Element getElement(int x,int y) {
+		Element res = elements.get(getIndex(x,y));
+		return res;		
+	}
+	public void replaceElement(int x,int y,Element newElement) {
+		Element target = elements.get(getIndex(x,y));
+		
+		newElement.setPosition(x, y);
+		newElement.units = target.units;		
+		
+	}	
+	public void replaceElementWithHidden(int x,int y) {
+		Element target = elements.get(getIndex(x,y));		
+		elements.set(getIndex(x, y), new HiddenElement(target));
 	}
 	
 	

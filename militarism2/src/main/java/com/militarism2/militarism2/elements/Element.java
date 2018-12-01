@@ -32,6 +32,13 @@ public abstract class Element implements IFlyableElement {
 		
 		Init();
 	}
+	
+	//Переносит данные
+	public Element(Element newElement) {
+		this.setPosition(newElement.x,newElement.y);
+		this.units = newElement.units;		
+	}
+	
 	void Init() {
 		List<Unit> units = new ArrayList<Unit>();
 	}

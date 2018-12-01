@@ -8,23 +8,27 @@ import com.militarism2.militarism2.elements.Map;
 public class DataPackage {	
 	
 	public Player forPlayer;
-	
-	Map relativeMap;
-	List<Player> players;
+	public GameData data;	
 	
 	//Уведомления об изменениях с прошлой итерации игры
 	//Добавляются после обработки действий всех игроков(класс игры или сценария) на текущей итерации
 	List<Notification> notifications;
 	
-	public DataPackage(Map relativeMap, List<Player> players) {
-		this.notifications = new ArrayList<Notification>();
+	//Map relativeMap;
+	//List<Player> players;
+	
+	public DataPackage(GameData gd, Player player) {
+		this.data = gd;
+		this.forPlayer = player;
 		
-		this.relativeMap = relativeMap;
-		this.players = players;		
+		this.notifications = new ArrayList<Notification>();				
 	}
 	
-	void AddNotificatoin(String text) {
-		notifications.add(new Notification(text));
+	public void AddNotificatoin(String text) {
+		AddNotificatoin(new Notification(text));		
+	}
+	public void AddNotificatoin(Notification not) {
+		notifications.add(not);
 	}
 	
 	

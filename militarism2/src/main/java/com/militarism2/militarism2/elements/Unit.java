@@ -11,7 +11,8 @@ public class Unit {
 	
 	public static int MAXID = 1;
 	public Unit() {
-		System.out.println("[Unit.ctor]:empty");
+		Debug.ctor("Unit");		
+		Debug.sub("Empty unit");
 		
 		unitId = Unit.MAXID;
 		Unit.MAXID++;
@@ -23,7 +24,10 @@ public class Unit {
 		
 		unitId = Unit.MAXID;
 		Unit.MAXID++;
-		System.out.println("[Unit.ctor]:"+"playerId="+player.playerId+"unitId "+unitId+"  x"+x+"y"+y);
+		
+		Debug.ctor("Unit");
+			Debug.sub("playerId", player.playerId+"");
+			Debug.sub("XY", Debug.xy(x, y));
 	}
 	
 	public void Move(int x, int y) {

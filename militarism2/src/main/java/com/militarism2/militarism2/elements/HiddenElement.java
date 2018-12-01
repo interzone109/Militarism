@@ -7,4 +7,7 @@ package com.militarism2.militarism2.elements;
 //Как вариант разрешить все действия, останавливать юнита если тип клетки не подходит для перемещения
 public class HiddenElement extends Element /*implements IWalkableElement, ISwimmableElement,IDrivableElement*/ {
 
+	public HiddenElement(Element newElement) {
+		super(newElement);		
+	}
 }
