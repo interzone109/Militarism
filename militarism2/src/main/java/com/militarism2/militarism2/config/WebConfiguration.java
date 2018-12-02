@@ -20,6 +20,7 @@ public class WebConfiguration implements WebMvcConfigurer {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
         // Load file: validation.properties
         messageSource.setBasename("classpath:validation");
+        messageSource.addBasenames("classpath:locales/messages");
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
     }

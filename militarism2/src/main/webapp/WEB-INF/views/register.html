@@ -11,6 +11,11 @@
          font-style: italic;
          color: red;
          }
+         .odd{
+         color: black;
+         font-style: normal;
+         font-size:100%;
+         }
          .error {
          color: red;
          font-style: italic;
@@ -30,28 +35,28 @@
       <form th:action="@{/register}" th:object="${appUserForm}" method="POST">
          <table>
             <tr>
-               <td>User Name</td>
+               <td><span class = "odd" th:text="#{login}"></span></td>
                <td><input type="text" th:field="*{name}" /></td>
                <td>
                   <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">..</span>
                </td>
             </tr>
             <tr>
-               <td>Password</td>
+               <td><span class = "odd" th:text="#{password}"></span></td>
                <td><input type="password" th:field="*{password}" value="197346RKavbyz+"/> </td>
                <td>
                   <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">..</span>
                </td>
             </tr>
             <tr>
-               <td>Confirm</td>
+               <td><span class = "odd" th:text="#{page.register.confirm}"></span></td>
                <td><input type="password" th:field="*{passwordRepeated}" value="197346RKavbyz+"/> </td>
                <td>
                   <span th:if="${#fields.hasErrors('passwordRepeated')}" th:errors="*{passwordRepeated}">..</span>
                </td>
             </tr>
             <tr>
-               <td>Email</td>
+               <td><span class = "odd" th:text="#{page.register.email}"></span></td>
                <td><input type="text" th:field="*{email}" /> </td>
                <td>
                   <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">..</span>
