@@ -8,9 +8,5 @@ import com.militarism2.militarism2.model.GameModel;
 
 
 public interface GameRepository extends JpaRepository<GameModel, Long> {
-
-	
 	Optional<GameModel> findOneByName(String name);
-
-
 }

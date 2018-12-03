@@ -1,12 +1,5 @@
 package com.militarism2.militarism2.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -15,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /*
- * тестовая @Entity таблица для игр
+ * Представление игр в бд
  * */
 
 @Entity
@@ -24,40 +17,32 @@ public class GameModel {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, updatable = false)
+    @Column(name = "Game_Id", nullable = false, updatable = false)
     private Long id;
-
-    @Column(name = "maximum_user", nullable = false, unique = false)
-    private int maxUsers;
     
-    
+    //номер текущего хода
     @Column(name = "Round", nullable = false, unique = false)
     private short round;
     
-    //список стран id name userid
+    //список стран  	
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            mappedBy = "game")
+    private Set<CountryModel> comments = new HashSet<>();
     
     //gameData
     
-    @Column(name = "status", nullable = false, unique = false)
+    //Статус игры
+    @Column(name = "Status", nullable = false, unique = false)
     private String gameStatus;
     
 
-    @Column(name = "periodic", nullable = false, unique = false)
+    //время для одного хода
+    @Column(name = "Periodic", nullable = false, unique = false)
     private long turnPeriod;
     
-    @Column(name = "name", nullable = false)
+    @Column(name = "Name", nullable = false)
     private String name;
-    
-    @ManyToMany(fetch = FetchType.LAZY,
-            cascade = {
-                CascadeType.PERSIST,
-                CascadeType.MERGE
-            })
-    @JoinTable(name = "registered_users_in_game",
-            joinColumns = { @JoinColumn(name = "game_id") },
-            inverseJoinColumns = { @JoinColumn(name = "user_id") })
-    private Set<User> tags = new HashSet<>();
-
-    
+        
 
 }
