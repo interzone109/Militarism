@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.militarism2.militarism2.game.map.Point;
 import com.militarism2.militarism2.game.unit.army.template.Template;
+import com.militarism2.militarism2.game.unit.army.template.Templates;
 import com.militarism2.militarism2.game.unit.entity.ArmyEntity;
 import com.militarism2.militarism2.game.unit.feature.ArmyData;
 import com.militarism2.militarism2.game.unit.feature.Damage;
@@ -25,7 +26,7 @@ public class Infantry implements Warable {
 	private Damage atack;
 	private Position position;
 	private Stock stock;
-	
+
 	private Random rand;
 
 	public Infantry(Template infantryTemplate) {
@@ -34,6 +35,15 @@ public class Infantry implements Warable {
 		this.atack = infantryTemplate.getDamage();
 		this.position = infantryTemplate.getPosition();
 		this.stock = infantryTemplate.getStock();
+		rand = new Random();
+	}
+
+	public Infantry(Templates t) {
+		this.formation = new Formation(t.getQuantityStuff(), t.getQuantityUnits(), t.getDefense(), t.getExpirience());
+		this.armyData = new ArmyData(t.getName(), t.getCountry());
+		this.atack = new Damage(t.getDamage(), t.getDamageRange(), t.getShotRange());
+		this.position = new Position(new Point(t.getOffsetX(), t.getOffsetY()), t.getSpeed(), t.getVisibility());
+		this.stock = new Stock(t.getGasoline(), t.getAmmunition(), t.getFood());
 		rand = new Random();
 	}
 
@@ -93,7 +103,5 @@ public class Infantry implements Warable {
 		int[] provision = { stock.getFood(), stock.getAmmunition(), stock.getGasoline() };
 		return provision;
 	}
-
-
 
 }

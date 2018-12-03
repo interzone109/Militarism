@@ -26,6 +26,14 @@ public class Stock  {
 	private int ammunition;
 	private int food;
 
+	
+	public Stock(int gasoline, int ammunition, int food) {
+		this.gasoline = gasoline;
+		this.ammunition = ammunition;
+		this.food = food;
+	}
+	
+	
 	public Stock() {
 		gasoline = 0;
 		ammunition = 0;
@@ -41,4 +49,6 @@ public class Stock  {
 	public String toString() {
 		return "food:" + food + " ammunition:" + ammunition + " gasoline:" + gasoline + "\n";
 	}
+
+
 }
