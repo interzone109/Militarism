@@ -25,6 +25,7 @@ public class Templates {
 	private Long id;
 
 	private String name;
+	private int year;
 	private String country;
 	private int damage;
 	@Column(name = "damage_range")

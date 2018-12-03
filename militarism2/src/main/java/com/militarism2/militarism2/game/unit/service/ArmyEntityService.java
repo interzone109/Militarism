@@ -13,7 +13,7 @@ public class ArmyEntityService {
 	public static void main(String[] args) {
 		
 		Template template = new Template(new Formation(4,1,10,1),
-				 new ArmyData("squad", "Germany"),
+				 new ArmyData("squad", "Germany",1995),
 				 new Damage(30, 30, 2),
 				 new Position(new Point(1, 1), 30, 100), 
 				 new Stock(), 30);

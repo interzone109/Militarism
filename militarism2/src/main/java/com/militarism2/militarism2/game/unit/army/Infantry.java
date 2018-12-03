@@ -40,7 +40,7 @@ public class Infantry implements Warable {
 
 	public Infantry(Templates t) {
 		this.formation = new Formation(t.getQuantityStuff(), t.getQuantityUnits(), t.getDefense(), t.getExpirience());
-		this.armyData = new ArmyData(t.getName(), t.getCountry());
+		this.armyData = new ArmyData(t.getName(), t.getCountry(),t.getYear());
 		this.atack = new Damage(t.getDamage(), t.getDamageRange(), t.getShotRange());
 		this.position = new Position(new Point(t.getOffsetX(), t.getOffsetY()), t.getSpeed(), t.getVisibility());
 		this.stock = new Stock(t.getGasoline(), t.getAmmunition(), t.getFood());

@@ -23,19 +23,21 @@ public class ArmyData {
 	@Column(name = "army_data_Id", nullable = false, updatable = false, unique = true)
 	private Long id;
 	private String name;
+	private int year;
 	private String country;
 
 	/**
 	 * @param name    - название отряда
 	 * @param country - название страны
 	 */
-	public ArmyData(String name, String country) {
+	public ArmyData(String name, String country, int year) {
 		this.name = name;
 		this.country = country;
+		this.year = year;
 	}
 
 	public ArmyData clone() {
-		return new ArmyData(name, country);
+		return new ArmyData(name, country, year);
 	}
 
 	@Override
