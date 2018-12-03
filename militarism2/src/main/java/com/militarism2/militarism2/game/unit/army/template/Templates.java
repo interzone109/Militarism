@@ -12,6 +12,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.militarism2.militarism2.game.map.Point;
+import com.militarism2.militarism2.game.unit.type.ArmyType;
 
 import lombok.Data;
 
@@ -52,5 +53,6 @@ public class Templates {
 	private int gasoline;
 	private int ammunition;
 	private int food;
+	private ArmyType armyType;
 
 }

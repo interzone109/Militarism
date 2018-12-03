@@ -9,6 +9,7 @@ import com.militarism2.militarism2.game.unit.feature.Damage;
 import com.militarism2.militarism2.game.unit.feature.Formation;
 import com.militarism2.militarism2.game.unit.feature.Position;
 import com.militarism2.militarism2.game.unit.feature.Stock;
+import com.militarism2.militarism2.game.unit.type.ArmyType;
 import com.militarism2.militarism2.game.unity.able.Flyable;
 import com.militarism2.militarism2.game.unity.able.Warable;
 
@@ -22,6 +23,7 @@ public class Airplane implements  Flyable {
 	private Position position;
 	private Stock stock;
 	private Random rand;
+	private ArmyType armyType;
 
 	public Airplane(Template airplaneTemplate) {
 		this.formation = airplaneTemplate.getFormation();
@@ -30,6 +32,7 @@ public class Airplane implements  Flyable {
 		this.position = airplaneTemplate.getPosition();
 		this.stock = airplaneTemplate.getStock();
 		rand = new Random();
+		armyType = ArmyType.AIRPLANE ;
 	}
 	
 	

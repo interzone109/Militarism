@@ -9,9 +9,11 @@ import com.militarism2.militarism2.game.unit.feature.Damage;
 import com.militarism2.militarism2.game.unit.feature.Formation;
 import com.militarism2.militarism2.game.unit.feature.Position;
 import com.militarism2.militarism2.game.unit.feature.Stock;
+import com.militarism2.militarism2.game.unit.type.ArmyType;
 import com.militarism2.militarism2.game.unity.able.Warable;
 
 import lombok.Data;
+
 @Data
 public class Tank implements Warable {
 
@@ -21,6 +23,7 @@ public class Tank implements Warable {
 	private Position position;
 	private Stock stock;
 	private Random rand;
+	private ArmyType armyType;
 
 	public Tank(Template tankTemplate) {
 		this.formation = tankTemplate.getFormation();
@@ -29,12 +32,13 @@ public class Tank implements Warable {
 		this.position = tankTemplate.getPosition();
 		this.stock = tankTemplate.getStock();
 		rand = new Random();
+		armyType = ArmyType.TANK;
 	}
 
 	@Override
 	public void takeDamage(int loss) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -46,7 +50,7 @@ public class Tank implements Warable {
 	@Override
 	public void move(Point nextPoint) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -58,7 +62,7 @@ public class Tank implements Warable {
 	@Override
 	public void union(Stock unionStock) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

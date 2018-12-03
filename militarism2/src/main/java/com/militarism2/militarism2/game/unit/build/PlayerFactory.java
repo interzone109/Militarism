@@ -11,12 +11,12 @@ import com.militarism2.militarism2.game.unit.army.template.*;
  * Класс Factory используеться для создание различных типов юнитов
  * 
  * */
-public class Factory {
+public class PlayerFactory {
 	private String country;
 	private Point location;
 	private Map<String, Template> productLine;
 
-	public Factory(String country, Point location, Map<String, Template> productLine) {
+	public PlayerFactory(String country, Point location, Map<String, Template> productLine) {
 		this.country = country;
 		this.location = location;
 		this.productLine = productLine;

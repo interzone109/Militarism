@@ -9,6 +9,7 @@ import com.militarism2.militarism2.game.unit.feature.Damage;
 import com.militarism2.militarism2.game.unit.feature.Formation;
 import com.militarism2.militarism2.game.unit.feature.Position;
 import com.militarism2.militarism2.game.unit.feature.Stock;
+import com.militarism2.militarism2.game.unit.type.ArmyType;
 import com.militarism2.militarism2.game.unity.able.Swimable;
 import com.militarism2.militarism2.game.unity.able.Warable;
 
@@ -22,6 +23,7 @@ public class Shipe  implements Swimable {
 	private Position position;
 	private Stock stock;
 	private Random rand;
+	private ArmyType armyType;
 
 	public Shipe(Template shipeTemplate) {
 		this.formation = shipeTemplate.getFormation();
@@ -30,6 +32,7 @@ public class Shipe  implements Swimable {
 		this.position = shipeTemplate.getPosition();
 		this.stock = shipeTemplate.getStock();
 		rand = new Random();
+		armyType = ArmyType.SHIPE;
 	}
 
 	@Override

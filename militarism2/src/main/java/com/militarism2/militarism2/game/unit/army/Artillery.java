@@ -9,6 +9,7 @@ import com.militarism2.militarism2.game.unit.feature.Damage;
 import com.militarism2.militarism2.game.unit.feature.Formation;
 import com.militarism2.militarism2.game.unit.feature.Position;
 import com.militarism2.militarism2.game.unit.feature.Stock;
+import com.militarism2.militarism2.game.unit.type.ArmyType;
 import com.militarism2.militarism2.game.unity.able.Warable;
 
 import lombok.Data;
@@ -21,6 +22,7 @@ public class Artillery implements Warable {
 	private Position position;
 	private Stock stock;
 	private Random rand;
+	private ArmyType armyType;
 
 	public Artillery(Template artilleryTemplate) {
 		this.formation = artilleryTemplate.getFormation();
@@ -29,6 +31,7 @@ public class Artillery implements Warable {
 		this.position = artilleryTemplate.getPosition();
 		this.stock = artilleryTemplate.getStock();
 		rand = new Random();
+		armyType = ArmyType.ARTILLERY;
 	}
 
 	@Override

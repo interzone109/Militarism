@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import com.militarism2.militarism2.game.unit.feature.*;
+import com.militarism2.militarism2.game.unit.type.ArmyType;
 
 /**
  * @class Template класс используеться класс Factory для заполнения полей
@@ -51,8 +52,10 @@ public class Template {
 
 	private int cost;
 
+	private ArmyType armyType;
 
-	public Template(Formation formation, ArmyData armyData, Damage damage, Position position, Stock stock, int cost) {
+	public Template(Formation formation, ArmyData armyData, Damage damage, Position position, Stock stock, int cost,
+			ArmyType armyType) {
 		this.formation = formation;
 		this.armyData = armyData;
 		this.damage = damage;
@@ -61,6 +64,7 @@ public class Template {
 		this.country = armyData.getCountry();
 		this.cost = cost;
 		this.name = armyData.getName();
+		this.armyType = armyType;
 	}
 
 	public ArmyData getArmyData() {
@@ -98,5 +102,11 @@ public class Template {
 	public int getCost() {
 		return cost;
 	}
+
+	public ArmyType getArmyType() {
+		return armyType;
+	}
+	
+	
 
 }

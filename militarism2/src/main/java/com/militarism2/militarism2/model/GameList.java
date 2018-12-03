@@ -1,7 +1,6 @@
 package com.militarism2.militarism2.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+
 
 import org.springframework.stereotype.Service;
 

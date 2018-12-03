@@ -11,6 +11,7 @@ import com.militarism2.militarism2.game.unit.feature.Damage;
 import com.militarism2.militarism2.game.unit.feature.Formation;
 import com.militarism2.militarism2.game.unit.feature.Position;
 import com.militarism2.militarism2.game.unit.feature.Stock;
+import com.militarism2.militarism2.game.unit.type.ArmyType;
 import com.militarism2.militarism2.game.unity.able.Warable;
 
 import lombok.Data;
@@ -21,11 +22,13 @@ import lombok.Data;
  */
 @Data
 public class Infantry implements Warable {
+	long id;
 	private Formation formation;
 	private ArmyData armyData;
 	private Damage atack;
 	private Position position;
 	private Stock stock;
+	private ArmyType armyType;
 
 	private Random rand;
 
@@ -36,11 +39,12 @@ public class Infantry implements Warable {
 		this.position = infantryTemplate.getPosition();
 		this.stock = infantryTemplate.getStock();
 		rand = new Random();
+		armyType = ArmyType.INFANTRY;
 	}
 
 	public Infantry(Templates t) {
 		this.formation = new Formation(t.getQuantityStuff(), t.getQuantityUnits(), t.getDefense(), t.getExpirience());
-		this.armyData = new ArmyData(t.getName(), t.getCountry(),t.getYear());
+		this.armyData = new ArmyData(t.getName(), t.getCountry(), t.getYear());
 		this.atack = new Damage(t.getDamage(), t.getDamageRange(), t.getShotRange());
 		this.position = new Position(new Point(t.getOffsetX(), t.getOffsetY()), t.getSpeed(), t.getVisibility());
 		this.stock = new Stock(t.getGasoline(), t.getAmmunition(), t.getFood());
