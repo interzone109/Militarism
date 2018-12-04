@@ -22,7 +22,7 @@ public class UserPageController {
 
 	@RequestMapping(value = "/userpage", method = RequestMethod.GET)
 	public String UserPage(Model model) {
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal(); // проверка зарегистрирован ли полльзователь
 		if (principal.toString().equals("anonymousUser")) {
 			return "redirect:/login";
 		}
