@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.militarism2.militarism2.game.map.Point;
-import com.militarism2.militarism2.game.unit.army.template.Template;
+import com.militarism2.militarism2.game.unit.army.template.TemplateBreak;
 import com.militarism2.militarism2.game.unit.feature.Stock;
 
 import ch.qos.logback.core.status.Status;

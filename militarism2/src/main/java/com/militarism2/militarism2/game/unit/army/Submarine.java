@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.militarism2.militarism2.game.map.Point;
 import com.militarism2.militarism2.game.unit.army.template.Template;
+import com.militarism2.militarism2.game.unit.army.template.TemplateBreak;
 import com.militarism2.militarism2.game.unit.feature.ArmyData;
 import com.militarism2.militarism2.game.unit.feature.Damage;
 import com.militarism2.militarism2.game.unit.feature.Formation;
@@ -25,14 +26,13 @@ public class Submarine implements Dippingable {
 	private Random rand;
 	private ArmyType armyType;
 
-	public Submarine(Template submarineTemplate) {
-		this.formation = submarineTemplate.getFormation();
-		this.armyData = submarineTemplate.getArmyData();
-		this.atack = submarineTemplate.getDamage();
-		this.position = submarineTemplate.getPosition();
-		this.stock = submarineTemplate.getStock();
+	public Submarine(Template t, Point startPoint) {
+		this.formation = new Formation(t.getQuantityStuff(), t.getQuantityUnits(), t.getDefense(), t.getExpirience());
+		this.armyData = new ArmyData(t.getName(), t.getCountry());
+		this.atack = new Damage(t.getDamage(), t.getDamageRange(), t.getShotRange());
+		this.position = new Position(startPoint, t.getSpeed(), t.getStealth(), t.getVisibility());
+		this.stock = new Stock();
 		rand = new Random();
-		armyType = ArmyType.SUBMARINE;
 	}
 
 	@Override

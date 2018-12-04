@@ -40,11 +40,6 @@ public class Stock  {
 		food = 0;
 	}
 
-	public Stock clone() {
-		return new Stock();
-	}
-
-
 	@Override
 	public String toString() {
 		return "food:" + food + " ammunition:" + ammunition + " gasoline:" + gasoline + "\n";

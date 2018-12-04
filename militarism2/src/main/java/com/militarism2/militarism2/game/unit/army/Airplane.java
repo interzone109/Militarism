@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.militarism2.militarism2.game.map.Point;
 import com.militarism2.militarism2.game.unit.army.template.Template;
+import com.militarism2.militarism2.game.unit.army.template.TemplateBreak;
 import com.militarism2.militarism2.game.unit.feature.ArmyData;
 import com.militarism2.militarism2.game.unit.feature.Damage;
 import com.militarism2.militarism2.game.unit.feature.Formation;
@@ -25,14 +26,13 @@ public class Airplane implements  Flyable {
 	private Random rand;
 	private ArmyType armyType;
 
-	public Airplane(Template airplaneTemplate) {
-		this.formation = airplaneTemplate.getFormation();
-		this.armyData = airplaneTemplate.getArmyData();
-		this.atack = airplaneTemplate.getDamage();
-		this.position = airplaneTemplate.getPosition();
-		this.stock = airplaneTemplate.getStock();
+	public Airplane(Template t, Point startPoint) {
+		this.formation = new Formation(t.getQuantityStuff(), t.getQuantityUnits(), t.getDefense(), t.getExpirience());
+		this.armyData = new ArmyData(t.getName(), t.getCountry());
+		this.atack = new Damage(t.getDamage(), t.getDamageRange(), t.getShotRange());
+		this.position = new Position(startPoint, t.getSpeed(), t.getStealth(), t.getVisibility());
+		this.stock = new Stock();
 		rand = new Random();
-		armyType = ArmyType.AIRPLANE ;
 	}
 	
 	

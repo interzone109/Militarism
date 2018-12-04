@@ -3,8 +3,8 @@ package com.militarism2.militarism2.game.unit.army;
 import java.util.Random;
 
 import com.militarism2.militarism2.game.map.Point;
+import com.militarism2.militarism2.game.unit.army.template.TemplateBreak;
 import com.militarism2.militarism2.game.unit.army.template.Template;
-import com.militarism2.militarism2.game.unit.army.template.Templates;
 import com.militarism2.militarism2.game.unit.entity.ArmyEntity;
 import com.militarism2.militarism2.game.unit.feature.ArmyData;
 import com.militarism2.militarism2.game.unit.feature.Damage;
@@ -32,22 +32,13 @@ public class Infantry implements Warable {
 
 	private Random rand;
 
-	public Infantry(Template infantryTemplate) {
-		this.formation = infantryTemplate.getFormation();
-		this.armyData = infantryTemplate.getArmyData();
-		this.atack = infantryTemplate.getDamage();
-		this.position = infantryTemplate.getPosition();
-		this.stock = infantryTemplate.getStock();
-		rand = new Random();
-		armyType = ArmyType.INFANTRY;
-	}
 
-	public Infantry(Templates t) {
+	public Infantry(Template t, Point startPoint) {
 		this.formation = new Formation(t.getQuantityStuff(), t.getQuantityUnits(), t.getDefense(), t.getExpirience());
-		this.armyData = new ArmyData(t.getName(), t.getCountry(), t.getYear());
+		this.armyData = new ArmyData(t.getName(), t.getCountry());
 		this.atack = new Damage(t.getDamage(), t.getDamageRange(), t.getShotRange());
-		this.position = new Position(new Point(t.getOffsetX(), t.getOffsetY()), t.getSpeed(), t.getVisibility());
-		this.stock = new Stock(t.getGasoline(), t.getAmmunition(), t.getFood());
+		this.position = new Position(startPoint, t.getSpeed(), t.getStealth(), t.getVisibility());
+		this.stock = new Stock();
 		rand = new Random();
 	}
 

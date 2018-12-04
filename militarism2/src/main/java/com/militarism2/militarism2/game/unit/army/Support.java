@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.militarism2.militarism2.game.map.Point;
 import com.militarism2.militarism2.game.unit.army.template.Template;
+import com.militarism2.militarism2.game.unit.army.template.TemplateBreak;
 import com.militarism2.militarism2.game.unit.feature.ArmyData;
 import com.militarism2.militarism2.game.unit.feature.Damage;
 import com.militarism2.militarism2.game.unit.feature.Formation;
@@ -27,15 +28,13 @@ public class Support implements Supportable {
 	private Random rand;
 	private ArmyType armyType;
 
-	public Support(Template supportTemplate) {
-		this.formation = supportTemplate.getFormation();
-		this.armyData = supportTemplate.getArmyData();
-		this.atack = supportTemplate.getDamage();
-		this.position = supportTemplate.getPosition();
-		this.stock = supportTemplate.getStock();
+	public Support(Template t, Point startPoint) {
+		this.formation = new Formation(t.getQuantityStuff(), t.getQuantityUnits(), t.getDefense(), t.getExpirience());
+		this.armyData = new ArmyData(t.getName(), t.getCountry());
+		this.atack = new Damage(t.getDamage(), t.getDamageRange(), t.getShotRange());
+		this.position = new Position(startPoint, t.getSpeed(), t.getStealth(), t.getVisibility());
+		this.stock = new Stock();
 		rand = new Random();
-		armyType = ArmyType.SUPPORT;
-
 	}
 
 	@Override

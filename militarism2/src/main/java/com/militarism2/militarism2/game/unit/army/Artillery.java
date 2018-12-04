@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.militarism2.militarism2.game.map.Point;
 import com.militarism2.militarism2.game.unit.army.template.Template;
+import com.militarism2.militarism2.game.unit.army.template.TemplateBreak;
 import com.militarism2.militarism2.game.unit.feature.ArmyData;
 import com.militarism2.militarism2.game.unit.feature.Damage;
 import com.militarism2.militarism2.game.unit.feature.Formation;
@@ -24,14 +25,13 @@ public class Artillery implements Warable {
 	private Random rand;
 	private ArmyType armyType;
 
-	public Artillery(Template artilleryTemplate) {
-		this.formation = artilleryTemplate.getFormation();
-		this.armyData = artilleryTemplate.getArmyData();
-		this.atack = artilleryTemplate.getDamage();
-		this.position = artilleryTemplate.getPosition();
-		this.stock = artilleryTemplate.getStock();
+	public Artillery(Template t, Point startPoint) {
+		this.formation = new Formation(t.getQuantityStuff(), t.getQuantityUnits(), t.getDefense(), t.getExpirience());
+		this.armyData = new ArmyData(t.getName(), t.getCountry());
+		this.atack = new Damage(t.getDamage(), t.getDamageRange(), t.getShotRange());
+		this.position = new Position(startPoint, t.getSpeed(), t.getStealth(), t.getVisibility());
+		this.stock = new Stock();
 		rand = new Random();
-		armyType = ArmyType.ARTILLERY;
 	}
 
 	@Override

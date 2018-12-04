@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.militarism2.militarism2.game.unit.army.template.Template;
+import com.militarism2.militarism2.game.unit.army.template.TemplateBreak;
 import com.militarism2.militarism2.game.unit.repository.TemplateRepository;
 
 @Service
@@ -20,18 +20,18 @@ public class TemplateServiceImpl implements TemplateService{
 	}
 	
 	
-	public void save(Template template) {
+	public void save(TemplateBreak template) {
 		templateRepository.save(template);
 		
 	}
-	public List<Template> getAll() {
+	public List<TemplateBreak> getAll() {
 		return templateRepository.findAll();
 	}
 
-	public List<Template> findAllByCountry(String country){
+	public List<TemplateBreak> findAllByCountry(String country){
 		return templateRepository.findAllByCountry(country);
 	}
-	 public Optional<Template> findByName(String name){
+	 public Optional<TemplateBreak> findByName(String name){
 		 return templateRepository.findByName(name);
 	 }
 }

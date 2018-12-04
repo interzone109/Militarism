@@ -6,10 +6,10 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.militarism2.militarism2.game.unit.army.template.Template;
+import com.militarism2.militarism2.game.unit.army.template.TemplateBreak;
 
 
-public interface TemplateRepository extends JpaRepository<Template,Long> {
-	 public List<Template> findAllByCountry(String country);
-	 public Optional<Template> findByName(String name);
+public interface TemplateRepository extends JpaRepository<TemplateBreak,Long> {
+	 public List<TemplateBreak> findAllByCountry(String country);
+	 public Optional<TemplateBreak> findByName(String name);
 }

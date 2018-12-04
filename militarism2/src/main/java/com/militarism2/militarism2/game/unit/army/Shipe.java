@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.militarism2.militarism2.game.map.Point;
 import com.militarism2.militarism2.game.unit.army.template.Template;
+import com.militarism2.militarism2.game.unit.army.template.TemplateBreak;
 import com.militarism2.militarism2.game.unit.feature.ArmyData;
 import com.militarism2.militarism2.game.unit.feature.Damage;
 import com.militarism2.militarism2.game.unit.feature.Formation;
@@ -25,14 +26,13 @@ public class Shipe  implements Swimable {
 	private Random rand;
 	private ArmyType armyType;
 
-	public Shipe(Template shipeTemplate) {
-		this.formation = shipeTemplate.getFormation();
-		this.armyData = shipeTemplate.getArmyData();
-		this.atack = shipeTemplate.getDamage();
-		this.position = shipeTemplate.getPosition();
-		this.stock = shipeTemplate.getStock();
+	public Shipe(Template t, Point startPoint) {
+		this.formation = new Formation(t.getQuantityStuff(), t.getQuantityUnits(), t.getDefense(), t.getExpirience());
+		this.armyData = new ArmyData(t.getName(), t.getCountry());
+		this.atack = new Damage(t.getDamage(), t.getDamageRange(), t.getShotRange());
+		this.position = new Position(startPoint, t.getSpeed(), t.getStealth(), t.getVisibility());
+		this.stock = new Stock();
 		rand = new Random();
-		armyType = ArmyType.SHIPE;
 	}
 
 	@Override

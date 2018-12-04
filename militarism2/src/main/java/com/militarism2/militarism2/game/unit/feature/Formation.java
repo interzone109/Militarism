@@ -33,7 +33,7 @@ public class Formation {
 	
 	/**
 	 * 
-	 * @param quantityStuff -количество унитов на одну единицу техники
+	 * @param quantityStuff -количество юнитов на одну единицу техники
 	 * @param quantityUnits-количество техники 
 	 * @param defense -защита
 	 * @param expirience- опыт
@@ -44,11 +44,6 @@ public class Formation {
 		this.expirience = expirience;
 	}
 
-	
-
-	public Formation clone() {
-		return new Formation(quantityStuff ,quantityUnits, defense, expirience) ;
-	}
 	
 	@Override
 	public String toString() {
