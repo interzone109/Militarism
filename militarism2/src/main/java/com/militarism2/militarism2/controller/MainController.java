@@ -33,6 +33,7 @@ public class MainController {
 		GameFactory gameFactory = new GameFactory();
 		gameFactory.create("infantry_test1");
 		gameFactory.create("infantry_test2");
+		
 		return "index";
 	}
 
