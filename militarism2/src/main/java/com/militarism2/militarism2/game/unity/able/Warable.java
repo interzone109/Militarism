@@ -20,7 +20,5 @@ public interface Warable {
 	
 	void union(Stock unionStock);
 
-	int getUnits();
-	
-	int[] getProvision();
+
 }

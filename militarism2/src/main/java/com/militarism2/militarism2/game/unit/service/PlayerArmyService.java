@@ -1,5 +1,6 @@
 package com.militarism2.militarism2.game.unit.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.militarism2.militarism2.game.map.Point;
@@ -11,4 +12,5 @@ import com.militarism2.militarism2.game.unit.type.ArmyType;
 
 public interface PlayerArmyService {
 	public Optional<ArmyEntity> findById(Long id);
+
 }

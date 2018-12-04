@@ -14,14 +14,9 @@ import lombok.Data;
  * , страну.
  * 
  */
-@Entity
-@Table(name = "army_datas")
 @Data
 public class ArmyData {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "army_data_Id", nullable = false, updatable = false, unique = true)
-	private Long id;
+
 	private String name;
 	private String country;
 

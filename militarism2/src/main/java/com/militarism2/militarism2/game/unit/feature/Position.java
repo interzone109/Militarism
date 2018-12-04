@@ -1,16 +1,5 @@
 package com.militarism2.militarism2.game.unit.feature;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
 import com.militarism2.militarism2.game.map.Point;
 
 /**
@@ -26,21 +15,10 @@ import lombok.Data;
  * 
  * 
  */
-@Entity
-@Table(name = "positions")
 @Data
 public class Position {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "position_Id", nullable = false, updatable = false, unique = true)
-	private Long id;
 
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "curent_location_Id")
 	private Point curentLocation;
-
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "next_location_Id")
 	private Point nextLocation;
 
 	private int stealth;

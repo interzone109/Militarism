@@ -66,17 +66,6 @@ public class Airplane implements  Flyable {
 		
 	}
 
-	@Override
-	public int getUnits() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int[] getProvision() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 	@Override

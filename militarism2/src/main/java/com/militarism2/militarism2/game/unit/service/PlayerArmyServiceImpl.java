@@ -1,6 +1,7 @@
 package com.militarism2.militarism2.game.unit.service;
 
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,12 +10,12 @@ import org.springframework.stereotype.Service;
 import com.militarism2.militarism2.game.unit.entity.ArmyEntity;
 import com.militarism2.militarism2.game.unit.repository.PlayerArmyRepository;
 @Service
-public class ArmyEntityServiceImpl implements PlayerArmyService{
+public class PlayerArmyServiceImpl implements PlayerArmyService{
 	
 	private PlayerArmyRepository playerArmyRepository; 
 	
 	@Autowired
-	public ArmyEntityServiceImpl(PlayerArmyRepository playerArmyRepository) {
+	public PlayerArmyServiceImpl(PlayerArmyRepository playerArmyRepository) {
 		this.playerArmyRepository = playerArmyRepository;
 	}
 	
@@ -26,5 +27,6 @@ public class ArmyEntityServiceImpl implements PlayerArmyService{
 		long id = playerArmyRepository.save(armyEntity).getId();
 		System.out.println("RETURN save entity id "+id);
 	}
+
 
 }

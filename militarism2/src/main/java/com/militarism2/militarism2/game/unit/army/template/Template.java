@@ -84,6 +84,9 @@ public class Template {
 		this.stealth = stealth;
 		this.visibility = visibility;
 	}
+	public Template() {
+		
+	}
 
 	
 

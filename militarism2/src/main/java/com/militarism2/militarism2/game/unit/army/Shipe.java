@@ -65,17 +65,7 @@ public class Shipe  implements Swimable {
 		
 	}
 
-	@Override
-	public int getUnits() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
-	@Override
-	public int[] getProvision() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	
 

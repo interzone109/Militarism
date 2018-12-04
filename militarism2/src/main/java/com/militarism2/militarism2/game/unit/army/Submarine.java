@@ -65,15 +65,5 @@ public class Submarine implements Dippingable {
 		
 	}
 
-	@Override
-	public int getUnits() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
-	@Override
-	public int[] getProvision() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

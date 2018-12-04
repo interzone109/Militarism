@@ -1,40 +1,33 @@
 package com.militarism2.militarism2.game.unit.build;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.militarism2.militarism2.game.unit.army.template.Template;
 import com.militarism2.militarism2.game.unit.entity.ArmyEntity;
-import com.militarism2.militarism2.game.unit.service.ArmyEntityServiceImpl;
+import com.militarism2.militarism2.game.unit.service.PlayerArmyServiceImpl;
 import com.militarism2.militarism2.game.unit.service.TemplateServiceImpl;
-import com.militarism2.militarism2.game.unit.type.ArmyType;
 
+@Component
 public class GameFactory {
 	@Autowired
 	private TemplateServiceImpl templateServiceImpl;
 	@Autowired
-	private ArmyEntityServiceImpl armyEntityServiceImpl;
+	private PlayerArmyServiceImpl armyEntityServiceImpl;
 	
-	
-	public GameFactory() {
-		Template sqad = new Template(0, 5, ArmyType.INFANTRY, "infantry_test1",
-				"USSR", 30, 15, 2, 1, 1, 30, 1, 30, 0, 10);
 
-		templateServiceImpl.save(sqad);
+	
+	public void createArmy(String name, int quantity) {
+			
 		
-		Template sqad1 = new Template(0, 5, ArmyType.INFANTRY, "infantry_test2",
-				"USSR", 30, 15, 2, 1, 1, 30, 1, 30, 0, 10);
-
-		templateServiceImpl.save(sqad1);
-	}
-
-
-	public void create(String name) {
 		Template t = templateServiceImpl.findByName(name).get();
 		ArmyEntity armyEntity = new ArmyEntity(t);
-		
+		armyEntity.getFormation().setQuantityStuff(quantity);
 		armyEntityServiceImpl.save(armyEntity);
 		
 		
 	}
+	
+	
 	
 }
