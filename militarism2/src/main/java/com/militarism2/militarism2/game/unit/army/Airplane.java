@@ -4,7 +4,6 @@ import java.util.Random;
 
 import com.militarism2.militarism2.game.map.Point;
 import com.militarism2.militarism2.game.unit.army.template.Template;
-import com.militarism2.militarism2.game.unit.army.template.TemplateBreak;
 import com.militarism2.militarism2.game.unit.feature.ArmyData;
 import com.militarism2.militarism2.game.unit.feature.Damage;
 import com.militarism2.militarism2.game.unit.feature.Formation;

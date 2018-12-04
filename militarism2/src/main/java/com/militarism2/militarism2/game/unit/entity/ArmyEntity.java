@@ -42,8 +42,15 @@ public class ArmyEntity {
 	@JoinColumn(name = "template_Id")
 	private Template template ;
 	
-	public ArmyEntity(Template template) {
-		this.template = template;
+	public ArmyEntity(Template t) {
+		this.template = t;
+		
+		this.formation = new Formation(t.getQuantityStuff(), t.getQuantityUnits(), t.getDefense(), t.getExpirience());
+		this.stock = new Stock();
+		currentLocation = new Point(0, 0);
+		finalLocation= new Point(0, 0);
+		
+		gameId=0;
 	}
 	
 	

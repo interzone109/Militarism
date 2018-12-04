@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.militarism2.militarism2.game.unit.army.template.Template;
-import com.militarism2.militarism2.game.unit.army.template.TemplateBreak;
 import com.militarism2.militarism2.game.unit.repository.TemplateRepository;
 import com.militarism2.militarism2.game.unit.type.ArmyType;
 

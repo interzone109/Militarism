@@ -26,6 +26,7 @@ public class Template {
 	private int cost ;
 	private ArmyType armyType;
 	// ArmyData
+	@Column(name = "name", nullable = false, updatable = false, unique = true)
 	private String name;
 	private String country;
 	//Damage

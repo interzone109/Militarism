@@ -4,7 +4,6 @@ import java.util.Optional;
 
 import com.militarism2.militarism2.game.map.Point;
 import com.militarism2.militarism2.game.unit.army.Infantry;
-import com.militarism2.militarism2.game.unit.army.template.TemplateBreak;
 import com.militarism2.militarism2.game.unit.build.PlayerFactory;
 import com.militarism2.militarism2.game.unit.entity.ArmyEntity;
 import com.militarism2.militarism2.game.unit.feature.*;

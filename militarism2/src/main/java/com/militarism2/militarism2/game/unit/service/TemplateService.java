@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import com.militarism2.militarism2.game.unit.army.template.Template;
-import com.militarism2.militarism2.game.unit.army.template.TemplateBreak;
 import com.militarism2.militarism2.game.unit.type.ArmyType;
 
 
