@@ -32,6 +32,7 @@ public class Submarine implements Dippingable {
 		this.atack = new Damage(t.getDamage(), t.getDamageRange(), t.getShotRange());
 		this.position = new Position(startPoint, t.getSpeed(), t.getStealth(), t.getVisibility());
 		this.stock = new Stock();
+		armyType=ArmyType.SUBMARINE;
 		rand = new Random();
 	}
 

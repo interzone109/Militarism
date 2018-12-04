@@ -34,6 +34,7 @@ public class Support implements Supportable {
 		this.atack = new Damage(t.getDamage(), t.getDamageRange(), t.getShotRange());
 		this.position = new Position(startPoint, t.getSpeed(), t.getStealth(), t.getVisibility());
 		this.stock = new Stock();
+		armyType=ArmyType.SUPPORT;
 		rand = new Random();
 	}
 

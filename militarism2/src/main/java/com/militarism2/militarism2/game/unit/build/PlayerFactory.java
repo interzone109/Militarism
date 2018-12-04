@@ -12,7 +12,7 @@ import com.militarism2.militarism2.game.unit.army.template.*;
  * 
  * */
 public class PlayerFactory {
-	private String country;
+/*	private String country;
 	private Point location;
 	private Map<String, Template> productLine;
 
@@ -70,5 +70,5 @@ public class PlayerFactory {
 		}
 		throw new ClassNotFoundException("Type :" + name + " not exist, check the spelling");
 	}
-
+*/
 }

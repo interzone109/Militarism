@@ -18,7 +18,7 @@ import lombok.Data;
 public class Template {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "damage_Id", nullable = false, updatable = false, unique = true)
+	@Column(name = "army_template_id", nullable = false, updatable = false, unique = true)
 	private Long id;
 	//for facroty
 	@Column(name = "available_round")
@@ -45,6 +45,44 @@ public class Template {
 	private int speed;
 	private int stealth;
 	private int visibility;
+	/**
+	 * @param
+	 * @param
+	 * @param
+	 * @param
+	 * @param
+	 * @param
+	 * @param
+	 * @param
+	 * @param
+	 * @param
+	 * @param
+	 * @param
+	 * @param
+	 * @param
+	 * @param
+	 * 
+	 * */
+	public Template(int availableRound, int cost, ArmyType armyType, String name, String country, int damage,
+			int damageRange, int shotRange, int quantityStuff, int quantityUnits, int defense, int expirience,
+			int speed, int stealth, int visibility) {
+		super();
+		this.availableRound = availableRound;
+		this.cost = cost;
+		this.armyType = armyType;
+		this.name = name;
+		this.country = country;
+		this.damage = damage;
+		this.damageRange = damageRange;
+		this.shotRange = shotRange;
+		this.quantityStuff = quantityStuff;
+		this.quantityUnits = quantityUnits;
+		this.defense = defense;
+		this.expirience = expirience;
+		this.speed = speed;
+		this.stealth = stealth;
+		this.visibility = visibility;
+	}
 
 	
 

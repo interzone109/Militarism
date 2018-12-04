@@ -32,6 +32,7 @@ public class Shipe  implements Swimable {
 		this.atack = new Damage(t.getDamage(), t.getDamageRange(), t.getShotRange());
 		this.position = new Position(startPoint, t.getSpeed(), t.getStealth(), t.getVisibility());
 		this.stock = new Stock();
+		armyType=ArmyType.SHIPE;
 		rand = new Random();
 	}
 
