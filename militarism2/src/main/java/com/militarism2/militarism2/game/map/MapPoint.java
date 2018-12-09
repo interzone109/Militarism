@@ -26,20 +26,18 @@ public class MapPoint {
 	private int offsetY;
 
 	Terrain terrain;
-	Direction directionFrom;
-	Direction directionWhere;
+	Direction [] direction;
 
-	public MapPoint(int offsetX, int offsetY, Terrain terrain, Direction directionFrom, Direction directionWhere) {
+	public MapPoint(int offsetX, int offsetY, Terrain terrain, Direction []direction) {
 		this.offsetX = offsetX;
 		this.offsetY = offsetY;
 		this.terrain = terrain;
-		this.directionFrom = directionFrom;
-		this.directionWhere = directionWhere;
+		this.direction = direction;
 	}
 
 	public String toString() {
-		return "x-" + offsetX + " y-" + offsetY + " terrain-" + terrain + "  direction from-" + directionFrom
-				+ "  direction where-" + directionWhere;
+		return "x-" + offsetX + " y-" + offsetY + " terrain-" + terrain;
+				
 	}
 
 }
