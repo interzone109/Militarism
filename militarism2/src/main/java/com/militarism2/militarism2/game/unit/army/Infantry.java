@@ -4,7 +4,6 @@ package com.militarism2.militarism2.game.unit.army;
 import com.militarism2.militarism2.game.map.Point;
 import com.militarism2.militarism2.game.unit.entity.ArmyEntity;
 import com.militarism2.militarism2.game.unit.feature.Formation;
-import com.militarism2.militarism2.game.unit.feature.Stock;
 
 
 /**
@@ -17,18 +16,7 @@ public class Infantry extends Army {
 
 	public Infantry(ArmyEntity armyEntity) {
 		super(armyEntity);
-		
-		/*this.armyEntity = armyEntity;
-		this.formation = armyEntity.getFormation();//new Formation(t.getQuantityStuff(), t.getQuantityUnits(), t.getDefense(), t.getExpirience());
-		this.stock = armyEntity.getStock();//new Stock();
-		
-		Template t = armyEntity.getTemplate();
-		this.armyData = new ArmyData(t.getName(), t.getCountry());
-		this.atack = new Damage(t.getDamage(), t.getDamageRange(), t.getShotRange());
-		this.position = new Position(armyEntity.getCurrentLocation(), t.getSpeed(), t.getStealth(), t.getVisibility());
-		
-		armyType = ArmyType.INFANTRY;
-		rand = new Random();*/
+
 	}
 
 	@Override
@@ -69,7 +57,12 @@ public class Infantry extends Army {
 	public String toString() {
 		return armyData.toString() + atack.toString() + position.toString() + armyEntity.getFormation().toString() + armyEntity.getStock().toString();
 	}
-	
+
+	@Override
+	public void expenseAmunition() {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 

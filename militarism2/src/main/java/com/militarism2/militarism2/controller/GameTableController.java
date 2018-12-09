@@ -8,9 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.militarism2.militarism2.model.GameList;
 import com.militarism2.militarism2.services.gameListService.GameTableService;
-import com.militarism2.militarism2.services.gameListService.IGameListItem;
 
 @Controller
 public class GameTableController {

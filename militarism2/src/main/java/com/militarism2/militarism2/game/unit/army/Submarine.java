@@ -1,38 +1,16 @@
 package com.militarism2.militarism2.game.unit.army;
 
-import java.util.Random;
-
 import com.militarism2.militarism2.game.map.Point;
-import com.militarism2.militarism2.game.unit.army.template.Template;
-import com.militarism2.militarism2.game.unit.feature.ArmyData;
-import com.militarism2.militarism2.game.unit.feature.Damage;
-import com.militarism2.militarism2.game.unit.feature.Formation;
-import com.militarism2.militarism2.game.unit.feature.Position;
+import com.militarism2.militarism2.game.unit.entity.ArmyEntity;
 import com.militarism2.militarism2.game.unit.feature.Stock;
-import com.militarism2.militarism2.game.unit.type.ArmyType;
 import com.militarism2.militarism2.game.unity.able.Dippingable;
-import com.militarism2.militarism2.game.unity.able.Warable;
 
-import lombok.Data;
-@Data
-public class Submarine implements Dippingable {
+public class Submarine extends Army implements Dippingable {
 
-	private Formation formation;
-	private ArmyData armyData;
-	private Damage atack;
-	private Position position;
-	private Stock stock;
-	private Random rand;
-	private ArmyType armyType;
 
-	public Submarine(Template t, Point startPoint) {
-		this.formation = new Formation(t.getQuantityStuff(), t.getQuantityUnits(), t.getDefense(), t.getExpirience());
-		this.armyData = new ArmyData(t.getName(), t.getCountry());
-		this.atack = new Damage(t.getDamage(), t.getDamageRange(), t.getShotRange());
-		this.position = new Position(startPoint, t.getSpeed(), t.getStealth(), t.getVisibility());
-		this.stock = new Stock();
-		armyType=ArmyType.SUBMARINE;
-		rand = new Random();
+
+	public Submarine(ArmyEntity armyEntity) {
+		super(armyEntity);
 	}
 
 	@Override
@@ -61,6 +39,12 @@ public class Submarine implements Dippingable {
 
 	@Override
 	public void union(Stock unionStock) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void expenseAmunition() {
 		// TODO Auto-generated method stub
 		
 	}

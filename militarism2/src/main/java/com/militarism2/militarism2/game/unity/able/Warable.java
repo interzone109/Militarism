@@ -20,5 +20,5 @@ public interface Warable {
 	
 	void union(Stock unionStock);
 
-
+	void expenseAmunition();
 }

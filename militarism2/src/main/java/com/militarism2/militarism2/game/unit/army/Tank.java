@@ -37,4 +37,10 @@ public class Tank extends Army {
 		return false;
 	}
 
+	@Override
+	public void expenseAmunition() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
