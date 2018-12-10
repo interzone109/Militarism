@@ -32,8 +32,8 @@ public class Infantry extends Army {
 	 * */
 	@Override
 	public int atack() {
-		int damage = atack.getDamage();
-		int damageRange = atack.getDamageRange();
+		int damage = armyEntity.getTemplate().getDamage();
+		int damageRange = armyEntity.getTemplate().getDamageRange();
 		int quantityUnits = armyEntity.getFormation().getQuantityUnits();
 		return (rand.nextInt(((damage + damageRange) - damage) + 1) + damage) * quantityUnits;
 
@@ -41,9 +41,7 @@ public class Infantry extends Army {
 
 	@Override
 	public void move(Point nextPoint) {
-		position.setNextLocation(nextPoint);
-		// move logic
-		position.setCurentLocation(nextPoint);
+		armyEntity.setFinalLocation(nextPoint);
 	}
 
 	@Override
@@ -52,12 +50,6 @@ public class Infantry extends Army {
 	}
 
 	
-
-	@Override
-	public String toString() {
-		return armyData.toString() + atack.toString() + position.toString() + armyEntity.getFormation().toString() + armyEntity.getStock().toString();
-	}
-
 	@Override
 	public void expenseAmunition() {
 		// TODO Auto-generated method stub

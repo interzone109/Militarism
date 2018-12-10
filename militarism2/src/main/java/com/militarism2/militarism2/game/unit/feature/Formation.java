@@ -1,5 +1,6 @@
 package com.militarism2.militarism2.game.unit.feature;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
