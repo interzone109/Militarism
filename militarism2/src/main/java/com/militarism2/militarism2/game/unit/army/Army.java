@@ -14,7 +14,6 @@ import com.militarism2.militarism2.game.unity.able.Warable;
 import lombok.Data;
 @Data
 public abstract class Army implements Warable {
-	protected long id;
 	protected ArmyData armyData;
 	protected Damage atack;
 	protected Position position;
