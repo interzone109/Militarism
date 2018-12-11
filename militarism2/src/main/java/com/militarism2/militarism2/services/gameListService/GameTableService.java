@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 public class GameTableService {
 	/**
 	 * шо это за пиздец 
+	 * шо за название пакета gameListService ???
 	 * Где Репозиторий класса Game ???????
 	 * нахуя тут эти все переменные??
 	 * удалить все 

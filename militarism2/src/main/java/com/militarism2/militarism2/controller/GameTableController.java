@@ -17,10 +17,10 @@ public class GameTableController {
 	
 	
 	@Autowired
-	private GameTableService item;
+	private GameTableService item;//FIXME: замени на GameServiceImpl класс
 	
 
-
+	// FIXME: Тут данные должны браться из GameServiceImpl и передоваться в модель в виде списка
 	@RequestMapping(value = "/games", method = RequestMethod.GET)
     public String gam(Model model) {  
 		
@@ -44,7 +44,8 @@ public class GameTableController {
 		
         return "gameList";
     }
-	
+	// FIXME: Тут должен быть контролер типа @RequestMapping(value = "/games/game{id}" 
+	// и он должен перенаправлять на страницу с конкретной игрой 
 	
 	
 }
