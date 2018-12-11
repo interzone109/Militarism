@@ -8,17 +8,26 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.militarism2.militarism2.services.gameListService.GameServiceImp;
-
+import com.militarism2.militarism2.mvc.games.service.CountrySeviceImp;
+//import com.militarism2.militarism2.mvc.games.service.GameServiceImp;
 
 @Controller
-public class GameTableController {
-	
+public class GamesController {
+
+	//@Autowired(required=true)
+	//private GameServiceImp item;
 	
 	@Autowired
-	private GameServiceImp item;
+	private CountrySeviceImp countryTable;
 	
 
+	@RequestMapping(value = "/country", method = RequestMethod.GET)
+	public String country(Model model)
+	{	
+		countryTable.addCountry("test");
+		return "country";		
+	}
+	
 	// FIXME: Тут данные должны браться из GameServiceImpl и передоваться в модель в виде списка
 	@RequestMapping(value = "/games", method = RequestMethod.GET)
     public String gam(Model model) {  
@@ -44,8 +53,7 @@ public class GameTableController {
 		
         return "gameList";
     }
+	
 	// FIXME: Тут должен быть контролер типа @RequestMapping(value = "/games/game{id}" 
 	// и он должен перенаправлять на страницу с конкретной игрой 
-	
-	
 }

@@ -1,26 +1,23 @@
-package com.militarism2.militarism2.services.gameListService;
+package com.militarism2.militarism2.mvc.games.service;
 
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-import com.militarism2.militarism2.model.GameModel;
-import com.militarism2.militarism2.model.User;
-import com.militarism2.militarism2.repozitory.GameRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.militarism2.militarism2.model.User;
+import com.militarism2.militarism2.mvc.games.entity.GameModel;
+import com.militarism2.militarism2.mvc.games.repositary.GameRepository;
 
-/*
- * 
- * сервис для работы с таблицами игр и зареганых игроков
+/**
+ * FIXME: тут реализуй все методы из интерфейса GameService используя интерфейс GameRepositary
  * */
 @Service
 public class GameServiceImp implements GameService {
-	
+
 	@Autowired
 	private GameRepository repo;
 	
@@ -34,6 +31,29 @@ public class GameServiceImp implements GameService {
 		game.setTurnPeriod(turnPeriod);
 		game.setGameStatus(gameStatus);
 		repo.save(game);
+	}
+
+
+	public Collection<GameModel> getAllGames() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public boolean regUserInGame(User user, long gameId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
+	public boolean exitUserFromGame(User user, long gameId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public Optional<GameModel> getUserGamesList(User user) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 
@@ -50,34 +70,5 @@ public class GameServiceImp implements GameService {
 	
 	
 
-
-	@Override
-	public Collection<GameModel> getAllGames() {
-		List<GameModel> allgames= repo.findAll();
-		// TODO Auto-generated method stub
-		return allgames;
-	}
-
-
-	@Override
-	public boolean regUserInGame(User user, long gameId) {
-		
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-
-	@Override
-	public boolean exitUserFromGame(User user, long gameId) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-
-	@Override
-	public Optional<GameModel> getUserGamesList(User user) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

@@ -1,27 +1,13 @@
-package com.militarism2.militarism2.model;
+package com.militarism2.militarism2.mvc.games.entity;
 
 import javax.persistence.*;
+
+
 import java.sql.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/**
- * FIXME: 1)Классы model служат для форм заполнения на фронте 
- * в твоем случае это должен быть класс GameEntity(переименуй можно просто Game) он должен быть вынесен в другой пакет например
- * com.militarism2.militarism2.mvc.games.entity (создай отдельный пакет и вынеси этот клас туда)
- * 
- * */
-/**
- * @author Димоооооон
- * */
-//FIXME: подобавляй автора  к своим классам!!
 
-
-
-/*
- * Представление игр в бд
- * 
- * */
 
 @Entity
 @Table(name = "Games")
@@ -32,9 +18,6 @@ public class GameModel {
     @Column(name = "Game_Id", nullable = false, updatable = false)
     private Long id;
 
-    @Column(name = "maximum_user", nullable = false, unique = false)
-    private int maxUsers; //FIXME: 3) это поле не должно тут находиться, удоли
-
     @Column(name = "user_count", nullable = false)
     private int userCount;
     
@@ -42,6 +25,9 @@ public class GameModel {
     @Column(name = "Round", nullable = false, unique = false)
     private short round;
     
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="Scenario_Id")
+    private ScenarioModel scenario;
 
     //номер текущего начало игры
     @Column(name = "Start_Time", nullable = false, unique = false)
@@ -134,3 +120,4 @@ public class GameModel {
 
 
 }
+

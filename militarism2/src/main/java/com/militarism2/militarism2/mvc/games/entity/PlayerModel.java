@@ -1,4 +1,4 @@
-package com.militarism2.militarism2.model;
+package com.militarism2.militarism2.mvc.games.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.militarism2.militarism2.model.User;
 
 
 
