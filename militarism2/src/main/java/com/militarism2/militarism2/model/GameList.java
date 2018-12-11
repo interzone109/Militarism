@@ -19,7 +19,7 @@ public class GameList {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+	//55
 	
 
 }
