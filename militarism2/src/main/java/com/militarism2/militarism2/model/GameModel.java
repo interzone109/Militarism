@@ -12,6 +12,16 @@ package com.militarism2.militarism2.model;
 //FIXME: подобавляй автора  к своим классам!!
 
 import javax.persistence.*;
+/**
+ * FIXME: 1)Классы model служат для форм заполнения на фронте 
+ * в твоем случае это должен быть класс GameEntity(переименуй можно просто Game) он должен быть вынесен в другой пакет например
+ * com.militarism2.militarism2.mvc.games.entity (создай отдельный пакет и вынеси этот клас туда)
+ * 
+ * */
+/**
+ * @author Димоооооон
+ * */
+//FIXME: подобавляй автора  к своим классам!!
 
 
 /*
@@ -37,11 +47,7 @@ public class GameModel {
     @Column(name = "Round", nullable = false, unique = false)
     private short round;
     
-    //список стран  	
-    @OneToMany(cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
-            mappedBy = "game")
-    
+
     //gameData
     
     //Статус игры
