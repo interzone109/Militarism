@@ -6,7 +6,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.militarism2.militarism2.model.GameModel;
 
-
+/**
+ * Репозиторий для взаимодействием с таблицей Games
+ * 
+ */
 public interface GameRepository extends JpaRepository<GameModel, Long> {
-	Optional<GameModel> findOneByName(String name);
+	GameModel findOneByName(String name);
 }

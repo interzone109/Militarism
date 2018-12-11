@@ -12,6 +12,7 @@ public class GameData {
 	public Map map;
 	
 	public List<Player> players;	
+	
 	public List<Unit> units;
 	
 	public GameData() {
