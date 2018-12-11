@@ -9,6 +9,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class GameTableService {
+	/**
+	 * шо это за пиздец 
+	 * Где Репозиторий класса Game ???????
+	 * нахуя тут эти все переменные??
+	 * удалить все 
+	 * */
 	private String name;
 	private ArrayList<String> countrySlotList;
 	private ArrayList<String> usersNameReg;

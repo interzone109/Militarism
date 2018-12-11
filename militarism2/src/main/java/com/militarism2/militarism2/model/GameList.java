@@ -4,7 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Service;
-
+/**
+ * FIXME: зачем нужон этот класс ? удоли его
+ * */
 @Service
 public class GameList {
 	
