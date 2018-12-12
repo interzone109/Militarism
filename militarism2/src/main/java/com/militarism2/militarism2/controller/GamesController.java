@@ -8,14 +8,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.militarism2.militarism2.mvc.games.entity.CountryModel;
 import com.militarism2.militarism2.mvc.games.service.CountrySeviceImp;
 //import com.militarism2.militarism2.mvc.games.service.GameServiceImp;
+import com.militarism2.militarism2.mvc.games.service.GameServiceImp;
 
 @Controller
 public class GamesController {
 
-	//@Autowired(required=true)
-	//private GameServiceImp item;
+	@Autowired
+	private GameServiceImp gameServiceImp;
 	
 	@Autowired
 	private CountrySeviceImp countryTable;
@@ -24,7 +26,7 @@ public class GamesController {
 	@RequestMapping(value = "/country", method = RequestMethod.GET)
 	public String country(Model model)
 	{	
-		countryTable.addCountry("test");
+		countryTable.addCountry(new CountryModel("test"));
 		return "country";		
 	}
 	

@@ -1,5 +1,7 @@
 package com.militarism2.militarism2.mvc.games.repositary;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
@@ -10,5 +12,5 @@ import com.militarism2.militarism2.mvc.games.entity.GameModel;
  * */
 public interface GameRepository extends JpaRepository<GameModel, Long>{
 	
-	GameModel findOneByName(String name);
+	Optional<GameModel> findByName(String name);
 }

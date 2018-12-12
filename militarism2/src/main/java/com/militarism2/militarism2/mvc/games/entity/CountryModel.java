@@ -19,6 +19,12 @@ public class CountryModel {
 	
 	@Column(name = "Name", nullable = false, unique = false)
 	String name;
+	
+	
+
+	public CountryModel(String name) {
+		this.name = name;
+	}
 
 	public long getId() {
 		return id;

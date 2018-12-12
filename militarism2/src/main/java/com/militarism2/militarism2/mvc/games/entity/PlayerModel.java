@@ -17,7 +17,7 @@ import com.militarism2.militarism2.model.User;
 
 
 
-/*
+/**
  * 
  *Модель представления стран конфликта за которые играет 
  *пользователь, нужен для модели GameModel.

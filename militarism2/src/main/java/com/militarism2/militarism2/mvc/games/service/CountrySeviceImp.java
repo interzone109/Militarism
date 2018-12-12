@@ -7,21 +7,20 @@ import com.militarism2.militarism2.mvc.games.repositary.CountryRepository;
 
 public class CountrySeviceImp implements CountryService {
 	
-	@Autowired(required=true)
-	CountryRepository repo;
+	@Autowired()
+	CountryRepository countryRepository;
 	
 	@Override
-	public CountryModel findOneByName(String name) {
-		return repo.findOneByName(name);
+	public CountryModel findByName(String name) {
+		return countryRepository.findByName(name).get();
 	
 	}
 
 	@Override
-	public boolean addCountry(String name) {
-		CountryModel country=new CountryModel();
-		country.setName(name);
-		repo.save(country);
-		// TODO Auto-generated method stub
+	public boolean addCountry(CountryModel name) {
+		
+		countryRepository.save(name);
+		
 		return true;
 	}
 
