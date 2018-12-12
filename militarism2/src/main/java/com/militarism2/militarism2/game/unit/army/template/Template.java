@@ -3,6 +3,8 @@ package com.militarism2.militarism2.game.unit.army.template;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,6 +26,7 @@ public class Template {
 	@Column(name = "available_round")
 	private int availableRound;
 	private int cost ;
+	@Enumerated(EnumType.ORDINAL) 
 	private ArmyType armyType;
 	// ArmyData
 	@Column(name = "name", nullable = false, updatable = false, unique = true)
