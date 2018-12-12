@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.militarism2.militarism2.mvc.games.entity.CountryModel;
 import com.militarism2.militarism2.mvc.games.service.CountrySeviceImp;
-//import com.militarism2.militarism2.mvc.games.service.GameServiceImp;
 import com.militarism2.militarism2.mvc.games.service.GameServiceImp;
 
 @Controller
@@ -20,13 +19,13 @@ public class GamesController {
 	private GameServiceImp gameServiceImp;
 	
 	@Autowired
-	private CountrySeviceImp countryTable;
+	private CountrySeviceImp countrySeviceImp;
 	
 
 	@RequestMapping(value = "/country", method = RequestMethod.GET)
 	public String country(Model model)
 	{	
-		countryTable.addCountry(new CountryModel("test"));
+		countrySeviceImp.addCountry(new CountryModel("test"));
 		return "country";		
 	}
 	

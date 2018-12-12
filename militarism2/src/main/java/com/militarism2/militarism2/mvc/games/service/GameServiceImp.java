@@ -13,39 +13,44 @@ import com.militarism2.militarism2.mvc.games.entity.GameModel;
 import com.militarism2.militarism2.mvc.games.repositary.GameRepository;
 
 /**
- * FIXME: тут реализуй все методы из интерфейса GameService используя интерфейс GameRepositary
- * */
+ * FIXME: тут реализуй все методы из интерфейса GameService используя интерфейс
+ * GameRepositary
+ */
 @Service
 public class GameServiceImp implements GameService {
 
+	private GameRepository gameRepository;
+
 	@Autowired
-	private GameRepository repo;
-	
-	public void createGame(String name,String gameStatus,long turnPeriod,Date start)
-	{
-		GameModel game=new GameModel();
-		//дописать
-		game.setName(name);
-		game.setStartDate(start);
-		game.setRound((short)0);
-		game.setTurnPeriod(turnPeriod);
-		game.setGameStatus(gameStatus);
-		repo.save(game);
+	public GameServiceImp(GameRepository gameRepository) {
+		this.gameRepository = gameRepository;
 	}
 
+	
+	
+	// тут не должно быть этого медота , если хочешь тестить вынеси все в другой
+	// класс
+	public void createGame(String name, String gameStatus, long turnPeriod, Date start) {
+		GameModel game = new GameModel();
+		// дописать
+		game.setName(name);
+		game.setStartTime(start);
+		game.setRound((short) 0);
+		game.setTurnPeriod(turnPeriod);
+		game.setGameStatus(gameStatus);
+		gameRepository.save(game);
+	}
 
 	public Collection<GameModel> getAllGames() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
 	public boolean regUserInGame(User user, long gameId) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	
 	public boolean exitUserFromGame(User user, long gameId) {
 		// TODO Auto-generated method stub
 		return false;
@@ -55,20 +60,14 @@ public class GameServiceImp implements GameService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
 
-	/*public GameTableService(String name,int maxUsers,ArrayList<String> countries)
-	{
-		this.name=name;
-		this.maxUsersInGame=maxUsers;
-		countRegUsers=0;
-		countrySlotList=countries;
-		usersNameReg=new ArrayList<String>();
-		
-		
-	}*/
-	
-	
-
+	/*
+	 * public GameTableService(String name,int maxUsers,ArrayList<String> countries)
+	 * { this.name=name; this.maxUsersInGame=maxUsers; countRegUsers=0;
+	 * countrySlotList=countries; usersNameReg=new ArrayList<String>();
+	 * 
+	 * 
+	 * }
+	 */
 
 }

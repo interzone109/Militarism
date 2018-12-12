@@ -23,6 +23,12 @@ import com.militarism2.militarism2.model.User;
  *пользователь, нужен для модели GameModel.
  * */
 
+/**
+ * FIXME: переименуй этот класс в PlayerEntity
+ * Имя класса CountryModel тут не подходит оконтчание модель относить к MVC 
+ * в твоем случает ето энтити и класс должен называться PlayerEntity
+ * */
+
 @Entity
 @Table(name = "Players_in_Game")
 public class PlayerModel {

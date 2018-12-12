@@ -2,15 +2,19 @@ package com.militarism2.militarism2.mvc.games.entity;
 
 import javax.persistence.*;
 
+import lombok.Data;
 
 import java.sql.Date;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
+/**
+ * FIXME: переименуй этот класс в GameEntity
+ * Имя класса CountryModel тут не подходит оконтчание модель относить к MVC 
+ * в твоем случает ето энтити и класс должен называться GameEntity
+ * */
 
 @Entity
 @Table(name = "Games")
+@Data
 public class GameModel {
 	
 	@Id
@@ -54,60 +58,7 @@ public class GameModel {
     @Column(name = "Name", nullable = false)
     private String name;
     
-    public Date getStartTime() {
-		return startTime;
-	}
-    
-    public void setStartDate(Date startTime) {
-		this.startTime=startTime;
-	}
-    public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public short getRound() {
-		return round;
-	}
-
-	public void setRound(short round) {
-		this.round = round;
-	}
-
-	public List<PlayerModel> getPlayers() {
-		return players;
-	}
-
-	public void setPlayers(List<PlayerModel> players) {
-		this.players = players;
-	}
-
-	public String getGameStatus() {
-		return gameStatus;
-	}
-
-	public void setGameStatus(String gameStatus) {
-		this.gameStatus = gameStatus;
-	}
-
-	public long getTurnPeriod() {
-		return turnPeriod;
-	}
-
-	public void setTurnPeriod(long turnPeriod) {
-		this.turnPeriod = turnPeriod;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
+   
 
 
     //private String name;

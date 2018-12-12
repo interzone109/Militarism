@@ -10,6 +10,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * FIXME: переименуй этот класс в ScenariEntity
+ * Имя класса CountryModel тут не подходит оконтчание модель относить к MVC 
+ * в твоем случает ето энтити и класс должен называться ScenariEntity
+ * */
+
 @Entity
 @Table(name = "Scenarios")
 public class ScenarioModel {
