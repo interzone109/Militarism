@@ -43,14 +43,29 @@ public class TemplateServiceImpl implements TemplateService {
 		return templateRepository.findByArmyType(armyType);
 	}
 
-	public Template createNewTempalte(TempalteModel t) {
+	public List<Template> findAll() {
+		return templateRepository.findAll();
+	}
+	
+	
+	public boolean createNewTempalte(TempalteModel t) {
+		Optional<Template> optional =findByName(t.getName());
+		if(optional.isPresent()){
+			return false ;
+		}
+	else {
 		Template template = new Template(t.getAvailableRound(), t.getCost(), t.getArmyType(),
 				t.getName(), t.getCountry(), t.getDamage(),
 				t.getDamageRange(), t.getShotRange(), 
 				t.getQuantityStuff(), t.getQuantityUnits(), t.getDefense(),
 				1, t.getSpeed(), t.getStealth(), t.getVisibility());
-
+		
 		templateRepository.save(template);
-		return template;
+		return true;
+	}
+	}
+
+	public Template findById(Long id) {
+		return templateRepository.findById(id).get();
 	}
 }

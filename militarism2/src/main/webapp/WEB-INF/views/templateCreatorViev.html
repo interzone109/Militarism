@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-   <head>
-      <meta charset="UTF-8" />
-      <title>Template Creator</title>      
-   </head>
-   <body>
-    <th:block th:include="/menu"></th:block>  
-   <h1>Template Creator Viev</h1> 
-   </body>
+<head>
+<meta charset="UTF-8" />
+<title>Template Creator</title>
+</head>
+<body>
+	<th:block th:include="/menu"></th:block>
+	<table class="table">
+		<tr>
+			<td th:text="'Name '+${tempalteModel.name}"></td>
+			<td th:text="'Country '+${tempalteModel.country}"></td>
+			<td th:text="'Army type '+ ${tempalteModel.armyType}"></td>
+		</tr>
+		<tr>
+			<td th:text="'Available Round ' + ${tempalteModel.availableRound}  "></td>
+			<td th:text="'Cost ' + ${tempalteModel.cost} "></td>
+		</tr>
+		<tr>
+			<td th:text="'Damage ' + ${tempalteModel.damage}  "></td>
+			<td th:text="'Damage range ' + ${tempalteModel.damageRange} "></td>
+			<td th:text="'Shot range ' + ${tempalteModel.shotRange}  "></td>
+		</tr>
+		<tr>
+			<td th:text="'Quantity stuff ' + ${tempalteModel.quantityStuff} "></td>
+			<td th:text="'Quantity units ' + ${tempalteModel.quantityUnits}  "></td>
+			<td th:text="'Defense ' + ${tempalteModel.defense} "></td>
+		</tr>
+		<tr>
+			<td th:text="'Speed ' + ${tempalteModel.speed}  "></td>
+			<td th:text="'Stealth ' + ${tempalteModel.stealth}  "></td>
+			<td th:text="'Visibility range ' + ${tempalteModel.visibility}  "></td>
+		</tr>
+	</table>
+</body>
 </html>
