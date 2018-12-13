@@ -8,6 +8,9 @@
 	<th:block th:include="/menu"></th:block>
 	<h1>Template List</h1>
 
+<input id="myInput" type="text" placeholder="Search..">
+	<br><br>
+
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -19,7 +22,7 @@
 			   <tr>
 					<td><a th:href="@{/templateCreatorViev(id=${template.id})}">
 					<em th:text="${template.name}"></em></a></td>
-				
+					<td th:text="${template.country}"></td>
 					<td th:text="${template.cost}"></td>
 			  </tr>
 			</th:block>
@@ -27,7 +30,19 @@
 	</table>
 
 
-	<script type="text/javascript">
+ <script type="text/javascript">
+	$(document).ready(function(){
+	  $("#myInput").on("keyup", function() {
+	    var value = $(this).val().toLowerCase();
+	    $("#myTable tr").filter(function() {
+	      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	    });
+	  });
+	});
+</script> 
+
+
+<!-- 	<script type="text/javascript">
 		$.fn.pageMe = function(opts) {
 			var $this = this, defaults = {
 				perPage : 7,
@@ -140,6 +155,6 @@
 
 		});
 	</script>
-
+ -->
 </body>
 </html>
