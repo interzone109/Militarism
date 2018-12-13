@@ -10,21 +10,21 @@ import lombok.Data;
  * */
 @Data
 public class TempalteModel {
-	private int availableRound;
-	private int cost ;
-	private ArmyType armyType;
+	private int availableRound;//
+	private int cost ;//
+	private ArmyType armyType;//
 	// ArmyData
-	private String name;
-	private String country;
+	private String name;//
+	private String country;//
 	//Damage
-	private int damage;
-	private int damageRange;
-	private int shotRange;
+	private int damage;//
+	private int damageRange;//
+	private int shotRange;//
 	//Formation
-	private int quantityStuff;
-	private int quantityUnits;
-	private int defense;
-	private int expirience;
+	private int quantityStuff;//
+	private int quantityUnits;//
+	private int defense;//
+	private int expirience;//--
 	//Position
 	private int speed;
 	private int stealth;
