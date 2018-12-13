@@ -5,12 +5,13 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-import com.militarism2.militarism2.mvc.games.entity.GameModel;
+import com.militarism2.militarism2.mvc.games.entity.GameEntity;
+
 /*
- * FIXME: опиши тут методы для получения сущности Game
- * 
+ * @author Dima
  * */
-public interface GameRepository extends JpaRepository<GameModel, Long>{
+
+public interface GameRepository extends JpaRepository<GameEntity, Long>{
 	
-	Optional<GameModel> findByName(String name);
+	Optional<GameEntity> findByName(String name);
 }

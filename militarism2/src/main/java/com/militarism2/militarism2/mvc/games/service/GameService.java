@@ -4,19 +4,18 @@ import java.util.Collection;
 import java.util.Optional;
 
 import com.militarism2.militarism2.model.User;
-import com.militarism2.militarism2.mvc.games.entity.GameModel;
+import com.militarism2.militarism2.mvc.games.entity.GameEntity;
 
-/**
- * FIXME: продублируй сюда методы из класса GameRepositary
- * 
+/*
+ * @author Dima
  * */
 public interface GameService {
 	
-	Collection <GameModel> getAllGames();
+	Collection <GameEntity> getAllGames();
 	
 	boolean regUserInGame(User user,long gameId);
 	
 	boolean exitUserFromGame(User user,long gameId);
 	
-	Optional<GameModel> getUserGamesList(User user);
+	Optional<GameEntity> getUserGamesList(User user);
 }

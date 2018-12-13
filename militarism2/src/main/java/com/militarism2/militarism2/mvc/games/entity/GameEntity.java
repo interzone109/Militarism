@@ -6,16 +6,14 @@ import lombok.Data;
 
 import java.sql.Date;
 import java.util.List;
-/**
- * FIXME: переименуй этот класс в GameEntity
- * Имя класса CountryModel тут не подходит оконтчание модель относить к MVC 
- * в твоем случает ето энтити и класс должен называться GameEntity
- * */
 
+/*
+ * @author Dima
+ * */
 @Entity
 @Table(name = "Games")
 @Data
-public class GameModel {
+public class GameEntity {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +29,7 @@ public class GameModel {
     
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="Scenario_Id")
-    private ScenarioModel scenario;
+    private ScenarioEntity scenario;
 
     //номер текущего начало игры
     @Column(name = "Start_Time", nullable = false, unique = false)
@@ -43,9 +41,82 @@ public class GameModel {
        //     mappedBy = "game")
     //private Set<PlayerModel> players = new HashSet<>();
     @OneToMany(mappedBy = "game")
-    private List<PlayerModel> players;
+    private List<PlayerEntity> players;
 
-    //gameData
+    public GameEntity()
+    {
+    	
+    }
+    
+    public int getUserCount() {
+		return userCount;
+	}
+
+	public void setUserCount(int userCount) {
+		this.userCount = userCount;
+	}
+
+	public short getRound() {
+		return round;
+	}
+
+	public void setRound(short round) {
+		this.round = round;
+	}
+
+	public ScenarioEntity getScenario() {
+		return scenario;
+	}
+
+	public void setScenario(ScenarioEntity scenario) {
+		this.scenario = scenario;
+	}
+
+	public Date getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(Date startTime) {
+		this.startTime = startTime;
+	}
+
+	public List<PlayerEntity> getPlayers() {
+		return players;
+	}
+
+	public void setPlayers(List<PlayerEntity> players) {
+		this.players = players;
+	}
+
+	public String getGameStatus() {
+		return gameStatus;
+	}
+
+	public void setGameStatus(String gameStatus) {
+		this.gameStatus = gameStatus;
+	}
+
+	public long getTurnPeriod() {
+		return turnPeriod;
+	}
+
+	public void setTurnPeriod(long turnPeriod) {
+		this.turnPeriod = turnPeriod;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	//gameData
 	//Статус игры
     @Column(name = "Status", nullable = false, unique = false)
     private String gameStatus;
@@ -61,12 +132,6 @@ public class GameModel {
    
 
 
-    //private String name;
-    
-    /**FIXME: 4) тут должно быть  поле Scenario - оно будет связывать игру со сценарием 
-    * в которо будут храниться количество стран-участников (это и будет maxUser)и класс GameMap в котором и будет карта.
-    * связ класса Game и класса Scenario можешь сделать один к одному одна игра имеет один сценарий
-    */
     
 
 

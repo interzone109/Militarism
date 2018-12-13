@@ -2,10 +2,14 @@ package com.militarism2.militarism2.mvc.games.service;
 
 
 
-import com.militarism2.militarism2.mvc.games.entity.CountryModel;
+import com.militarism2.militarism2.mvc.games.entity.CountryEntity;
+
+/*
+ * @author Dima
+ * */
 
 public interface CountryService {
 	
-	CountryModel findOneByName(String name);
+	CountryEntity findOneByName(String name);
 	
 }

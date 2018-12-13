@@ -3,10 +3,14 @@ package com.militarism2.militarism2.mvc.games.repositary;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.militarism2.militarism2.mvc.games.entity.CountryModel;
+import com.militarism2.militarism2.mvc.games.entity.CountryEntity;
 
-public interface CountryRepository extends JpaRepository<CountryModel, Long> {
 
-	CountryModel findOneByName(String name);
+/*
+ * @author Dima
+ * */
+public interface CountryRepository extends JpaRepository<CountryEntity, Long> {
+
+	CountryEntity findOneByName(String name);
 
 }

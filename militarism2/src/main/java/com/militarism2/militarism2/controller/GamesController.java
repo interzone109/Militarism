@@ -8,9 +8,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.militarism2.militarism2.mvc.games.entity.CountryModel;
+import com.militarism2.militarism2.mvc.games.entity.CountryEntity;
+import com.militarism2.militarism2.mvc.games.entity.ScenarioEntity;
 import com.militarism2.militarism2.mvc.games.service.CountrySeviceImp;
 import com.militarism2.militarism2.mvc.games.service.GameServiceImp;
+import com.militarism2.militarism2.mvc.games.service.PlayerServiceImp;
+import com.militarism2.militarism2.mvc.games.service.ScenarioServiceImp;
+
+/*
+ * @author Dima
+ * */
 
 @Controller
 public class GamesController {
@@ -18,20 +25,41 @@ public class GamesController {
 	@Autowired
 	private GameServiceImp gameServiceImp;
 	
+	
 	@Autowired
 	private CountrySeviceImp countrySeviceImp;
 	
+	@Autowired
+	private ScenarioServiceImp scenarioSeviceImp;
+	
+	@Autowired
+	private PlayerServiceImp playerSeviceImp;
 
 	@RequestMapping(value = "/country", method = RequestMethod.GET)
 	public String country(Model model)
 	{	
-		countrySeviceImp.addCountry(new CountryModel("test"));
+		//countrySeviceImp.addCountry(new CountryEntity("German Empire"));
+		//countrySeviceImp.addCountry(new CountryEntity("Russia"));
+		//countrySeviceImp.addCountry(new CountryEntity("France"));
+		//countrySeviceImp.addCountry(new CountryEntity("British Empire"));
+		//model.addAttribute("country", countrySeviceImp.findOneByName("USSR").getName());
+		ScenarioEntity sc=scenarioSeviceImp.findOneByName("World War 2");
+	
+		
+		sc.setCountry(countrySeviceImp.findOneByName("USSR"));
+		
+		//sc.setName("World War 3");
+		//sc.setCountries(countrySeviceImp.getAllCountries());
+		
+		scenarioSeviceImp.addScenario(sc);
+		
+		//model.addAttribute("country", scenarioSeviceImp.findOneByName("World War 3").getName());
 		return "country";		
 	}
 	
-	// FIXME: Тут данные должны браться из GameServiceImpl и передоваться в модель в виде списка
+
 	@RequestMapping(value = "/games", method = RequestMethod.GET)
-    public String gam(Model model) {  
+    public String games(Model model) {  
 		
 		//item.createGame("Test Game", ,);
 		ArrayList<String> arr =new ArrayList<>();

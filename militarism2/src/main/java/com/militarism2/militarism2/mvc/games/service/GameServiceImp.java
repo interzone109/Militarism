@@ -9,13 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.militarism2.militarism2.model.User;
-import com.militarism2.militarism2.mvc.games.entity.GameModel;
+import com.militarism2.militarism2.mvc.games.entity.GameEntity;
 import com.militarism2.militarism2.mvc.games.repositary.GameRepository;
 
-/**
- * FIXME: тут реализуй все методы из интерфейса GameService используя интерфейс
- * GameRepositary
- */
+/*
+ * @author Dima
+ * */
 @Service
 public class GameServiceImp implements GameService {
 
@@ -27,21 +26,18 @@ public class GameServiceImp implements GameService {
 	}
 
 	
-	
-	// тут не должно быть этого медота , если хочешь тестить вынеси все в другой
-	// класс
 	public void createGame(String name, String gameStatus, long turnPeriod, Date start) {
-		GameModel game = new GameModel();
+		GameEntity game = new GameEntity();
 		// дописать
-		game.setName(name);
-		game.setStartTime(start);
-		game.setRound((short) 0);
-		game.setTurnPeriod(turnPeriod);
-		game.setGameStatus(gameStatus);
+		//game.setName(name);
+		//game.setStartTime(start);
+		//game.setRound((short) 0);
+		//game.setTurnPeriod(turnPeriod);
+		//game.setGameStatus(gameStatus);
 		gameRepository.save(game);
 	}
 
-	public Collection<GameModel> getAllGames() {
+	public Collection<GameEntity> getAllGames() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -56,7 +52,7 @@ public class GameServiceImp implements GameService {
 		return false;
 	}
 
-	public Optional<GameModel> getUserGamesList(User user) {
+	public Optional<GameEntity> getUserGamesList(User user) {
 		// TODO Auto-generated method stub
 		return null;
 	}

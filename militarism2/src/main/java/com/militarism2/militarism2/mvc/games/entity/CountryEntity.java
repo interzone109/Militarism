@@ -8,28 +8,39 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
-/**
- * FIXME: переименуй этот класс в CountryEntity
- * Имя класса CountryModel тут не подходит оконтчание модель относить к MVC 
- * в твоем случает ето энтити и класс должен называться CountryEntity
- * */
 
+/*
+ * @author Dima
+ * */
 @Entity
 @Table(name = "Countries")
 @Data // эта анотация заменила все твои гетеры и сетеры
-public class CountryModel {
+public class CountryEntity {
 	
 	
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}	
+
+
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Country_Id", nullable = false, updatable = false, unique = true)
 	long id;
-	// FIXME: unique = false - у нас что в таблице будут храниться страны с одинаковым названием ? зачем ? 
-	@Column(name = "Name", nullable = false, unique = false)
+
+	@Column(name = "Name", nullable = false, unique = true)
 	String name;
 	
 	
-	public CountryModel(String name){
+	public CountryEntity(String name){
 		this.name=name ;
+	}
+	public CountryEntity(){
+		
 	}
 }
