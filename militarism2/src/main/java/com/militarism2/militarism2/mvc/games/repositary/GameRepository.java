@@ -13,5 +13,5 @@ import com.militarism2.militarism2.mvc.games.entity.GameEntity;
 
 public interface GameRepository extends JpaRepository<GameEntity, Long>{
 	
-	Optional<GameEntity> findByName(String name);
+	GameEntity findByName(String name);
 }

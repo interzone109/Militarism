@@ -1,6 +1,12 @@
 package com.militarism2.militarism2.controller;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.militarism2.militarism2.mvc.games.entity.CountryEntity;
+import com.militarism2.militarism2.mvc.games.entity.GameEntity;
 import com.militarism2.militarism2.mvc.games.entity.ScenarioEntity;
 import com.militarism2.militarism2.mvc.games.service.CountrySeviceImp;
 import com.militarism2.militarism2.mvc.games.service.GameServiceImp;
@@ -35,25 +42,51 @@ public class GamesController {
 	@Autowired
 	private PlayerServiceImp playerSeviceImp;
 
+	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "/country", method = RequestMethod.GET)
-	public String country(Model model)
+	public String country(Model model) throws ParseException
 	{	
 		//countrySeviceImp.addCountry(new CountryEntity("German Empire"));
 		//countrySeviceImp.addCountry(new CountryEntity("Russia"));
 		//countrySeviceImp.addCountry(new CountryEntity("France"));
 		//countrySeviceImp.addCountry(new CountryEntity("British Empire"));
 		//model.addAttribute("country", countrySeviceImp.findOneByName("USSR").getName());
-		ScenarioEntity sc=scenarioSeviceImp.findOneByName("World War 2");
+		//ScenarioEntity sc=scenarioSeviceImp.findOneByName("World War 1");
+		
+		/*GameEntity game =new GameEntity();
+		game.setGameStatus("Wait Players");
+		game.setName("Operation Alacrity");
+		game.setRound((short)0);
+		game.setScenario(scenarioSeviceImp.findOneByName("World War 1"));
+		
+		
 	
+		//сегодняшнее время плюс 7 дней
+		long timeNow=Calendar.getInstance().get(Calendar.MILLISECOND);
+		Date date=new Date(timeNow+(1000*60*60*24*7));
+		game.setStartTime(date);
+		game.setTurnPeriod(1000*60*60*24);
 		
-		sc.setCountry(countrySeviceImp.findOneByName("USSR"));
+		gameServiceImp.createGame(game);
+		*/
 		
-		//sc.setName("World War 3");
+		//date.setTime();
+		//game.setStartTime(date);
+		//sc.setCountries(countrySeviceImp.getAllCountries());
+		//countrySeviceImp.addCountry(new CountryEntity("USSR"));
+		
 		//sc.setCountries(countrySeviceImp.getAllCountries());
 		
-		scenarioSeviceImp.addScenario(sc);
+		//sc.setName("World War 1");
+		//sc.setCountries(countrySeviceImp.getAllCountries());
 		
-		//model.addAttribute("country", scenarioSeviceImp.findOneByName("World War 3").getName());
+		//scenarioSeviceImp.addScenario(sc);
+		//countrySeviceImp.deleteAll();
+		//model.addAttribute("country", scenarioSeviceImp.findOneByName("World War 1").getName());
+		//model.addAttribute("country", countrySeviceImp.findOneByName("Russia").getName());
+		//model.addAttribute("country", sc.getCountries().get(0).getName());
+		
+		model.addAttribute("country",gameServiceImp.findByName("Operation Alacrity").getGameStatus());
 		return "country";		
 	}
 	

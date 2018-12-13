@@ -41,39 +41,62 @@ public class ScenarioEntity {
 		
 	}
 	
+	
+
+	@OneToMany
+	@JoinColumn(name = "")
+    private List<CountryEntity> countries;
+
 	public String getName() {
 		return name;
 	}
+
+
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
+
+
+	public String getColor() {
+		return color;
+	}
+
+
+
 	public void setColor(String color) {
 		this.color = color;
 	}
+
+
+
 	public List<GameEntity> getGames() {
 		return games;
 	}
+
+
 
 	public void setGames(List<GameEntity> games) {
 		this.games = games;
 	}
 
+
+
 	public List<CountryEntity> getCountries() {
 		return countries;
 	}
 
-	public void setCountry(CountryEntity countries) {
-		this.countries.add(countries);
+
+
+	public void setCountries(List<CountryEntity> countries) {
+		this.countries = countries;
 	}
 
-	public long getId() {
-		return id;
-	}
 
-	@OneToMany
-	@JoinColumn(name = "Country_Id")
-    private List<CountryEntity> countries;
+
+
+	
+	
 	
 }

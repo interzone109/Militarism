@@ -35,6 +35,12 @@ public class CountrySeviceImp implements CountryService {
 		return countryRepository.findAll();
 	}
 	
+	public boolean deleteAll()
+	{
+		countryRepository.deleteAll();
+		return true;
+	}
+	
 	public boolean addCountry(CountryEntity name) {
 		
 		countryRepository.save(name);

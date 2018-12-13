@@ -48,7 +48,21 @@ public class GameEntity {
     	
     }
     
-    public int getUserCount() {
+
+	//gameData
+	//Статус игры
+    @Column(name = "Status", nullable = false, unique = false)
+    private String gameStatus;
+    
+
+    //время для одного хода
+    @Column(name = "Periodic", nullable = false, unique = false)
+    private long turnPeriod;
+    
+    @Column(name = "Name", nullable = false)
+    private String name;
+
+	public int getUserCount() {
 		return userCount;
 	}
 
@@ -111,27 +125,6 @@ public class GameEntity {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public Long getId() {
-		return id;
-	}
-
-	//gameData
-	//Статус игры
-    @Column(name = "Status", nullable = false, unique = false)
-    private String gameStatus;
-    
-
-    //время для одного хода
-    @Column(name = "Periodic", nullable = false, unique = false)
-    private long turnPeriod;
-    
-    @Column(name = "Name", nullable = false)
-    private String name;
-    
-   
-
-
     
 
 

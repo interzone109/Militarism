@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.militarism2.militarism2.model.User;
+import com.militarism2.militarism2.mvc.games.entity.CountryEntity;
 import com.militarism2.militarism2.mvc.games.entity.GameEntity;
 import com.militarism2.militarism2.mvc.games.repositary.GameRepository;
 
@@ -25,9 +26,13 @@ public class GameServiceImp implements GameService {
 		this.gameRepository = gameRepository;
 	}
 
+	public GameEntity findByName(String name) {
+		return gameRepository.findByName(name);
+
+	}
 	
-	public void createGame(String name, String gameStatus, long turnPeriod, Date start) {
-		GameEntity game = new GameEntity();
+	public void createGame(GameEntity game) {
+		//GameEntity game = new GameEntity();
 		// дописать
 		//game.setName(name);
 		//game.setStartTime(start);
@@ -39,7 +44,7 @@ public class GameServiceImp implements GameService {
 
 	public Collection<GameEntity> getAllGames() {
 		// TODO Auto-generated method stub
-		return null;
+		return gameRepository.findAll();
 	}
 
 	public boolean regUserInGame(User user, long gameId) {

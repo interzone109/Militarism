@@ -28,6 +28,8 @@ public class ScenarioServiceImp implements ScenarioService {
 	public boolean addScenario(ScenarioEntity scenario)
 	{
 		scenario.setColor("Red");
+		//scenario.setName("lol");
+		
 		repo.save(scenario);
 		return true;
 	}
