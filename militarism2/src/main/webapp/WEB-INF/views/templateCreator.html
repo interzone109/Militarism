@@ -19,10 +19,10 @@
                <td><input type="text" th:field="*{country}" /></td>
                <td>Template type</td>
                <td>
-				<select>
+				 <select>
  				 <option th:each="armyType : ${T(com.militarism2.militarism2.game.unit.type.ArmyType).values()}" 
- 				 th:value="${armyType}" th:text="${armyType.displayName}"></option>
-				</select> 
+ 				 th:value="${armyType}" th:text="${armyType}"></option>
+				</select>  
               </td>
             </tr>
          </table>

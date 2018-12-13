@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.militarism2.militarism2.game.unit.service.TemplateServiceImpl;
+import com.militarism2.militarism2.game.unit.type.ArmyType;
 import com.militarism2.militarism2.mvc.model.TempalteModel;
 
 @Controller
