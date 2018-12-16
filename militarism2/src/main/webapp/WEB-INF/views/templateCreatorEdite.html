@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-   <head>
-      <meta charset="UTF-8" />
-      <title>Template Creator</title>      
-   </head>
-   <body>
-    <th:block th:include="/menu"></th:block>  
-   <h1>Template Creator</h1> 
-      <div th:if="${errorMessage != null}"
-           th:utext="${errorMessage}" class="error">...</div>
-   
-    <form th:action="@{/templateCreator}" th:object="${tempalteModel}" method="POST">
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<th:block th:include="/menu"></th:block>
+<h1>Template Creator</h1>
+<div th:if="${errorMessage != null}" th:utext="${errorMessage}"
+	class="error">...</div>
+
+
+ <form th:action="@{/templateEditor}" th:object="${templateModel}" method="POST">
          <table class="table">
-            <tr>
+         <tr>
                <td>Template Name</td>
-               <td><input type="text" th:field="*{name}" /></td>
+               <td><input type="text"  disabled="disabled" th:value="${templateModel.name}"  
+               th:field="*{name}"   /></td>
                <td>Template country</td>
-               <td><input type="text" th:field="*{country}" /></td>
+               <td><input type="text"   disabled="disabled" th:value="${templateModel.country}" th:field="*{country}"  name="country"/></td>
                <td>Template type</td>
-               <td>
-				 <select id="armyTypeId" th:field="*{armyType}">
+               <!-- <td>
+				 <select id="armyTypeId"   disabled="disabled" th:value="${templateModel.armyType}" >
  				 <option th:each="armyType : ${T(com.militarism2.militarism2.game.unit.type.ArmyType).values()}" 
  				 th:value="${armyType}" th:text="${armyType}" ></option>
-				</select>  
-				</td>
+				</select> 
+				</td>  -->
              </tr>
+         
             <tr>
                <td>Available Round</td>
                <td><input type="text" th:field="*{availableRound}" /></td>
@@ -58,12 +61,12 @@
              <tr>
                <td>&nbsp;</td>
                <td>
-                  <input type="submit" value="Create template" />
+                  <input type="submit" value="Update template" />
                </td>
                <td>&nbsp;</td>
             </tr>
          </table>
-      </form>
-   
-   </body>
+      </form> 
+
+</body>
 </html>

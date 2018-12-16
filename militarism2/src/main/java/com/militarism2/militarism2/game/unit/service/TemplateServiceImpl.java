@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.militarism2.militarism2.game.unit.army.template.Template;
 import com.militarism2.militarism2.game.unit.repository.TemplateRepository;
 import com.militarism2.militarism2.game.unit.type.ArmyType;
-import com.militarism2.militarism2.mvc.model.TempalteModel;
+import com.militarism2.militarism2.mvc.model.TemplateModel;
 
 @Service
 public class TemplateServiceImpl implements TemplateService {
@@ -47,25 +47,32 @@ public class TemplateServiceImpl implements TemplateService {
 		return templateRepository.findAll();
 	}
 	
-	
-	public boolean createNewTempalte(TempalteModel t) {
+	@SuppressWarnings("static-access")
+	public Optional<Template> createNewTempalte(TemplateModel t) {
 		Optional<Template> optional =findByName(t.getName());
 		if(optional.isPresent()){
-			return false ;
+			return optional.of(new Template()) ;
 		}
-	else {
-		Template template = new Template(t.getAvailableRound(), t.getCost(), t.getArmyType(),
-				t.getName(), t.getCountry(), t.getDamage(),
-				t.getDamageRange(), t.getShotRange(), 
-				t.getQuantityStuff(), t.getQuantityUnits(), t.getDefense(),
-				1, t.getSpeed(), t.getStealth(), t.getVisibility());
+		else { 
+			Template template = new Template(t.getAvailableRound(), t.getCost(), t.getArmyType(),
+					t.getName(), t.getCountry(), t.getDamage(),
+					t.getDamageRange(), t.getShotRange(), 
+					t.getQuantityStuff(), t.getQuantityUnits(), t.getDefense(),
+					1, t.getSpeed(), t.getStealth(), t.getVisibility());
+			
+			templateRepository.save(template);
+			return optional.of(template) ;
+		}
 		
-		templateRepository.save(template);
-		return true;
 	}
-	}
+	
 
 	public Template findById(Long id) {
 		return templateRepository.findById(id).get();
 	}
+	
+	public void update(Template template) {
+		templateRepository.save(template);
+	}
+	
 }

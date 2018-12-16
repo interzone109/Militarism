@@ -1,5 +1,6 @@
 package com.militarism2.militarism2.mvc.model;
 
+import com.militarism2.militarism2.game.unit.army.template.Template;
 import com.militarism2.militarism2.game.unit.type.ArmyType;
 
 import lombok.Data;
@@ -9,7 +10,8 @@ import lombok.Data;
  * модель для класса Template
  * */
 @Data
-public class TempalteModel {
+public class TemplateModel {
+
 	private int availableRound;//
 	private int cost ;//
 	private ArmyType armyType;//
