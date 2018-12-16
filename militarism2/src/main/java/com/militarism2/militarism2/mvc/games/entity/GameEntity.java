@@ -2,9 +2,13 @@ package com.militarism2.militarism2.mvc.games.entity;
 
 import javax.persistence.*;
 
+import com.militarism2.militarism2.scenario.Player;
+
 import lombok.Data;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /*
@@ -20,7 +24,10 @@ public class GameEntity {
     @Column(name = "Game_Id", nullable = false, updatable = false)
     private Long id;
 
-    @Column(name = "user_count", nullable = false)
+	
+   
+
+	@Column(name = "user_count", nullable = false)
     private int userCount;
     
     //номер текущего хода
@@ -62,6 +69,9 @@ public class GameEntity {
     @Column(name = "Name", nullable = false)
     private String name;
 
+    public Long getId() {
+		return id;
+	}
 	public int getUserCount() {
 		return userCount;
 	}
@@ -124,6 +134,16 @@ public class GameEntity {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	public void addPlayer(PlayerEntity player) {
+		/*if(players==null)
+		{
+			players=new ArrayList<PlayerEntity>();
+			
+		}*/
+	
+		players.add(player);
+		
 	}
     
 

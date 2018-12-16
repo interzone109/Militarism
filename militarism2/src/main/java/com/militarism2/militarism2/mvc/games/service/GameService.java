@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import com.militarism2.militarism2.model.User;
 import com.militarism2.militarism2.mvc.games.entity.GameEntity;
+import com.militarism2.militarism2.mvc.games.entity.PlayerEntity;
 
 /*
  * @author Dima
@@ -13,9 +14,9 @@ public interface GameService {
 	
 	Collection <GameEntity> getAllGames();
 	
-	boolean regUserInGame(User user,long gameId);
+	boolean regUserInGame(PlayerEntity player, long gameId);
 	
-	boolean exitUserFromGame(User user,long gameId);
+	boolean exitUserFromGame(PlayerEntity player, long gameId);
 	
-	Optional<GameEntity> getUserGamesList(User user);
+	Collection<GameEntity> getUserGamesList(User user);
 }

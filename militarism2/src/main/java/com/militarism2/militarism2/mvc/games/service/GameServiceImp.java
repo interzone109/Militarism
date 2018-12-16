@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 import com.militarism2.militarism2.model.User;
 import com.militarism2.militarism2.mvc.games.entity.CountryEntity;
 import com.militarism2.militarism2.mvc.games.entity.GameEntity;
+import com.militarism2.militarism2.mvc.games.entity.PlayerEntity;
 import com.militarism2.militarism2.mvc.games.repositary.GameRepository;
+import com.militarism2.militarism2.scenario.Player;
 
 /*
  * @author Dima
@@ -31,6 +33,13 @@ public class GameServiceImp implements GameService {
 
 	}
 	
+	public GameEntity findById(long id) {
+		
+				Optional<GameEntity> a= gameRepository.findById(id);
+				return a.get();
+
+	}
+	
 	public void createGame(GameEntity game) {
 		//GameEntity game = new GameEntity();
 		// дописать
@@ -43,24 +52,33 @@ public class GameServiceImp implements GameService {
 	}
 
 	public Collection<GameEntity> getAllGames() {
-		// TODO Auto-generated method stub
+		
 		return gameRepository.findAll();
 	}
 
-	public boolean regUserInGame(User user, long gameId) {
+	@Override
+	public boolean regUserInGame(PlayerEntity player, long gameId) {
+		Optional<GameEntity> game=gameRepository.findById(gameId);
+		GameEntity currentGame= game.get();
+		player.setGame(currentGame);
+		currentGame.addPlayer(player);
+		gameRepository.save(currentGame);
+		return true;
+	}
+
+	public boolean exitUserFromGame(PlayerEntity player, long gameId) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	public boolean exitUserFromGame(User user, long gameId) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public Optional<GameEntity> getUserGamesList(User user) {
+	public Collection<GameEntity> getUserGamesList(User user) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
+	
+
 
 	/*
 	 * public GameTableService(String name,int maxUsers,ArrayList<String> countries)

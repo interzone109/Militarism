@@ -7,20 +7,32 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.militarism2.militarism2.model.RegPlayerInGame;
+import com.militarism2.militarism2.model.User;
 import com.militarism2.militarism2.mvc.games.entity.CountryEntity;
 import com.militarism2.militarism2.mvc.games.entity.GameEntity;
+import com.militarism2.militarism2.mvc.games.entity.PlayerEntity;
 import com.militarism2.militarism2.mvc.games.entity.ScenarioEntity;
 import com.militarism2.militarism2.mvc.games.service.CountrySeviceImp;
 import com.militarism2.militarism2.mvc.games.service.GameServiceImp;
 import com.militarism2.militarism2.mvc.games.service.PlayerServiceImp;
 import com.militarism2.militarism2.mvc.games.service.ScenarioServiceImp;
+import com.militarism2.militarism2.services.userservice.UserServiceImpl;
 
 /*
  * @author Dima
@@ -31,7 +43,8 @@ public class GamesController {
 
 	@Autowired
 	private GameServiceImp gameServiceImp;
-	
+	@Autowired
+	private UserServiceImpl userServiceImpl;
 	
 	@Autowired
 	private CountrySeviceImp countrySeviceImp;
@@ -53,6 +66,8 @@ public class GamesController {
 		//model.addAttribute("country", countrySeviceImp.findOneByName("USSR").getName());
 		//ScenarioEntity sc=scenarioSeviceImp.findOneByName("World War 1");
 		
+		GameEntity game =new GameEntity();
+	
 		/*GameEntity game =new GameEntity();
 		game.setGameStatus("Wait Players");
 		game.setName("Operation Alacrity");
@@ -86,7 +101,9 @@ public class GamesController {
 		//model.addAttribute("country", countrySeviceImp.findOneByName("Russia").getName());
 		//model.addAttribute("country", sc.getCountries().get(0).getName());
 		
-		model.addAttribute("country",gameServiceImp.findByName("Operation Alacrity").getGameStatus());
+		//model.addAttribute("country",System.currentTimeMillis()/1000);
+		//model.addAttribute("games",gameServiceImp.getAllGames());
+		model.addAttribute("games", gameServiceImp.findById(1).getPlayers());
 		return "country";		
 	}
 	
@@ -94,28 +111,45 @@ public class GamesController {
 	@RequestMapping(value = "/games", method = RequestMethod.GET)
     public String games(Model model) {  
 		
-		//item.createGame("Test Game", ,);
-		ArrayList<String> arr =new ArrayList<>();
-		arr.add("Germany");
-		arr.add("USSR");
-		arr.add("JAPAN");
-		arr.add("USA");
-		
-		//item.setName("TestGame");
-		//item.setCountrySlotList(arr);
-		//item.setMaxUsersInGame(arr.size());
-		//item.setCountRegUsers(0);
-		
-		//gameTables.setName("Руслaн");
-		//model.addAttribute("gameTables", gameTables.getName());
-		//model.addAttribute("Name",item.getName());
-		//model.addAttribute("MaximumUsersInGame",item.getMaxUsersCount());
-		//model.addAttribute("CountUsers",item.getUserCount());
-		//model.addAttribute("Countries",item.getCountriesFreeSlots());
+		model.addAttribute("games",gameServiceImp.getAllGames());
 		
         return "gameList";
     }
+	@GetMapping(value="/games/game{id}")
+	public String showGamebyId(Model model,@RequestParam("id") long id) {  
+		
+		if(gameServiceImp.findById(id)!=null)
+		{
+			GameEntity game=gameServiceImp.findById(id);
+			
+			model.addAttribute("game",game);
+			model.addAttribute("countries",game.getScenario().getCountries());
+		}
+		
+		model.addAttribute("playerReg", new RegPlayerInGame());
+        return "showGameById";
+    }
 	
-	// FIXME: Тут должен быть контролер типа @RequestMapping(value = "/games/game{id}" 
-	// и он должен перенаправлять на страницу с конкретной игрой 
+	@PostMapping("/regPlayer")
+    public String getDataFromForum(@ModelAttribute RegPlayerInGame playerReg){
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String currentPrincipalName = authentication.getName();
+		Optional<User> isUser=userServiceImpl.getUserByName(currentPrincipalName);
+		User currentUser;
+		if(isUser.isPresent())
+		{
+			currentUser=isUser.get();
+			GameEntity game=gameServiceImp.findById(playerReg.getGameId());
+			PlayerEntity player=new PlayerEntity();
+			player.setUser(currentUser);
+			player.setCountryStatus("Registered");
+			player.setName(playerReg.getCountryName());
+			playerSeviceImp.addPlayer(player);
+			gameServiceImp.regUserInGame(player, game.getId());
+		}
+		
+		
+        
+		 return "test";
+    }
 }

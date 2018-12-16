@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+ <th:block th:include="/menu"></th:block>
+<p> Имя игры:<span th:utext="${game.Name}"></span></p>
+<p> Статус игры:<span th:utext="${game.gameStatus}"></span></p>
+<p> Длительность одного хода часов:<span th:utext="${game.turnPeriod/3600000}"></span></p>
+
+
+<h1>Form</h1>
+    <form action="#" th:action="@{/regPlayer}" th:object="${playerReg}" method="post">
+    	<p>Id: <input type="text" th:field="*{gameId}" th:utext="${game.Id}"/></p>
+        
+   		<select class="form-control" th:field="*{countryName}">
+    		<th:block th:each="country : ${countries}">
+     	
+     			<option th:value="${country.name}" th:text="${country.name}"></option>
+   			</th:block>
+    	</select>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>
