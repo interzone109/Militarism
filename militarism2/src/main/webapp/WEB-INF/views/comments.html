@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<title>User Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}" />
+<script th:src="@{/webjars/jquery/3.3.1-1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.min.js}"></script>
+<style type="text/css">
+.block1 {
+	width: 50%;
+	margin: auto;
+}
+
+.span {
+	font-size: 30px;
+}
+.table>tbody .hiddenrow{
+padding: 0 8px;
+}
+</style>
+</head>
+<body>
+	<th:block th:include="/menu"></th:block>
+
+
+
+	<div th:if="${allcomments} != null">
+		<table class="table table-hover">
+			<th:block th:each="comment : ${allcomments}">
+				<tr data-toggle="collapse"
+					th:attr="data-target = '#d' + ${comment.id}">
+<!-- 					изменить поля -->
+<!-- 					<td th:text="${comment.userName}"></td> -->
+					<td>
+    					<span th:if="${comment.ResponceName != null }" th:text="${comment.userName + ' ----> ' +comment.ResponceName}"></span>
+    					<span th:if="${comment.ResponceName == null }" th:text="${comment.userName}"></span>
+    					
+					</td>
+
+					<td th:text="${comment.getDate()}"></td>
+					<td th:text="${comment.getDescription()}"></td>
+<!-- 					<td th:each ="childcomment: ${allcomments.getChildComments()}"/> -->
+				</tr>
+				<tr>
+					<td class="hiddenrow">
+					<div th:id = "'d'+${comment.id}" class= "collapse">
+						<form action="#" th:action="@{/comments}"
+							th:object="${newComment}" method="post">
+							<p>
+								First Field: <input type="text" th:field="*{description}" />
+							</p>
+							<span th:text="${comment.userName}"></span>
+							<p>
+								<input type = "hidden" name = "responceid" th:value = "${comment.id}"/>
+								<input type = "hidden" name = "responcename" th:value = "${comment.userName}"/>
+								<input type="submit" value="Submit" /> <input type="reset"
+									value="Reset" />
+							</p>
+						</form>
+						</div>
+					</td>
+				</tr>
+			</th:block>
+		</table>
+	</div>
+
+	<h1>Form</h1>
+	<form action="#" th:action="@{/comments}" th:object="${newComment}"
+		method="post">
+		<p>
+			First Field: <input type="text" th:field="*{description}" />
+		</p>
+		<p>
+			<input type="submit" value="Submit" /> <input type="reset"
+				value="Reset" />
+		</p>
+	</form>
+
+</body>
+</html>
