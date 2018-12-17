@@ -1,10 +1,12 @@
 package com.militarism2.militarism2.mvc.games.service;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.militarism2.militarism2.model.User;
 import com.militarism2.militarism2.mvc.games.entity.GameEntity;
 import com.militarism2.militarism2.mvc.games.entity.PlayerEntity;
 import com.militarism2.militarism2.mvc.games.repositary.PlayerRepository;
@@ -38,6 +40,12 @@ public class PlayerServiceImp implements PlayerService {
 	public PlayerEntity findOneByName(String name) {
 		
 		return repo.findOneByName(name);
+	}
+	
+	@Override
+	public List<PlayerEntity> findOneByUser(User user) {
+		
+		return repo.findAllByUser(user);
 	}
 
 }

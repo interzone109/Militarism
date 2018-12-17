@@ -33,6 +33,11 @@
 					<li th:if="${#request.userPrincipal != null}"
 						class="nav-item active"><a class="nav-link" href="/userpage"><i
 							class="fa fa-book"></i>User Profile</a></li>
+							
+							<li th:if="${#request.userPrincipal != null}"
+						class="nav-item active"><a class="nav-link" href="/games"><i
+							class="fa fa-book"></i>Games</a></li>
+							
 					<li th:if="${#request.userPrincipal != null}"
 						class="nav-item active"><a class="nav-link"
 						th:href="@{/logout}"><i class="fa fa-briefcase"></i>Logout</a></li>

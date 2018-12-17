@@ -56,6 +56,10 @@ public class PlayerEntity {
     @JoinColumn(name = "User_Id", nullable = false)
     private User user;
     
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="Game_id")
+    private GameEntity game;
+    
     public   PlayerEntity() {
 		// TODO Auto-generated constructor stub
 		
@@ -109,9 +113,7 @@ public class PlayerEntity {
 		return id;
 	}
 
-	@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="Game_id")
-    private GameEntity game;
+	
     
     //@ManyToOne(fetch = FetchType.LAZY)
     //@JoinColumn(name = "Game_Id", nullable = false)

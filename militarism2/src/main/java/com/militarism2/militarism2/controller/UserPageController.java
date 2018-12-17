@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.militarism2.militarism2.model.User;
+import com.militarism2.militarism2.mvc.games.service.PlayerServiceImp;
 import com.militarism2.militarism2.services.userservice.UserServiceImpl;
 
 @Controller
@@ -19,6 +20,8 @@ public class UserPageController {
 
 	@Autowired
 	private UserServiceImpl userServiceImpl;
+	@Autowired
+	private PlayerServiceImp playerServiceImpl;
 
 	@RequestMapping(value = "/userpage", method = RequestMethod.GET)
 	public String UserPage(Model model) {
@@ -29,13 +32,13 @@ public class UserPageController {
 
 		// временный блок с названием игр
 
-		ArrayList<TempTables> tableNames = new ArrayList();
+		/*ArrayList<TempTables> tableNames = new ArrayList();
 		TempTables tempTable = new TempTables(1, "Игра1", 6);
 		tableNames.add(tempTable);
 		tempTable = new TempTables(2, "Игра2", 4);
 		tableNames.add(tempTable);
 		tempTable = new TempTables(3, "Игра3", 4);
-		tableNames.add(tempTable);
+		tableNames.add(tempTable);*/
 
 		// временный блок с названием игр
 
@@ -45,7 +48,8 @@ public class UserPageController {
 		User userRegistred = user.get();
 		model.addAttribute("name", userRegistred.getName());
 		model.addAttribute("email", userRegistred.getEmail());
-		model.addAttribute("tables", tableNames);
+		model.addAttribute("Game",  playerServiceImpl.findOneByUser(user.get()));
+	//model.addAttribute("tables", tableNames);
 
 		return "userpage";
 

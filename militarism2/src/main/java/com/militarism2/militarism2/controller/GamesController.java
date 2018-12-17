@@ -65,14 +65,18 @@ public class GamesController {
 		//countrySeviceImp.addCountry(new CountryEntity("British Empire"));
 		//model.addAttribute("country", countrySeviceImp.findOneByName("USSR").getName());
 		//ScenarioEntity sc=scenarioSeviceImp.findOneByName("World War 1");
-		
-		GameEntity game =new GameEntity();
+		//ScenarioEntity sc=new ScenarioEntity();
+		//sc.setColor("red");
+		//sc.setCountries(countrySeviceImp.getAllCountries());
+		//sc.setName("World War 2");
+		//scenarioSeviceImp.addScenario(sc);
+		//GameEntity game =new GameEntity();
 	
 		/*GameEntity game =new GameEntity();
 		game.setGameStatus("Wait Players");
-		game.setName("Operation Alacrity");
+		game.setName("Operation Singletone");
 		game.setRound((short)0);
-		game.setScenario(scenarioSeviceImp.findOneByName("World War 1"));
+		game.setScenario(scenarioSeviceImp.findOneByName("World War 2"));
 		
 		
 	
@@ -103,7 +107,8 @@ public class GamesController {
 		
 		//model.addAttribute("country",System.currentTimeMillis()/1000);
 		//model.addAttribute("games",gameServiceImp.getAllGames());
-		model.addAttribute("games", gameServiceImp.findById(1).getPlayers());
+		//model.addAttribute("games", gameServiceImp.findById(1).getPlayers());
+		//model.addAttribute("games", );
 		return "country";		
 	}
 	
@@ -123,6 +128,7 @@ public class GamesController {
 			GameEntity game=gameServiceImp.findById(id);
 			
 			model.addAttribute("game",game);
+			
 			model.addAttribute("countries",game.getScenario().getCountries());
 		}
 		
@@ -131,7 +137,8 @@ public class GamesController {
     }
 	
 	@PostMapping("/regPlayer")
-    public String getDataFromForum(@ModelAttribute RegPlayerInGame playerReg){
+    public String getDataFromForum(@ModelAttribute RegPlayerInGame playerReg, long gameId){
+		
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String currentPrincipalName = authentication.getName();
 		Optional<User> isUser=userServiceImpl.getUserByName(currentPrincipalName);
@@ -139,6 +146,7 @@ public class GamesController {
 		if(isUser.isPresent())
 		{
 			currentUser=isUser.get();
+			playerReg.setGameId(gameId);
 			GameEntity game=gameServiceImp.findById(playerReg.getGameId());
 			PlayerEntity player=new PlayerEntity();
 			player.setUser(currentUser);
@@ -150,6 +158,6 @@ public class GamesController {
 		
 		
         
-		 return "test";
+		 return "redirect:/userpage";
     }
 }

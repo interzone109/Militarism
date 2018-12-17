@@ -6,14 +6,27 @@
 </head>
 <body>
  <th:block th:include="/menu"></th:block>
-<p> Имя игры:<span th:utext="${game.Name}"></span></p>
+<p> Имя игры:<span th:utext="${game.name}"></span></p>
 <p> Статус игры:<span th:utext="${game.gameStatus}"></span></p>
 <p> Длительность одного хода часов:<span th:utext="${game.turnPeriod/3600000}"></span></p>
+<p> Id:<span th:utext="${game.id}"></span></p>
 
 
 <h1>Form</h1>
     <form action="#" th:action="@{/regPlayer}" th:object="${playerReg}" method="post">
-    	<p>Id: <input type="text" th:field="*{gameId}" th:utext="${game.Id}"/></p>
+    	<p>Id: <input type="text" th:value="${game.id}" name="gameId" hidden="true"/></p>  
+    		<!--<input type="text"
+    th:attr="data-id=#{game.id}"
+    th:value="${game.id}" th:field="*{gameId}"
+    hidden="false" />-->
+    
+    <!-- <input type="text"
+    th:attr="data-id=#{game.id}"
+      th:value="${game.id}"
+    th:field="*{gameId}"
+    hidden="true" /> -->
+    
+    
         
    		<select class="form-control" th:field="*{countryName}">
     		<th:block th:each="country : ${countries}">
