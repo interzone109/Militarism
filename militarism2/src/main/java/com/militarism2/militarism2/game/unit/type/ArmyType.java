@@ -2,6 +2,7 @@ package com.militarism2.militarism2.game.unit.type;
 
 public enum ArmyType {
 AIRPLANE,
+BOMBER,
 ARTILLERY,
 INFANTRY, 
 SHIPE,
