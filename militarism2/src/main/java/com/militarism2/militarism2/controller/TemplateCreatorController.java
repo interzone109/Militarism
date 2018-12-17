@@ -47,14 +47,6 @@ public class TemplateCreatorController {
 	}
 	
 	
-	/*@RequestMapping(value = "/templateCreator", method = RequestMethod.GET, params = "id")
-	public String editTemplate(Model model, @RequestParam("id") Long id) {
-		Template template = templateServiceImpl.findById(id);
-		model.addAttribute("tempalteEdit", template);
-		return "templateCreatorViev";
-	}*/
-	
-	
 	/**
 	 * Контроллер ответственный за отображения списка Template
 	 * */
@@ -80,13 +72,6 @@ public class TemplateCreatorController {
 	 * */
 	@RequestMapping(value = "/templateEditor", method = RequestMethod.POST)
 	public String saveCreature(Model model, @ModelAttribute("templateModel") Template tempalteModel) {
-	
-		if(tempalteModel.getName()!= null) {
-			templateServiceImpl.update(tempalteModel) ;
-		}
-			System.out.println(tempalteModel.getName());
-			System.out.println(tempalteModel.getId());
-		    
 		    model.addAttribute("templateModel", tempalteModel);
 			return "templateCreatorViev";
 		}

@@ -11,62 +11,72 @@
 	class="error">...</div>
 
 
- <form th:action="@{/templateEditor}" th:object="${templateModel}" method="POST">
-         <table class="table">
-         <tr>
-               <td>Template Name</td>
-               <td><input type="text"  disabled="disabled" th:value="${templateModel.name}"  
-               th:field="*{name}"   /></td>
-               <td>Template country</td>
-               <td><input type="text"   disabled="disabled" th:value="${templateModel.country}" th:field="*{country}"  name="country"/></td>
-               <td>Template type</td>
-               <!-- <td>
-				 <select id="armyTypeId"   disabled="disabled" th:value="${templateModel.armyType}" >
- 				 <option th:each="armyType : ${T(com.militarism2.militarism2.game.unit.type.ArmyType).values()}" 
- 				 th:value="${armyType}" th:text="${armyType}" ></option>
-				</select> 
-				</td>  -->
-             </tr>
-         
-            <tr>
-               <td>Available Round</td>
-               <td><input type="text" th:field="*{availableRound}" /></td>
-               <td>Cost</td>
-               <td><input type="text" th:field="*{cost}" /></td>
-            </tr>
-            <tr>
-               <td>Damage</td>
-               <td><input type="text" th:field="*{damage}" /></td>
-               <td>Damage range</td>
-               <td><input type="text" th:field="*{damageRange}" /></td>
-               <td>Shot range</td>
-               <td><input type="text" th:field="*{shotRange}" /></td>
-            </tr>
-             <tr>
-               <td>Quantity stuff</td>
-               <td><input type="text" th:field="*{quantityStuff}" /></td>
-               <td>Quantity units</td>
-               <td><input type="text" th:field="*{quantityUnits}" /></td>
-               <td>Defense</td>
-               <td><input type="text" th:field="*{defense}" /></td>
-            </tr>
-              <tr>
-               <td>Speed</td>
-               <td><input type="text" th:field="*{speed}" /></td>
-               <td>Stealth</td>
-               <td><input type="text" th:field="*{stealth}" /></td>
-               <td>Visibility range</td>
-               <td><input type="text" th:field="*{visibility}" /></td>
-            </tr>
-             <tr>
-               <td>&nbsp;</td>
-               <td>
-                  <input type="submit" value="Update template" />
-               </td>
-               <td>&nbsp;</td>
-            </tr>
-         </table>
-      </form> 
+<form th:action="@{/templateEditor}" th:object="${templateModel}"
+	method="POST">
+	<table class="table">
+		<tr>
+			<td>Name <input type="text"
+				th:attr="data-id=#{templateModel.id}" th:value="${templateModel.id}"
+				th:field="*{id}" hidden="true" /> 
+				
+				<input type="text"
+				th:attr="data-country=#{templateModel.country}"
+				th:value="${templateModel.country}" th:field="*{country}"
+				hidden="true" /> 
+				
+				<input type="text"
+				th:attr="data-name=#{templateModel.name}"
+				th:value="${templateModel.name}" th:field="*{name}" hidden="true" />
+
+				<input type="text" th:attr="data-armyType=#{templateModel.armyType}"
+				th:value="${templateModel.armyType}" th:field="*{armyType}"
+				hidden="true" /></td>
+
+			<td th:text="${templateModel.name}"></td>
+			<td>Country</td>
+			<td th:text="${templateModel.country}"></td>
+			<td>Army type</td>
+			<td th:text="${templateModel.armyType}"></td>
+
+		</tr>
+
+		<tr>
+			<td>Available Round</td>
+			<td><input type="text" th:field="*{availableRound}" /></td>
+			<td>Cost</td>
+			<td><input type="text" th:field="*{cost}" /></td>
+		</tr>
+		<tr>
+			<td>Damage</td>
+			<td><input type="text" th:field="*{damage}" /></td>
+			<td>Damage range</td>
+			<td><input type="text" th:field="*{damageRange}" /></td>
+			<td>Shot range</td>
+			<td><input type="text" th:field="*{shotRange}" /></td>
+		</tr>
+		<tr>
+			<td>Quantity stuff</td>
+			<td><input type="text" th:field="*{quantityStuff}" /></td>
+			<td>Quantity units</td>
+			<td><input type="text" th:field="*{quantityUnits}" /></td>
+			<td>Defense</td>
+			<td><input type="text" th:field="*{defense}" /></td>
+		</tr>
+		<tr>
+			<td>Speed</td>
+			<td><input type="text" th:field="*{speed}" /></td>
+			<td>Stealth</td>
+			<td><input type="text" th:field="*{stealth}" /></td>
+			<td>Visibility range</td>
+			<td><input type="text" th:field="*{visibility}" /></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td><input type="submit" value="Update template" /></td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+</form>
 
 </body>
 </html>
