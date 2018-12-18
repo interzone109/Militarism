@@ -31,21 +31,12 @@ public class CommentsController {
 	@RequestMapping(value="/comments", method = RequestMethod.GET)
 	public String showComments(Model model, HttpServletRequest request) {
 		String url = request.getRequestURL().toString();
-		
+		String referer = request.getHeader("Referer");
 		model.addAttribute("newComment", new Comments());
 		model.addAttribute("allcomments", commentsService.getByUrl(url));
-		List<Comments> test = commentsService.getByUrl(url);
-		for (Comments comments : test) {
-			if (!comments.getChildComments().isEmpty()) {
-				System.out.println(comments.getChildComments());
-			}else {
-				System.err.println("Пусто");
-			}
-			
-		}
 		
-		
-		return "comments";
+		return "redirect:" + referer;
+		//return "comments";
 
 	}
 	
@@ -59,6 +50,7 @@ public class CommentsController {
 	}
 	@PostMapping(value = "/comments", params = {"responceid" ,"responcename"})
 	public String responceComment(@ModelAttribute("comment") Comments comment, int responceid, String responcename,  HttpServletRequest request) {
+		String url = request.getRequestURL().toString();
 		commentsService.setTime(comment);
 		commentsService.setUserName(comment);
 		commentsService.setUrl(comment, request);

@@ -15,4 +15,5 @@ public interface CommentsService {
 	void setUserName(Comments comment);
 	void setUrl(Comments comment, HttpServletRequest request);
 	void add(Comments comment, int responceid, String responceName);
+	//List<Comments> getCommetsByUrlAndSort(String url);
 }

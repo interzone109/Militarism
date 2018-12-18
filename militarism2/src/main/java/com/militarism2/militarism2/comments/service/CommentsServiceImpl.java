@@ -1,6 +1,7 @@
 package com.militarism2.militarism2.comments.service;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.militarism2.militarism2.comments.entity.Comments;
 import com.militarism2.militarism2.comments.repository.CommentsRepository;
+
 import com.militarism2.militarism2.model.User;
 import com.militarism2.militarism2.services.userservice.UserServiceImpl;
 import org.springframework.data.domain.Sort;
@@ -33,7 +35,7 @@ public class CommentsServiceImpl implements CommentsService {
 	@Override
 	public List<Comments> getByUrl(String url) {
 				
-		return commentsRepository.findAllByUrl(url);
+		return commentsRepository.findAllByUrlOrderByDate(url);
 	}
 	
 	
@@ -76,13 +78,43 @@ public class CommentsServiceImpl implements CommentsService {
 
 	@Override
 	public void add(Comments comment, int responceid, String responceName) {
+		
 		Comments responceComment = commentsRepository.findById(responceid).get();
+		List<Comments> temp = responceComment.getChildComments();
 		comment.setResponceName(responceName);
 		comment.setParentComment(responceComment);
-		Comments addComment = comment;
-		commentsRepository.saveAndFlush(addComment);
+		temp.add(comment);
+		responceComment.setChildComments(temp);
+		
+		commentsRepository.saveAndFlush(comment);
 		
 	}
 
+	//https://stackoverflow.com/questions/31668522/hibernate-self-join-confusion
+	
+//	public List<Comments> getCommetsByUrlAndSort(String url){
+//		
+//		List<Comments> tempComments = new ArrayList<Comments>();
+//		List<Comments> pageComments = new ArrayList<Comments>();
+//		tempComments = commentsRepository.findAllByUrlOrderByDate(url);
+//		System.err.println(tempComments.size());
+//		
+//		for (Comments comment : tempComments) {
+//			pageComments.addAll(comment.getChildComments());
+//			System.err.println(pageComments.size());
+////			if (comment.getParentComment() == null) {
+////				for (Comments childComment : tempComments) {
+////					if (comment.getParentComment() == null ) {
+////						continue;
+////					}
+////					
+////				}
+////			}
+//		}
+//		
+//		
+//		return pageComments;
+//		
+//	}
 		
 }

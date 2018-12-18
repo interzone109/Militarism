@@ -26,12 +26,27 @@ padding: 0 8px;
 </head>
 <body>
 	<th:block th:include="/menu"></th:block>
+	
+<!-- 	<div th:if="${allcomments} != null"> -->
+<!-- 	<th:block th:each="comment : ${allcomments}"> -->
+<!-- 		<p> -->
+<!-- 		<div> -->
+<!-- 		<span th:if="${comment.ResponceName != null }" th:text="${comment.userName + ' to ' +comment.ResponceName}"></span> -->
+<!--     	<span th:if="${comment.ResponceName == null }" th:text="${comment.userName}"></span> -->
+<!--     	<span th:text="${comment.getDate()}"></span> -->
+<!--     	</div> -->
+<!--     	</p> -->
+<!-- 	</th:block> -->
+<!-- 	</div> -->
 
 
 
 	<div th:if="${allcomments} != null">
+	
 		<table class="table table-hover">
 			<th:block th:each="comment : ${allcomments}">
+			<div>
+			<span th:if = "${comment.childComments != null}" th:text="${comment.childComments.size()}"></span>
 				<tr data-toggle="collapse"
 					th:attr="data-target = '#d' + ${comment.id}">
 <!-- 					изменить поля -->
@@ -52,7 +67,7 @@ padding: 0 8px;
 						<form action="#" th:action="@{/comments}"
 							th:object="${newComment}" method="post">
 							<p>
-								First Field: <input type="text" th:field="*{description}" />
+								Your comment: <input type="text" th:field="*{description}" />
 							</p>
 							<span th:text="${comment.userName}"></span>
 							<p>
@@ -68,12 +83,13 @@ padding: 0 8px;
 			</th:block>
 		</table>
 	</div>
+	
 
 	<h1>Form</h1>
 	<form action="#" th:action="@{/comments}" th:object="${newComment}"
 		method="post">
 		<p>
-			First Field: <input type="text" th:field="*{description}" />
+			Send comment: <input type="text" th:field="*{description}" />
 		</p>
 		<p>
 			<input type="submit" value="Submit" /> <input type="reset"

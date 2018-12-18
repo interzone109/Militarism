@@ -68,7 +68,7 @@ public class Comments {
 	}
 
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
@@ -116,7 +116,6 @@ public class Comments {
 		this.url = currentUrl;
 	}
 
-	
 
 	public void setChildComments(List<Comments> childComments) {
 		this.childComments = childComments;
@@ -129,6 +128,10 @@ public class Comments {
 
 	public List<Comments> getChildComments() {
 		return childComments;
+	}
+
+	public Comments getParentComment() {
+		return parentComment;
 	}
 	
 	
