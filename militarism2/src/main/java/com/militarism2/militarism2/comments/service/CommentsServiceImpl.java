@@ -35,7 +35,7 @@ public class CommentsServiceImpl implements CommentsService {
 	@Override
 	public List<Comments> getByUrl(String url) {
 				
-		return commentsRepository.findAllByUrlOrderByDate(url);
+		return commentsRepository.findAllByUrlOrderByDateDesc(url);
 	}
 	
 	
