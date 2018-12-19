@@ -5,63 +5,11 @@
       <title>Welcome</title>      
    </head>
    <body>
-    <th:block th:include="/menu"></th:block>  
-   <h1 th:text="#{page.index.welcome}"></h1> 
-   <div th:if="${allcomments} != null">
-	
-		<table class="table table-hover">
-			<th:block th:each="comment : ${allcomments}">
-			<div>
-			<span th:if = "${comment.childComments != null}" th:text="${comment.childComments.size()}"></span>
-				<tr data-toggle="collapse"
-					th:attr="data-target = '#d' + ${comment.id}">
-<!-- 					изменить поля -->
-<!-- 					<td th:text="${comment.userName}"></td> -->
-					<td>
-    					<span th:if="${comment.ResponceName != null }" th:text="${comment.userName + ' ----> ' +comment.ResponceName}"></span>
-    					<span th:if="${comment.ResponceName == null }" th:text="${comment.userName}"></span>
-    					
-					</td>
+    <th:block th:include="/menu"></th:block> 
+    
+    <th:block th:include="/comments"></th:block>  
+     
 
-					<td th:text="${comment.getDate()}"></td>
-					<td th:text="${comment.getDescription()}"></td>
-<!-- 					<td th:each ="childcomment: ${allcomments.getChildComments()}"/> -->
-				</tr>
-				<tr>
-					<td class="hiddenrow">
-					<div th:id = "'d'+${comment.id}" class= "collapse">
-						<form action="#" th:action="@{/comments}"
-							th:object="${newComment}" method="post">
-							<p>
-								Your comment: <input type="text" th:field="*{description}" />
-							</p>
-							<span th:text="${comment.userName}"></span>
-							<p>
-								<input type = "hidden" name = "responceid" th:value = "${comment.id}"/>
-								<input type = "hidden" name = "responcename" th:value = "${comment.userName}"/>
-								<input type="submit" value="Submit" /> <input type="reset"
-									value="Reset" />
-							</p>
-						</form>
-						</div>
-					</td>
-				</tr>
-			</th:block>
-		</table>
-	</div>
-	
-
-	<h1>Form</h1>
-	<form action="#" th:action="@{/comments}" th:object="${newComment}"
-		method="post">
-		<p>
-			Send comment: <input type="text" th:field="*{description}" />
-		</p>
-		<p>
-			<input type="submit" value="Submit" /> <input type="reset"
-				value="Reset" />
-		</p>
-	</form>
    </body>
     
 </html>
